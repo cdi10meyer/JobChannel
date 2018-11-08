@@ -92,12 +92,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JobChannelLibrary\JobChannelLibrary.csproj">
-      <Project>{f872cfdd-466b-40c3-b9c5-ea3c41c9e338}</Project>
-      <Name>JobChannelLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
