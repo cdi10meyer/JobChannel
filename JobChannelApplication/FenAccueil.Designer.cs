@@ -36,13 +36,13 @@
             this.tablePrincipale.ColumnCount = 1;
             this.tablePrincipale.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tablePrincipale.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tablePrincipale.Location = new System.Drawing.Point(8, 8);
+            this.tablePrincipale.Location = new System.Drawing.Point(5, 35);
             this.tablePrincipale.Margin = new System.Windows.Forms.Padding(0);
             this.tablePrincipale.Name = "tablePrincipale";
             this.tablePrincipale.RowCount = 2;
             this.tablePrincipale.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
             this.tablePrincipale.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tablePrincipale.Size = new System.Drawing.Size(760, 562);
+            this.tablePrincipale.Size = new System.Drawing.Size(766, 515);
             this.tablePrincipale.TabIndex = 0;
             // 
             // FenAccueil
@@ -52,6 +52,7 @@
             this.ClientSize = new System.Drawing.Size(776, 578);
             this.Controls.Add(this.tablePrincipale);
             this.Name = "FenAccueil";
+            this.Padding = new System.Windows.Forms.Padding(5, 35, 5, 28);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Accueil";
             this.ResumeLayout(false);

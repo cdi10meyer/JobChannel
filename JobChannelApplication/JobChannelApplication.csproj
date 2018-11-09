@@ -57,12 +57,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCBarredefercs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCBarredefercs.Designer.cs">
-      <DependentUpon>UCBarredefercs.cs</DependentUpon>
-    </Compile>
+    <Compile Include="XmlThemeLoader.cs" />
     <EmbeddedResource Include="FenAccueil.resx">
       <DependentUpon>FenAccueil.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,9 +70,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UCBarredefercs.resx">
-      <DependentUpon>UCBarredefercs.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +85,83 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Access.png" />
+    <Content Include="Resources\alien-48x48.png" />
+    <Content Include="Resources\alien-egg-48x48.png" />
+    <Content Include="Resources\alien-vs-predator-3-48x48.png" />
+    <Content Include="Resources\Apple-Logo-256x256.png" />
+    <Content Include="Resources\bird_32.png" />
+    <Content Include="Resources\butterfly-pink-48x48.png" />
+    <Content Include="Resources\butterfly-purple-48x48.png" />
+    <Content Include="Resources\candy-cane.png" />
+    <Content Include="Resources\candy-canebig.png" />
+    <Content Include="Resources\Christmas-ornaments.png" />
+    <Content Include="Resources\Coldfusion.png" />
+    <Content Include="Resources\Command-Conquer-3-TW-new-SCRIN-2-48x48.png" />
+    <Content Include="Resources\cow_32.png" />
+    <Content Include="Resources\Devastation-1-48x48.png" />
+    <Content Include="Resources\disc-predator-48x48.png" />
+    <Content Include="Resources\Elite.png" />
+    <Content Include="Resources\folder-48x48.png" />
+    <Content Include="Resources\Funshine Bear 1.png" />
+    <Content Include="Resources\Funshine Bear _128x128.png" />
+    <Content Include="Resources\GDI-256x256.png" />
+    <Content Include="Resources\giantapple.png" />
+    <Content Include="Resources\heart-valentine-128x128.png" />
+    <Content Include="Resources\logo-apple-actual.jpg" />
+    <Content Include="Resources\lotus-48x48.png" />
+    <Content Include="Resources\macIcon1.png" />
+    <Content Include="Resources\Mammooth_1.png" />
+    <Content Include="Resources\Mammooth_128x128.png" />
+    <Content Include="Resources\MS-Word.png" />
+    <Content Include="Resources\My-Computer.png" />
+    <Content Include="Resources\My-Documents.png" />
+    <Content Include="Resources\My-Network.png" />
+    <Content Include="Resources\mydocuments-48x48.png" />
+    <Content Include="Resources\mymusic-48x48.png" />
+    <Content Include="Resources\mypc-48x48.png" />
+    <Content Include="Resources\nibble-256x256.png" />
+    <Content Include="Resources\Office.png" />
+    <Content Include="Resources\paisley-6-48x48.png" />
+    <Content Include="Resources\panda_32.png" />
+    <Content Include="Resources\penguine_32.png" />
+    <Content Include="Resources\Photoshop.png" />
+    <Content Include="Resources\predator-256x256.png" />
+    <Content Include="Resources\predator-48x48.png" />
+    <Content Include="Resources\purple-flower-48x48.png" />
+    <Content Include="Resources\Quake-256x256.png" />
+    <Content Include="Resources\Quake-48x48.png" />
+    <Content Include="Resources\Quake-II-48x48.png" />
+    <Content Include="Resources\Quake-III-Arena-48x48.png" />
+    <Content Include="Resources\Quake-IV-48x48.png" />
+    <Content Include="Resources\Quake-IV.png" />
+    <Content Include="Resources\Recycled-Full.png" />
+    <Content Include="Resources\ribbon-heart-128x128.png" />
+    <Content Include="Resources\rose-128x128.png" />
+    <Content Include="Resources\santa-cap.png" />
+    <Content Include="Resources\snowman.png" />
+    <Content Include="Resources\Snowman1.png" />
+    <Content Include="Resources\snowmansmall.png" />
+    <Content Include="Resources\symbol-48x48.png" />
+    <Content Include="Resources\System-Registry-48x48.png" />
+    <Content Include="Resources\Visio.png" />
+    <Content Include="Resources\Word.png" />
+    <Content Include="Resources\xmas-decoration-green.png" />
+    <Content Include="Resources\xmas-decoration-red-.png" />
+    <Content Include="Resources\xmas-tree.png" />
+    <Content Include="Themes\AdobeMediaPlayerTheme.xml" />
+    <Content Include="Themes\AlienTheme.xml" />
+    <Content Include="Themes\AnimalKingdomTheme.xml" />
+    <Content Include="Themes\BlackTheme.xml" />
+    <Content Include="Themes\BlueWinterTheme.xml" />
+    <Content Include="Themes\DarkSystemTheme.xml" />
+    <Content Include="Themes\MacOSTheme.xml" />
+    <Content Include="Themes\StandardWindowsTheme.xml" />
+    <Content Include="Themes\ValentineTheme.xml" />
+    <Content Include="Themes\VistaTheme.xml" />
+    <Content Include="Themes\WhiteTheme.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
