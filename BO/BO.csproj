@@ -44,7 +44,6 @@
     <Compile Include="Contrat.cs" />
     <Compile Include="Offre.cs" />
     <Compile Include="Poste.cs" />
-    <Compile Include="Preference.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs" />
     <Compile Include="Selection.cs" />

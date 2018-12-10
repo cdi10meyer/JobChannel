@@ -19,6 +19,11 @@ namespace BLL
 
             DataTable schemaTable = dataAccess.SelectAllContrats();
 
+            Contrat contratTous = new Contrat();
+            contratTous.IdContrat = 0;
+            contratTous.TypeContrat = "TOUS";
+            contrats.Add(contratTous);
+
             foreach (DataRow row in schemaTable.Rows)
             {
                 Contrat contrat = new Contrat();

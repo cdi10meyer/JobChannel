@@ -19,6 +19,11 @@ namespace BLL
 
             DataTable schemaTable = dataAccess.SelectAllRegions();
 
+            Region regionToutes = new Region();
+            regionToutes.IdRegion = 0;
+            regionToutes.NomRegion = "TOUTES";
+            regions.Add(regionToutes);
+
             foreach (DataRow row in schemaTable.Rows)
             {
                 Region region = new Region();

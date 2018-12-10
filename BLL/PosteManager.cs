@@ -19,6 +19,11 @@ namespace BLL
 
             DataTable schemaTable = dataAccess.SelectAllPostes();
 
+            Poste posteTous = new Poste();
+            posteTous.IdPoste = 0;
+            posteTous.TypePoste = "TOUS";
+            postes.Add(posteTous);
+
             foreach (DataRow row in schemaTable.Rows)
             {
                 Poste poste = new Poste();

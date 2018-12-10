@@ -18,7 +18,7 @@ namespace BLL
             List<Societe> societes = new List<Societe>();
 
             DataTable schemaTable = dataAccess.SelectAllSocietes();
-
+            
             foreach (DataRow row in schemaTable.Rows)
             {
                 Societe societe = new Societe();
