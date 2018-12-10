@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobChannelBLL
+namespace JobChannelDAL
 {
-    public class Class1
+    class Class2
     {
     }
 }
