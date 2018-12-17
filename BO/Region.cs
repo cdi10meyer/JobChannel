@@ -18,7 +18,7 @@ namespace BO
         #region "Constructeurs"
         public Region()
         {
-
+            IdRegion = 0;
         }
 
         #endregion "Constructeurs"
@@ -26,5 +26,10 @@ namespace BO
         #region "Méthodes propres à la classe"
 
         #endregion "Méthodes propres à la classe"
+
+        public override string ToString()
+        {
+            return NomRegion;
+        }
     }
 }

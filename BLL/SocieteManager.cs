@@ -23,7 +23,7 @@ namespace BLL
             {
                 Societe societe = new Societe();
                 societe.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
-                societe.NomSociete = row["NOM_SOCIETE"].ToString();
+                societe.NomSociete = row["NOM_SOCIETE"].ToString().ToUpper();
 
                 societes.Add(societe);
 
@@ -40,20 +40,20 @@ namespace BLL
             return idSociete;
         }
 
-        public bool UpdateSociete(int idSociete, string nomSociete)
+        public bool UpdateSociete(Societe societe)
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
 
-            int rowCount = dataAccess.UpdateSociete(idSociete,nomSociete);
+            int rowCount = dataAccess.UpdateSociete(societe.IdSociete,societe.NomSociete);
 
             return rowCount > 0;
         }
 
-        public bool DeleteSociete(int idSociete)
+        public bool DeleteSociete(Societe societe)
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
 
-            int rowCount = dataAccess.DeleteSociete(idSociete);
+            int rowCount = dataAccess.DeleteSociete(societe.IdSociete);
 
             return rowCount > 0;
         }

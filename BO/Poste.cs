@@ -19,14 +19,19 @@ namespace BO
         #region "Constructeurs"
         public Poste()
         {
-
+            IdPoste = 0;
         }
 
         #endregion "Constructeurs"
-        
+
         #region "Méthodes propres à la classe"
 
         #endregion "Méthodes propres à la classe"
+
+        public override string ToString()
+        {
+            return TypePoste;
+        }
 
 
     }

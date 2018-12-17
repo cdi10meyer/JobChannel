@@ -9,7 +9,9 @@ namespace BO
     public class Offre
     {
         #region "Propriétés d'instance"
-
+        public string NomRegion { get { return MySelection.MyRegion.NomRegion; } }
+        public string TypePoste { get { return MySelection.MyPoste.TypePoste; } }
+        public string TypeContrat { get { return MySelection.MyContrat.TypeContrat; } }
         public int IdOffre { get; set; }
 
         public string Description { get; set; }
@@ -27,7 +29,8 @@ namespace BO
         #region "Constructeurs"
         public Offre()
         {
-
+            MySociete = new Societe();
+            MySelection = new Selection();
         }
 
         #endregion "Constructeurs"
@@ -36,5 +39,7 @@ namespace BO
         #region "Méthodes propres à la classe"
 
         #endregion "Méthodes propres à la classe"
+
+
     }
 }

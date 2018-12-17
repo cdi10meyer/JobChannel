@@ -27,9 +27,11 @@ namespace BO
         #endregion "Propriétés d'instance"
 
         #region "Constructeurs"
-        private Selection()
+        public Selection()
         {
-
+            MyContrat = new Contrat();
+            MyRegion = new Region();
+            MyPoste = new Poste();
         }
 
         public Selection(Poste poste,Region region,Contrat contrat,int nbrJour)
@@ -63,6 +65,11 @@ namespace BO
         }
 
         #endregion "Méthodes propres à la classe"
+
+        public override string ToString()
+        {
+            return $"{MyRegion.NomRegion}";
+        }
 
     }
 }

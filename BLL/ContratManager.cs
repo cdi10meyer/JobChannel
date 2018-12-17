@@ -11,7 +11,7 @@ namespace BLL
 {
     public class ContratManager
     {
-        public List<Contrat> RetrieveAllContrats()
+        public List<Contrat> RetrieveAllContratsTous()
         {
             ContratDataAccess dataAccess = new ContratDataAccess();
 
@@ -21,8 +21,28 @@ namespace BLL
 
             Contrat contratTous = new Contrat();
             contratTous.IdContrat = 0;
-            contratTous.TypeContrat = "TOUS";
+            contratTous.TypeContrat = "Tous";
             contrats.Add(contratTous);
+
+            foreach (DataRow row in schemaTable.Rows)
+            {
+                Contrat contrat = new Contrat();
+                contrat.IdContrat = Convert.ToInt32(row["ID_CONTRAT"]);
+                contrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
+
+                contrats.Add(contrat);
+
+            }
+            return contrats;
+        }
+        public List<Contrat> RetrieveAllContrats()
+        {
+            ContratDataAccess dataAccess = new ContratDataAccess();
+
+            List<Contrat> contrats = new List<Contrat>();
+
+            DataTable schemaTable = dataAccess.SelectAllContrats();
+            
 
             foreach (DataRow row in schemaTable.Rows)
             {

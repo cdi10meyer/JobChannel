@@ -11,7 +11,7 @@ namespace BLL
 {
     public class PosteManager
     {
-        public List<Poste> RetrieveAllPostes()
+        public List<Poste> RetrieveAllPostesTous()
         {
             PosteDataAccess dataAccess = new PosteDataAccess();
 
@@ -21,8 +21,29 @@ namespace BLL
 
             Poste posteTous = new Poste();
             posteTous.IdPoste = 0;
-            posteTous.TypePoste = "TOUS";
+            posteTous.TypePoste = "Tous";
             postes.Add(posteTous);
+
+            foreach (DataRow row in schemaTable.Rows)
+            {
+                Poste poste = new Poste();
+                poste.IdPoste = Convert.ToInt32(row["ID_POSTE"]);
+                poste.TypePoste = row["TYPE_POSTE"].ToString();
+
+                postes.Add(poste);
+
+            }
+            return postes;
+        }
+
+        public List<Poste> RetrieveAllPostes()
+        {
+            PosteDataAccess dataAccess = new PosteDataAccess();
+
+            List<Poste> postes = new List<Poste>();
+
+            DataTable schemaTable = dataAccess.SelectAllPostes();
+            
 
             foreach (DataRow row in schemaTable.Rows)
             {
