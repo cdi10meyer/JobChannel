@@ -18,7 +18,6 @@ namespace BO
         #region "Constructeurs"
         public Societe()
         {
-
         }
         #endregion "Constructeurs"
 

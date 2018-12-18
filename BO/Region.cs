@@ -19,6 +19,7 @@ namespace BO
         public Region()
         {
             IdRegion = 0;
+            NomRegion = "Toutes";
         }
 
         #endregion "Constructeurs"

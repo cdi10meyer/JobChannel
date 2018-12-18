@@ -20,6 +20,7 @@ namespace BO
         public Poste()
         {
             IdPoste = 0;
+            TypePoste = "Tous";
         }
 
         #endregion "Constructeurs"

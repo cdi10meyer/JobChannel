@@ -34,11 +34,7 @@ namespace BO
         }
 
         #endregion "Constructeurs"
-
-
-        #region "Méthodes propres à la classe"
-
-        #endregion "Méthodes propres à la classe"
+        
 
 
     }

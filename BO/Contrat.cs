@@ -19,6 +19,7 @@ namespace BO
         public Contrat()
         {
             IdContrat = 0;
+            TypeContrat = "Tous";
         }
 
         #endregion "Constructeurs"
