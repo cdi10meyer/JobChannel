@@ -18,21 +18,20 @@ namespace BLL
             List<Region> regions = new List<Region>();
 
             DataTable schemaTable = dataAccess.SelectAllRegions();
-
-            Region regionToutes = new Region();
-            regionToutes.IdRegion = 0;
-            regionToutes.NomRegion = "Toutes";
-            regions.Add(regionToutes);
-
             foreach (DataRow row in schemaTable.Rows)
             {
                 Region region = new Region();
                 region.IdRegion = Convert.ToInt32(row["ID_REGION"]);
                 region.NomRegion = row["NOM_REGION"].ToString();
-
                 regions.Add(region);
 
             }
+            regions.Sort();
+            Region regionToutes = new Region();
+            regionToutes.IdRegion = 0;
+            regionToutes.NomRegion = "Toutes";
+            regions.Insert(0,regionToutes);
+
             return regions;
         }
 

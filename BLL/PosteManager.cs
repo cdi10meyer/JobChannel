@@ -19,11 +19,6 @@ namespace BLL
 
             DataTable schemaTable = dataAccess.SelectAllPostes();
 
-            Poste posteTous = new Poste();
-            posteTous.IdPoste = 0;
-            posteTous.TypePoste = "Tous";
-            postes.Add(posteTous);
-
             foreach (DataRow row in schemaTable.Rows)
             {
                 Poste poste = new Poste();
@@ -33,6 +28,11 @@ namespace BLL
                 postes.Add(poste);
 
             }
+            postes.Sort();
+            Poste posteTous = new Poste();
+            posteTous.IdPoste = 0;
+            posteTous.TypePoste = "Tous";
+            postes.Insert(0,posteTous);
             return postes;
         }
 

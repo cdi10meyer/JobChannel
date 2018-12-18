@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Poste
+    public class Poste : IComparable<Poste>
     {
 
         #region "Propriétés d'instance"
@@ -34,6 +34,9 @@ namespace BO
             return TypePoste;
         }
 
-
+        public int CompareTo(Poste other)
+        {
+            return this.TypePoste.CompareTo(other.TypePoste);
+        }
     }
 }

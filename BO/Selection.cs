@@ -10,7 +10,7 @@ using System.IO;
 namespace BO
 {
     [DataContract]
-    public class Selection
+    public class Selection : IComparable<Selection>
     {
 
         #region "Propriétés d'instance"
@@ -54,5 +54,13 @@ namespace BO
             return $"{MyRegion.NomRegion}";
         }
 
+        public int CompareTo(Selection other)
+        {
+            int region = this.MyRegion.CompareTo(other.MyRegion);
+            int contrat = this.MyContrat.CompareTo(other.MyContrat);
+            int poste = this.MyPoste.CompareTo(other.MyPoste);
+            int resultat = (region != 0) ? region : (contrat != 0) ? contrat : poste;
+            return resultat;
+        }
     }
 }

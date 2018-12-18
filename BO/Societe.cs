@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Societe 
+    public class Societe : IComparable<Societe>
     {
         #region "Propriétés d'instance"
         public int IdSociete { get; set; }
@@ -28,6 +28,11 @@ namespace BO
         public override string ToString()
         {
             return NomSociete.ToUpper();
+        }
+
+        public int CompareTo(Societe other)
+        {
+            return this.NomSociete.CompareTo(other.NomSociete);
         }
     }
 }

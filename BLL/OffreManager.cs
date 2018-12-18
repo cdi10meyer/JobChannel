@@ -39,6 +39,7 @@ namespace BLL
                 offres.Add(offre);
 
             }
+            offres.Sort();
             return offres;
         }
         public List<Offre> RetrieveOffresBySelection(Selection selection)
@@ -72,6 +73,7 @@ namespace BLL
                 offres.Add(offre);
 
             }
+            offres.Sort();
             return offres;
         }
 

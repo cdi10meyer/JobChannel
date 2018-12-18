@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Region
+    public class Region : IComparable<Region>
     {
         #region "Propriétés d'instance"
         public int IdRegion { get; set; }
@@ -31,6 +31,11 @@ namespace BO
         public override string ToString()
         {
             return NomRegion;
+        }
+
+        public int CompareTo(Region other)
+        {
+            return this.NomRegion.CompareTo(other.NomRegion);
         }
     }
 }

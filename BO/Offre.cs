@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Offre
+    public class Offre : IComparable<Offre>
     {
         #region "Propriétés d'instance"
         public string NomRegion { get { return MySelection.MyRegion.NomRegion; } }
@@ -33,8 +33,18 @@ namespace BO
             MySelection = new Selection();
         }
 
+        public int CompareTo(Offre other)
+        {
+            int date = this.DatePublication.Date.CompareTo(other.DatePublication.Date);
+            int societe = this.MySociete.CompareTo(other.MySociete);
+            int selection = this.MySelection.CompareTo(other.MySelection);
+            int resultat = (date != 0) ? date : (societe != 0) ? societe : selection;
+            
+            return resultat;
+        }
+
         #endregion "Constructeurs"
-        
+
 
 
     }
