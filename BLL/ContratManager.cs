@@ -18,7 +18,7 @@ namespace BLL
             List<Contrat> contrats = new List<Contrat>();
 
             DataTable schemaTable = dataAccess.SelectAllContrats();
-            
+
             foreach (DataRow row in schemaTable.Rows)
             {
                 Contrat contrat = new Contrat();
@@ -26,9 +26,7 @@ namespace BLL
                 contrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
 
                 contrats.Add(contrat);
-
             }
-            contrats.Sort();
             Contrat contratTous = new Contrat();
             contratTous.IdContrat = 0;
             contratTous.TypeContrat = "Tous";
