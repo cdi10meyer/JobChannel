@@ -1,27 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BO
 {
+    [DataContract]
     public class Offre : IComparable<Offre>
     {
         #region "Propriétés d'instance"
-        public string NomRegion { get { return MySelection.MyRegion.NomRegion; } }
-        public string TypePoste { get { return MySelection.MyPoste.TypePoste; } }
-        public string TypeContrat { get { return MySelection.MyContrat.TypeContrat; } }
+        [DataMember]
+        public string Publication { get { return DatePublication.ToShortDateString(); } private set { } }
+        [DataMember]
+        public string NomRegion { get { return MySelection.MyRegion.NomRegion; } private set { } }
+        [DataMember]
+        public string TypePoste { get { return MySelection.MyPoste.TypePoste; } private set { } }
+        [DataMember]
+        public string TypeContrat { get { return MySelection.MyContrat.TypeContrat; } private set { } }
+        [DataMember]
         public int IdOffre { get; set; }
-
+        [DataMember]
         public string Description { get; set; }
-
+        [DataMember]
         public string LienAnnonce { get; set; }
-
+        [DataMember]
         public DateTime DatePublication { get; set; }
-
+        [DataMember]
         public Societe MySociete { get; set; }
-
+        [DataMember]
         public Selection MySelection { get; set; }
 
         #endregion "Propriétés d'instance"
@@ -35,7 +43,7 @@ namespace BO
 
         public int CompareTo(Offre other)
         {
-            int date = this.DatePublication.Date.CompareTo(other.DatePublication.Date);
+            int date = this.DatePublication.CompareTo(other.DatePublication)*-1;
             int societe = this.MySociete.CompareTo(other.MySociete);
             int selection = this.MySelection.CompareTo(other.MySelection);
             int resultat = (date != 0) ? date : (societe != 0) ? societe : selection;

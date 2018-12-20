@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BO
 {
+    [DataContract]
     public class Societe : IComparable<Societe>
     {
         #region "Propriétés d'instance"
+        [DataMember]
         public int IdSociete { get; set; }
-
+        [DataMember]
         public string NomSociete { get; set; }
 
         #endregion "Propriétés d'instance"

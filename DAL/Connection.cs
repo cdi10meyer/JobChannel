@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,18 @@ namespace DAL
     {
         internal static SqlCommand CreateConnection()
         {
-            SqlCommand objSqlCommand = new SqlCommand();
-            SqlConnection objSqlConnection= new SqlConnection();
-            objSqlConnection.ConnectionString = Properties.Resources.ChaineConnection;
-            objSqlCommand.Connection = objSqlConnection;
-            return objSqlCommand;
+            try
+            {
+                SqlCommand objSqlCommand = new SqlCommand();
+                SqlConnection objSqlConnection = new SqlConnection();
+                objSqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["SQL"].ConnectionString;
+                objSqlCommand.Connection = objSqlConnection;
+                return objSqlCommand;
+            }
+            catch(SqlException ex)
+            {
+                throw new DALException("Probléme de connexion", ex);
+            }
         }
     }
 }

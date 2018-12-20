@@ -11,6 +11,7 @@ namespace BLL
 {
     public class OffreManager
     {
+        
         public List<Offre> RetrieveAllOffres()
         {
             OffreDataAccess dataAccess = new OffreDataAccess();

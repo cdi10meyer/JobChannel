@@ -12,9 +12,11 @@ namespace DAL
     [DataContract]
     public class OffreDataAccess
     {
+        [DataMember]
+        public DataTable SchemaTable { get; set; }
         public DataTable SelectAllOffres()
         {
-            DataTable SchemaTable = new DataTable();
+            SchemaTable = new DataTable();
             SqlCommand objSelectCommand = Connection.CreateConnection();
             objSelectCommand.CommandText = "dbo.P_SELECT_AllOffres";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
@@ -25,7 +27,7 @@ namespace DAL
 
         public DataTable SelectOffresBySelection(int idRegion, int idPoste, int idContrat, int nbrJour)
         {
-            DataTable SchemaTable = new DataTable();
+            SchemaTable = new DataTable();
             SqlCommand objSelectCommand = Connection.CreateConnection();
             objSelectCommand.CommandText = "dbo.P_SELECT_OffresBySelection";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
