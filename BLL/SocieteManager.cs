@@ -32,11 +32,11 @@ namespace BLL
             return societes;
         }
 
-        public int CreateSociete(string nomSociete)
+        public int CreateSociete(Societe societe)
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
 
-            int idSociete = dataAccess.InsertSociete(nomSociete);
+            int idSociete = dataAccess.InsertSociete(societe.NomSociete);
 
             return idSociete;
         }

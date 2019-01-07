@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     [DataContract]
-    public class OffreDataAccess
+    public class OffreDataAccess 
     {
         [DataMember]
         public DataTable SchemaTable { get; set; }

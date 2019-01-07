@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public interface IGerable<T> : IConsultable
+    public interface IGerable<T> : IConsultable<T>
     {
-        int Update(T gerable);
-        int Insert(T gerable);
-
-        int Delete(int id)
+        bool Update(T gerable);
+        int Create(T gerable);
+        bool Delete(T gerable);
     }
 }

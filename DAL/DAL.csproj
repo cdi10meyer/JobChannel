@@ -47,8 +47,6 @@
     <Compile Include="Connection.cs" />
     <Compile Include="ContratDataAccess.cs" />
     <Compile Include="DALException.cs" />
-    <Compile Include="IConsultable.cs" />
-    <Compile Include="IGerable.cs" />
     <Compile Include="OffreDataAccess.cs" />
     <Compile Include="PosteDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

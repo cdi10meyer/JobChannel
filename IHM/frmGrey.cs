@@ -61,7 +61,7 @@ namespace IHM
         private void FillingComboBox()
         {
             RegionManager regionManager = new RegionManager();
-            bindingSourceRegion.DataSource = regionManager.RetrieveAllRegionsToutes();
+            bindingSourceRegion.DataSource = regionManager.RetrieveAllTous();
             comboBoxRegion.DataSource = bindingSourceRegion;
             comboBoxRegion.ValueMember = "IdRegion";
             comboBoxRegion.DisplayMember = "NomRegion";

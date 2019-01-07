@@ -42,7 +42,7 @@ namespace IHM
         {
 
             RegionManager regionManager = new RegionManager();
-            bindingSourceRegion.DataSource = regionManager.RetrieveAllRegions();
+            bindingSourceRegion.DataSource = regionManager.RetrieveAll();
             comboBoxRegion.DataSource = bindingSourceRegion;
             comboBoxRegion.ValueMember = "IdRegion";
             comboBoxRegion.DisplayMember = "NomRegion";

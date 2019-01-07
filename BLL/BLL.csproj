@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContratManager.cs" />
+    <Compile Include="IConsultable.cs" />
+    <Compile Include="IGerable.cs" />
+    <Compile Include="ISelectionable.cs" />
     <Compile Include="OffreManager.cs" />
     <Compile Include="PosteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
