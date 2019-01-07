@@ -27,6 +27,7 @@ namespace BLL
 
                 contrats.Add(contrat);
             }
+            //contrats.Sort();
             Contrat contratTous = new Contrat();
             contratTous.IdContrat = 0;
             contratTous.TypeContrat = "Tous";
@@ -51,6 +52,7 @@ namespace BLL
                 contrats.Add(contrat);
 
             }
+            //contrats.Sort();
             return contrats;
         }
 

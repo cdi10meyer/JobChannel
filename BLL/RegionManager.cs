@@ -26,6 +26,7 @@ namespace BLL
                 regions.Add(region);
 
             }
+            //regions.Sort();
             Region regionToutes = new Region();
             regionToutes.IdRegion = 0;
             regionToutes.NomRegion = "Toutes";
@@ -51,6 +52,7 @@ namespace BLL
                 regions.Add(region);
 
             }
+            //regions.Sort();
             return regions;
         }
 

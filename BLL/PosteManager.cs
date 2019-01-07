@@ -28,6 +28,7 @@ namespace BLL
                 postes.Add(poste);
 
             }
+            //postes.Sort();
             Poste posteTous = new Poste();
             posteTous.IdPoste = 0;
             posteTous.TypePoste = "Tous";
@@ -53,6 +54,7 @@ namespace BLL
                 postes.Add(poste);
 
             }
+            //postes.Sort();
             return postes;
         }
 

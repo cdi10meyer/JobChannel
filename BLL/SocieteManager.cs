@@ -28,6 +28,7 @@ namespace BLL
                 societes.Add(societe);
 
             }
+            //societes.Sort();
             return societes;
         }
 

@@ -16,8 +16,12 @@ namespace WebService
         //#region "Offre"
 
         [OperationContract]
-        [WebGet(UriTemplate = "Offres", ResponseFormat = WebMessageFormat.Json)]
-        List<Offre> GetAllOffres();
+        [WebGet(UriTemplate = "RetrieveAllOffres", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> RetrieveAllOffres();
+
+        [OperationContract]
+        [WebGet(UriTemplate = "RetrieveOffresBySelection/{idRegion}/{idPoste}/{idContrat}/{nbrJour}", ResponseFormat = WebMessageFormat.Json)]
+        List<Offre> RetrieveOffresBySelection(string idRegion, string idPoste, string idContrat, string nbrJour);
 
         //[OperationContract]
         //[WebInvoke(UriTemplate = "GetOffresBySelection", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
