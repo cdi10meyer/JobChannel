@@ -9,9 +9,35 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class PosteManager
+    public class PosteManager : IConsultable<Poste>
     {
-        public List<Poste> RetrieveAllPostesTous()
+
+        public List<Poste> RetrieveAll()
+        {
+            PosteDataAccess dataAccess = new PosteDataAccess();
+
+            List<Poste> postes = new List<Poste>();
+
+            DataTable schemaTable = dataAccess.SelectAllPostes();
+
+
+            foreach (DataRow row in schemaTable.Rows)
+            {
+                Poste poste = new Poste();
+                poste.IdPoste = Convert.ToInt32(row["ID_POSTE"]);
+                poste.TypePoste = row["TYPE_POSTE"].ToString();
+
+                postes.Add(poste);
+
+            }
+            //Poste posteAutre = new Poste();
+            //posteAutre = postes.Find(a => a.TypePoste == "..Autre");
+            //postes.Remove(posteAutre);
+            //postes.Add(posteAutre);
+            return postes;
+        }
+
+        public List<Poste> RetrieveAllTous()
         {
             PosteDataAccess dataAccess = new PosteDataAccess();
 
@@ -28,36 +54,66 @@ namespace BLL
                 postes.Add(poste);
 
             }
-            //postes.Sort();
             Poste posteTous = new Poste();
             posteTous.IdPoste = 0;
             posteTous.TypePoste = "Tous";
-            postes.Insert(0,posteTous);
+            postes.Insert(0, posteTous);
+            //Poste posteAutre = new Poste();
+            //posteAutre = postes.Find(a => a.TypePoste == "..Autre");
+            //postes.Remove(posteAutre);
+            //postes.Add(posteAutre);
             return postes;
         }
+        //public List<Poste> RetrieveAllPostesTous()
+        //{
+        //    PosteDataAccess dataAccess = new PosteDataAccess();
 
-        public List<Poste> RetrieveAllPostes()
-        {
-            PosteDataAccess dataAccess = new PosteDataAccess();
+        //    List<Poste> postes = new List<Poste>();
 
-            List<Poste> postes = new List<Poste>();
+        //    DataTable schemaTable = dataAccess.SelectAllPostes();
 
-            DataTable schemaTable = dataAccess.SelectAllPostes();
-            
+        //    foreach (DataRow row in schemaTable.Rows)
+        //    {
+        //        Poste poste = new Poste();
+        //        poste.IdPoste = Convert.ToInt32(row["ID_POSTE"]);
+        //        poste.TypePoste = row["TYPE_POSTE"].ToString();
 
-            foreach (DataRow row in schemaTable.Rows)
-            {
-                Poste poste = new Poste();
-                poste.IdPoste = Convert.ToInt32(row["ID_POSTE"]);
-                poste.TypePoste = row["TYPE_POSTE"].ToString();
+        //        postes.Add(poste);
 
-                postes.Add(poste);
+        //    }
+        //    //postes.Sort();
+        //    Poste posteTous = new Poste();
+        //    posteTous.IdPoste = 0;
+        //    posteTous.TypePoste = "Tous";
+        //    postes.Insert(0, posteTous);
+        //    return postes;
+        //}
 
-            }
-            //postes.Sort();
-            return postes;
-        }
+        //public List<Poste> RetrieveAllPostes()
+        //{
+        //    PosteDataAccess dataAccess = new PosteDataAccess();
 
+        //    List<Poste> postes = new List<Poste>();
+
+        //    DataTable schemaTable = dataAccess.SelectAllPostes();
+
+
+        //    foreach (DataRow row in schemaTable.Rows)
+        //    {
+        //        Poste poste = new Poste();
+        //        poste.IdPoste = Convert.ToInt32(row["ID_POSTE"]);
+        //        poste.TypePoste = row["TYPE_POSTE"].ToString();
+
+        //        postes.Add(poste);
+
+        //    }
+        //    Poste posteAutre = new Poste();
+        //    posteAutre = postes.Find(a => a.TypePoste == "..Autre");
+        //    postes.Remove(posteAutre);
+        //    postes.Add(posteAutre);
+        //    //postes.Sort();
+        //    return postes;
+        //}
 
     }
 }

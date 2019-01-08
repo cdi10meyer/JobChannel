@@ -30,8 +30,10 @@ namespace WebService
                 offre.DatePublication = Convert.ToDateTime(row["DATE_PUBLICATION"]);
                 offre.Description = row["DESCRIPTION"].ToString();
                 offre.LienAnnonce = row["LIEN_ANNONCE"].ToString();
-                offre.MySociete.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
-                offre.MySociete.NomSociete = row["NOM_SOCIETE"].ToString();
+                //offre.MySociete.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
+                //offre.MySociete.NomSociete = row["NOM_SOCIETE"].ToString();
+                offre.MySelection.MySociete.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
+                offre.MySelection.MySociete.NomSociete = row["NOM_SOCIETE"].ToString();
                 offre.MySelection.MyContrat.IdContrat = Convert.ToInt32(row["ID_CONTRAT"]);
                 offre.MySelection.MyContrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
                 offre.MySelection.MyRegion.IdRegion = Convert.ToInt32(row["ID_REGION"]);
@@ -46,10 +48,10 @@ namespace WebService
             
         }
 
-        public List<Offre> RetrieveOffresBySelection(string idRegion, string idPoste, string idContrat, string nbrJour)
+        public List<Offre> RetrieveOffresBySelection(string idSociete,string idRegion, string idPoste, string idContrat, string nbrJour)
         {
             OffreDataAccess dataAccess = new OffreDataAccess();
-            DataTable schemaTable = dataAccess.SelectOffresBySelection(Convert.ToInt32(idRegion), Convert.ToInt32(idPoste), Convert.ToInt32(idContrat), Convert.ToInt32(nbrJour));
+            DataTable schemaTable = dataAccess.SelectOffresBySelection(Convert.ToInt32(idSociete),Convert.ToInt32(idRegion), Convert.ToInt32(idPoste), Convert.ToInt32(idContrat), Convert.ToInt32(nbrJour));
             List<Offre> offres = new List<Offre>();
 
             foreach (DataRow row in schemaTable.Rows)
@@ -60,8 +62,10 @@ namespace WebService
                 offre.DatePublication = Convert.ToDateTime(row["DATE_PUBLICATION"]);
                 offre.Description = row["DESCRIPTION"].ToString();
                 offre.LienAnnonce = row["LIEN_ANNONCE"].ToString();
-                offre.MySociete.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
-                offre.MySociete.NomSociete = row["NOM_SOCIETE"].ToString();
+                //offre.MySociete.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
+                //offre.MySociete.NomSociete = row["NOM_SOCIETE"].ToString();
+                offre.MySelection.MySociete.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
+                offre.MySelection.MySociete.NomSociete = row["NOM_SOCIETE"].ToString().ToUpper();
                 offre.MySelection.MyContrat.IdContrat = Convert.ToInt32(row["ID_CONTRAT"]);
                 offre.MySelection.MyContrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
                 offre.MySelection.MyRegion.IdRegion = Convert.ToInt32(row["ID_REGION"]);

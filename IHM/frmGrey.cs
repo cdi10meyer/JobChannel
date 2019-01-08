@@ -17,6 +17,7 @@ namespace IHM
 {
     public partial class frmGrey : MetroForm
     {
+        private Societe _RecordedSociete;
         private BO.Region _RecordedRegion;
         private Contrat _RecordedContrat;
         private Poste _RecordedPoste;
@@ -34,6 +35,7 @@ namespace IHM
         {
             InitializeComponent();
 
+            _RecordedSociete = new Societe();
             _RecordedRegion = new BO.Region();
             _RecordedContrat = new Contrat();
             _RecordedPoste = new Poste();
@@ -48,7 +50,7 @@ namespace IHM
             };
 
             this.FillingComboBox();
-            _RecordedSelection = new Selection(_RecordedPoste, _RecordedRegion, _RecordedContrat, 0);
+            _RecordedSelection = new Selection(_RecordedSociete,_RecordedPoste, _RecordedRegion, _RecordedContrat, 0);
             this.FillingDataGridView(_RecordedSelection);
 
             this.ModelingColumns();
@@ -60,6 +62,12 @@ namespace IHM
         #region "Méthodes propres à la classe"
         private void FillingComboBox()
         {
+            SocieteManager societeManager = new SocieteManager();
+            bindingSourceSociete.DataSource = societeManager.RetrieveAllTous();
+            comboBoxSociete.DataSource = bindingSourceSociete;
+            comboBoxSociete.ValueMember = "IdSociete";
+            comboBoxSociete.DisplayMember = "NomSociete";
+
             RegionManager regionManager = new RegionManager();
             bindingSourceRegion.DataSource = regionManager.RetrieveAllTous();
             comboBoxRegion.DataSource = bindingSourceRegion;
@@ -67,13 +75,13 @@ namespace IHM
             comboBoxRegion.DisplayMember = "NomRegion";
 
             ContratManager contratManager = new ContratManager();
-            bindingSourceContrat.DataSource = contratManager.RetrieveAllContratsTous();
+            bindingSourceContrat.DataSource = contratManager.RetrieveAllTous();
             comboBoxContrat.DataSource = bindingSourceContrat;
             comboBoxContrat.ValueMember = "IdContrat";
             comboBoxContrat.DisplayMember = "TypeContrat";
 
             PosteManager posteManager = new PosteManager();
-            bindingSourcePoste.DataSource = posteManager.RetrieveAllPostesTous();
+            bindingSourcePoste.DataSource = posteManager.RetrieveAllTous();
             comboBoxPoste.DataSource = bindingSourcePoste;
             comboBoxPoste.ValueMember = "IdPoste";
             comboBoxPoste.DisplayMember = "TypePoste";
@@ -86,7 +94,7 @@ namespace IHM
             List<Offre> offres;
             OffreManager offreManager = new OffreManager();
 
-            offres = (selection != null) ? offreManager.RetrieveOffresBySelection(selection) : offreManager.RetrieveAllOffres(); ;
+            offres = (selection != null) ? offreManager.RetrieveOffresBySelection(selection) : offreManager.RetrieveAllOffres(); 
 
             bindingSourceOffre.DataSource = offres;
             dataGridViewOffre.DataSource = bindingSourceOffre;
@@ -112,16 +120,15 @@ namespace IHM
             dataGridViewOffre.Columns["Description"].Visible = false;
             dataGridViewOffre.Columns["LienAnnonce"].Visible = false;
             dataGridViewOffre.Columns["DatePublication"].Visible = false;
-            dataGridViewOffre.Columns["MySociete"].HeaderText = "Société";
+            dataGridViewOffre.Columns["NomSociete"].HeaderText = "Société";
             dataGridViewOffre.Columns["NomRegion"].HeaderText = "Région";
             dataGridViewOffre.Columns["TypeContrat"].HeaderText = "Contrat";
             dataGridViewOffre.Columns["TypePoste"].HeaderText = "Poste";
-            dataGridViewOffre.Columns["DatePublication"].HeaderText = "Date de publication";
-            dataGridViewOffre.Columns["Publication"].DisplayIndex = 0;
-            dataGridViewOffre.Columns["MySociete"].DisplayIndex = 1;
-            dataGridViewOffre.Columns["NomRegion"].DisplayIndex = 2;
-            dataGridViewOffre.Columns["TypeContrat"].DisplayIndex = 3;
-            dataGridViewOffre.Columns["TypePoste"].DisplayIndex = 4;
+            dataGridViewOffre.Columns["Publication"].DefaultCellStyle.ForeColor = Color.DarkOliveGreen;
+            dataGridViewOffre.Columns["NomSociete"].DefaultCellStyle.ForeColor = Color.DarkSlateBlue;
+            dataGridViewOffre.Columns["NomRegion"].DefaultCellStyle.ForeColor = Color.DarkGreen;
+            dataGridViewOffre.Columns["TypeContrat"].DefaultCellStyle.ForeColor = Color.DarkCyan;
+            dataGridViewOffre.Columns["TypePoste"].DefaultCellStyle.ForeColor = Color.DarkMagenta;
         }
 
         public string ConstructAction(string action)
@@ -131,6 +138,10 @@ namespace IHM
 
         private void FillingPreference(Selection preference)
         {
+            labelPreferenceSociete.Text = preference.MySociete.NomSociete;
+
+            comboBoxSociete.SelectedValue = comboBoxSociete.FindStringExact(labelPreferenceSociete.Text);
+
             labelPreferenceRegion.Text = preference.MyRegion.NomRegion;
 
             comboBoxRegion.SelectedValue = comboBoxRegion.FindStringExact(labelPreferenceRegion.Text);
@@ -151,12 +162,22 @@ namespace IHM
 
         #endregion "Méthodes propres à la classe"
 
+        private void bindingSourceSociete_CurrentItemChanged(object sender, EventArgs e)
+        {
+            if (bindingSourceSociete.Current != null && _RecordedSelection != null)
+            {
+                _RecordedSociete = (Societe)bindingSourceSociete.Current;
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                labelPreferenceSociete.Text = _RecordedSelection.MySociete.NomSociete;
+                this.FillingDataGridView(_RecordedSelection);
+            }
+        }
         private void bindingSourceRegion_CurrentItemChanged(object sender, EventArgs e)
         {
             if (bindingSourceRegion.Current != null && _RecordedSelection != null)
             {
                 _RecordedRegion = (BO.Region)bindingSourceRegion.Current;
-                _RecordedSelection = new Selection(_RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete,_RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
                 labelPreferenceRegion.Text = _RecordedSelection.MyRegion.NomRegion;
                 this.FillingDataGridView(_RecordedSelection);
             }
@@ -167,7 +188,7 @@ namespace IHM
             if (bindingSourceContrat.Current != null && _RecordedSelection != null)
             {
                 _RecordedContrat = (Contrat)bindingSourceContrat.Current;
-                _RecordedSelection = new Selection(_RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
                 labelPreferenceContrat.Text = _RecordedSelection.MyContrat.TypeContrat;
                 this.FillingDataGridView(_RecordedSelection);
             }
@@ -178,18 +199,19 @@ namespace IHM
             if (bindingSourcePoste.Current != null && _RecordedSelection != null)
             {
                 _RecordedPoste = (Poste)bindingSourcePoste.Current;
-                _RecordedSelection = new Selection(_RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
                 labelPreferencePoste.Text = _RecordedSelection.MyPoste.TypePoste;
                 this.FillingDataGridView(_RecordedSelection);
             }
         }
+
         private void comboBoxJours_SelectedValueChanged(object sender, EventArgs e)
         {
             if (comboBoxJours.SelectedValue != null && _RecordedSelection != null)
             {
                 _RecordedJours = (comboBoxJours.SelectedValue.ToString() != "Tous") ? Convert.ToInt32(comboBoxJours.SelectedValue) : 0;
 
-                _RecordedSelection = new Selection(_RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
                 labelPreferenceJours.Text = (_RecordedSelection.NbrJour != 0) ? _RecordedSelection.NbrJour.ToString() : "Tous";
                 this.FillingDataGridView(_RecordedSelection);
             }
@@ -346,6 +368,7 @@ namespace IHM
             serializer.WriteObject(fichier, _Preference);
             fichier.Close();
         }
+
     }
 }
 

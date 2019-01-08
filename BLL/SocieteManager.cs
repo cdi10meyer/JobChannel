@@ -9,16 +9,44 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class SocieteManager
+    public class SocieteManager : IGerable<Societe>
     {
-        public List<Societe> RetrieveAllSocietes()
+
+        public bool Update(Societe societe)
+        {
+            SocieteDataAccess dataAccess = new SocieteDataAccess();
+
+            int rowCount = dataAccess.UpdateSociete(societe.IdSociete, societe.NomSociete);
+
+            return rowCount > 0;
+        }
+
+        public int Create(Societe societe)
+        {
+            SocieteDataAccess dataAccess = new SocieteDataAccess();
+
+            int idSociete = dataAccess.InsertSociete(societe.NomSociete);
+
+            return idSociete;
+        }
+
+        public bool Delete(Societe societe)
+        {
+            SocieteDataAccess dataAccess = new SocieteDataAccess();
+
+            int rowCount = dataAccess.DeleteSociete(societe.IdSociete);
+
+            return rowCount > 0;
+        }
+
+        public List<Societe> RetrieveAll()
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
 
             List<Societe> societes = new List<Societe>();
 
             DataTable schemaTable = dataAccess.SelectAllSocietes();
-            
+
             foreach (DataRow row in schemaTable.Rows)
             {
                 Societe societe = new Societe();
@@ -28,35 +56,79 @@ namespace BLL
                 societes.Add(societe);
 
             }
-            //societes.Sort();
             return societes;
         }
 
-        public int CreateSociete(Societe societe)
+        public List<Societe> RetrieveAllTous()
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
 
-            int idSociete = dataAccess.InsertSociete(societe.NomSociete);
+            List<Societe> societes = new List<Societe>();
 
-            return idSociete;
+            DataTable schemaTable = dataAccess.SelectAllSocietes();
+
+            foreach (DataRow row in schemaTable.Rows)
+            {
+                Societe societe = new Societe();
+                societe.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
+                societe.NomSociete = row["NOM_SOCIETE"].ToString().ToUpper();
+
+                societes.Add(societe);
+
+            }
+            Societe societeToutes = new Societe();
+            societeToutes.IdSociete = 0;
+            societeToutes.NomSociete = "Toutes";
+            societes.Insert(0, societeToutes);
+            return societes;
         }
 
-        public bool UpdateSociete(Societe societe)
-        {
-            SocieteDataAccess dataAccess = new SocieteDataAccess();
+        //public List<Societe> RetrieveAllSocietes()
+        //{
+        //    SocieteDataAccess dataAccess = new SocieteDataAccess();
 
-            int rowCount = dataAccess.UpdateSociete(societe.IdSociete,societe.NomSociete);
+        //    List<Societe> societes = new List<Societe>();
 
-            return rowCount > 0;
-        }
+        //    DataTable schemaTable = dataAccess.SelectAllSocietes();
 
-        public bool DeleteSociete(Societe societe)
-        {
-            SocieteDataAccess dataAccess = new SocieteDataAccess();
+        //    foreach (DataRow row in schemaTable.Rows)
+        //    {
+        //        Societe societe = new Societe();
+        //        societe.IdSociete = Convert.ToInt32(row["ID_SOCIETE"]);
+        //        societe.NomSociete = row["NOM_SOCIETE"].ToString().ToUpper();
 
-            int rowCount = dataAccess.DeleteSociete(societe.IdSociete);
+        //        societes.Add(societe);
 
-            return rowCount > 0;
-        }
+        //    }
+        //    //societes.Sort();
+        //    return societes;
+        //}
+
+        //public int CreateSociete(Societe societe)
+        //{
+        //    SocieteDataAccess dataAccess = new SocieteDataAccess();
+
+        //    int idSociete = dataAccess.InsertSociete(societe.NomSociete);
+
+        //    return idSociete;
+        //}
+
+        //public bool UpdateSociete(Societe societe)
+        //{
+        //    SocieteDataAccess dataAccess = new SocieteDataAccess();
+
+        //    int rowCount = dataAccess.UpdateSociete(societe.IdSociete, societe.NomSociete);
+
+        //    return rowCount > 0;
+        //}
+
+        //public bool DeleteSociete(Societe societe)
+        //{
+        //    SocieteDataAccess dataAccess = new SocieteDataAccess();
+
+        //    int rowCount = dataAccess.DeleteSociete(societe.IdSociete);
+
+        //    return rowCount > 0;
+        //}
     }
 }

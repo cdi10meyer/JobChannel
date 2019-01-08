@@ -9,9 +9,36 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ContratManager
+    public class ContratManager : IConsultable<Contrat>
     {
-        public List<Contrat> RetrieveAllContratsTous()
+
+        public List<Contrat> RetrieveAll()
+        {
+            ContratDataAccess dataAccess = new ContratDataAccess();
+
+            List<Contrat> contrats = new List<Contrat>();
+
+            DataTable schemaTable = dataAccess.SelectAllContrats();
+
+
+            foreach (DataRow row in schemaTable.Rows)
+            {
+                Contrat contrat = new Contrat();
+                contrat.IdContrat = Convert.ToInt32(row["ID_CONTRAT"]);
+                contrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
+
+                contrats.Add(contrat);
+
+            }
+            //Contrat contratAutre = new Contrat();
+            //contratAutre = contrats.Find(a => a.TypeContrat == "..Autre");
+            //contrats.Remove(contratAutre);
+            //contrats.Add(contratAutre);
+            //contrats.Sort();
+            return contrats;
+        }
+
+        public List<Contrat> RetrieveAllTous()
         {
             ContratDataAccess dataAccess = new ContratDataAccess();
 
@@ -31,30 +58,58 @@ namespace BLL
             Contrat contratTous = new Contrat();
             contratTous.IdContrat = 0;
             contratTous.TypeContrat = "Tous";
-            contrats.Insert(0,contratTous);
+            contrats.Insert(0, contratTous);
+            //Contrat contratAutre = new Contrat();
+            //contratAutre= contrats.Find(a => a.TypeContrat == "..Autre");
+            //contrats.Remove(contratAutre);
+            //contrats.Add(contratAutre);
+
             return contrats;
         }
-        public List<Contrat> RetrieveAllContrats()
-        {
-            ContratDataAccess dataAccess = new ContratDataAccess();
+        //public List<Contrat> RetrieveAllContratsTous()
+        //{
+        //    ContratDataAccess dataAccess = new ContratDataAccess();
 
-            List<Contrat> contrats = new List<Contrat>();
+        //    List<Contrat> contrats = new List<Contrat>();
 
-            DataTable schemaTable = dataAccess.SelectAllContrats();
-            
+        //    DataTable schemaTable = dataAccess.SelectAllContrats();
 
-            foreach (DataRow row in schemaTable.Rows)
-            {
-                Contrat contrat = new Contrat();
-                contrat.IdContrat = Convert.ToInt32(row["ID_CONTRAT"]);
-                contrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
+        //    foreach (DataRow row in schemaTable.Rows)
+        //    {
+        //        Contrat contrat = new Contrat();
+        //        contrat.IdContrat = Convert.ToInt32(row["ID_CONTRAT"]);
+        //        contrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
 
-                contrats.Add(contrat);
+        //        contrats.Add(contrat);
+        //    }
+        //    //contrats.Sort();
+        //    Contrat contratTous = new Contrat();
+        //    contratTous.IdContrat = 0;
+        //    contratTous.TypeContrat = "Tous";
+        //    contrats.Insert(0,contratTous);
+        //    return contrats;
+        //}
+        //public List<Contrat> RetrieveAllContrats()
+        //{
+        //    ContratDataAccess dataAccess = new ContratDataAccess();
 
-            }
-            //contrats.Sort();
-            return contrats;
-        }
+        //    List<Contrat> contrats = new List<Contrat>();
+
+        //    DataTable schemaTable = dataAccess.SelectAllContrats();
+
+
+        //    foreach (DataRow row in schemaTable.Rows)
+        //    {
+        //        Contrat contrat = new Contrat();
+        //        contrat.IdContrat = Convert.ToInt32(row["ID_CONTRAT"]);
+        //        contrat.TypeContrat = row["TYPE_CONTRAT"].ToString();
+
+        //        contrats.Add(contrat);
+
+        //    }
+        //    //contrats.Sort();
+        //    return contrats;
+        //}
 
     }
 }

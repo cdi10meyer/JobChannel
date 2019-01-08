@@ -58,12 +58,14 @@ namespace BLL
         }
         public List<Offre> RetrieveOffresBySelection(Selection selection)
         {
+            string idSociete = selection.MySociete.IdSociete.ToString();
             string idRegion = selection.MyRegion.IdRegion.ToString();
             string idPoste = selection.MyPoste.IdPoste.ToString();
             string idContrat = selection.MyContrat.IdContrat.ToString();
             string nbrJour = selection.NbrJour.ToString();
             List<Offre> offres = new List<Offre>();
-            RestRequest request = new RestRequest("RetrieveOffresBySelection/{idRegion}/{idPoste}/{idContrat}/{nbrJour}", Method.GET);
+            RestRequest request = new RestRequest("RetrieveOffresBySelection/{idSociete}/{idRegion}/{idPoste}/{idContrat}/{nbrJour}", Method.GET);
+            request.AddParameter("idSociete", idSociete, ParameterType.UrlSegment);
             request.AddParameter("idRegion", idRegion, ParameterType.UrlSegment);
             request.AddParameter("idPoste", idPoste, ParameterType.UrlSegment);
             request.AddParameter("idContrat", idContrat, ParameterType.UrlSegment);
@@ -113,7 +115,7 @@ namespace BLL
         {
             OffreDataAccess dataAccess = new OffreDataAccess();
 
-            int idSociete = dataAccess.InsertOffre(offre.MySelection.MyContrat.IdContrat, offre.MySelection.MyPoste.IdPoste, offre.MySociete.IdSociete, offre.MySelection.MyRegion.IdRegion, offre.Description, offre.LienAnnonce);
+            int idSociete = dataAccess.InsertOffre(offre.MySelection.MyContrat.IdContrat, offre.MySelection.MyPoste.IdPoste, offre.MySelection.MySociete.IdSociete, offre.MySelection.MyRegion.IdRegion, offre.Description, offre.LienAnnonce);
             return idSociete;
         }
 
@@ -121,7 +123,7 @@ namespace BLL
         {
             OffreDataAccess dataAccess = new OffreDataAccess();
 
-            int rowCount = dataAccess.UpdateOffre(offre.IdOffre, offre.MySelection.MyContrat.IdContrat, offre.MySelection.MyPoste.IdPoste, offre.MySociete.IdSociete, offre.MySelection.MyRegion.IdRegion, offre.Description, offre.LienAnnonce);
+            int rowCount = dataAccess.UpdateOffre(offre.IdOffre, offre.MySelection.MyContrat.IdContrat, offre.MySelection.MyPoste.IdPoste, offre.MySelection.MySociete.IdSociete, offre.MySelection.MyRegion.IdRegion, offre.Description, offre.LienAnnonce);
             return rowCount > 0;
         }
 

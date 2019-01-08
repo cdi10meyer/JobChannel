@@ -25,12 +25,13 @@ namespace DAL
             return SchemaTable;
         }
 
-        public DataTable SelectOffresBySelection(int idRegion, int idPoste, int idContrat, int nbrJour)
+        public DataTable SelectOffresBySelection(int idSociete,int idRegion, int idPoste, int idContrat, int nbrJour)
         {
             SchemaTable = new DataTable();
             SqlCommand objSelectCommand = Connection.CreateConnection();
             objSelectCommand.CommandText = "dbo.P_SELECT_OffresBySelection";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
+            objSelectCommand.Parameters.AddWithValue("@I_IdSociete", idSociete);
             objSelectCommand.Parameters.AddWithValue("@I_IdRegion", idRegion);
             objSelectCommand.Parameters.AddWithValue("@I_IdPoste", idPoste);
             objSelectCommand.Parameters.AddWithValue("@I_IdContrat", idContrat);

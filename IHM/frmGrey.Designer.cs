@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSourceOffre = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceRegion = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceContrat = new System.Windows.Forms.BindingSource(this.components);
@@ -44,8 +44,7 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonInsert = new System.Windows.Forms.Button();
             this.buttonSelect = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelPoste = new System.Windows.Forms.Label();
             this.comboBoxRegion = new MetroFramework.Controls.MetroComboBox();
             this.comboBoxContrat = new MetroFramework.Controls.MetroComboBox();
             this.comboBoxPoste = new MetroFramework.Controls.MetroComboBox();
@@ -66,6 +65,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bindingSourceSociete = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBoxSociete = new MetroFramework.Controls.MetroComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelPreferenceSociete = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).BeginInit();
@@ -76,6 +81,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffre)).BeginInit();
             this.panelPreference.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSourceOffre
@@ -101,7 +107,7 @@
             this.panel1.Location = new System.Drawing.Point(6, 60);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1085, 517);
+            this.panel1.Size = new System.Drawing.Size(1139, 524);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -121,7 +127,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1085, 517);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1139, 524);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // labelResultat
@@ -131,7 +137,7 @@
             this.labelResultat.BackColor = System.Drawing.Color.Transparent;
             this.labelResultat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelResultat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelResultat.Location = new System.Drawing.Point(1012, 494);
+            this.labelResultat.Location = new System.Drawing.Point(1066, 501);
             this.labelResultat.Name = "labelResultat";
             this.labelResultat.Size = new System.Drawing.Size(70, 20);
             this.labelResultat.TabIndex = 16;
@@ -140,31 +146,35 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.tableLayoutPanel2.ColumnCount = 11;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
+            this.tableLayoutPanel2.ColumnCount = 13;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonDelete, 9, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonUpdate, 7, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonInsert, 8, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonSelect, 6, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxRegion, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxContrat, 2, 1);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.buttonDelete, 10, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonUpdate, 8, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxContrat, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonInsert, 9, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonSelect, 7, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxRegion, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxJours, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.checkBoxPreference, 12, 1);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxPoste, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxJours, 4, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.checkBoxPreference, 10, 1);
+            this.tableLayoutPanel2.Controls.Add(this.labelPoste, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxSociete, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 3);
@@ -173,7 +183,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1085, 57);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1139, 57);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // buttonDelete
@@ -187,7 +197,7 @@
             this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDelete.Location = new System.Drawing.Point(936, 30);
+            this.buttonDelete.Location = new System.Drawing.Point(974, 30);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(1);
@@ -208,7 +218,7 @@
             this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonUpdate.Location = new System.Drawing.Point(876, 30);
+            this.buttonUpdate.Location = new System.Drawing.Point(914, 30);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(1);
@@ -229,7 +239,7 @@
             this.buttonInsert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonInsert.Location = new System.Drawing.Point(906, 30);
+            this.buttonInsert.Location = new System.Drawing.Point(944, 30);
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(2);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Padding = new System.Windows.Forms.Padding(1);
@@ -250,7 +260,7 @@
             this.buttonSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSelect.Location = new System.Drawing.Point(846, 30);
+            this.buttonSelect.Location = new System.Drawing.Point(884, 30);
             this.buttonSelect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Padding = new System.Windows.Forms.Padding(1);
@@ -260,29 +270,17 @@
             this.buttonSelect.UseVisualStyleBackColor = false;
             this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
             // 
-            // label2
+            // labelPoste
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(297, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Contrat";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label3.Location = new System.Drawing.Point(472, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 16);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Poste";
+            this.labelPoste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelPoste.AutoSize = true;
+            this.labelPoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPoste.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.labelPoste.Location = new System.Drawing.Point(415, 12);
+            this.labelPoste.Name = "labelPoste";
+            this.labelPoste.Size = new System.Drawing.Size(48, 16);
+            this.labelPoste.TabIndex = 5;
+            this.labelPoste.Text = "Poste";
             // 
             // comboBoxRegion
             // 
@@ -290,7 +288,7 @@
             this.comboBoxRegion.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxRegion.FormattingEnabled = true;
             this.comboBoxRegion.ItemHeight = 19;
-            this.comboBoxRegion.Location = new System.Drawing.Point(122, 31);
+            this.comboBoxRegion.Location = new System.Drawing.Point(240, 31);
             this.comboBoxRegion.Name = "comboBoxRegion";
             this.comboBoxRegion.Size = new System.Drawing.Size(169, 25);
             this.comboBoxRegion.Style = MetroFramework.MetroColorStyle.Silver;
@@ -303,7 +301,7 @@
             this.comboBoxContrat.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxContrat.FormattingEnabled = true;
             this.comboBoxContrat.ItemHeight = 19;
-            this.comboBoxContrat.Location = new System.Drawing.Point(297, 31);
+            this.comboBoxContrat.Location = new System.Drawing.Point(590, 31);
             this.comboBoxContrat.Name = "comboBoxContrat";
             this.comboBoxContrat.Size = new System.Drawing.Size(169, 25);
             this.comboBoxContrat.Style = MetroFramework.MetroColorStyle.Silver;
@@ -316,7 +314,7 @@
             this.comboBoxPoste.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxPoste.FormattingEnabled = true;
             this.comboBoxPoste.ItemHeight = 19;
-            this.comboBoxPoste.Location = new System.Drawing.Point(472, 31);
+            this.comboBoxPoste.Location = new System.Drawing.Point(415, 31);
             this.comboBoxPoste.Name = "comboBoxPoste";
             this.comboBoxPoste.Size = new System.Drawing.Size(169, 25);
             this.comboBoxPoste.Style = MetroFramework.MetroColorStyle.Silver;
@@ -329,9 +327,9 @@
             this.comboBoxJours.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxJours.FormattingEnabled = true;
             this.comboBoxJours.ItemHeight = 19;
-            this.comboBoxJours.Location = new System.Drawing.Point(647, 31);
+            this.comboBoxJours.Location = new System.Drawing.Point(765, 31);
             this.comboBoxJours.Name = "comboBoxJours";
-            this.comboBoxJours.Size = new System.Drawing.Size(74, 25);
+            this.comboBoxJours.Size = new System.Drawing.Size(94, 25);
             this.comboBoxJours.Style = MetroFramework.MetroColorStyle.Silver;
             this.comboBoxJours.TabIndex = 13;
             this.comboBoxJours.UseSelectable = true;
@@ -342,8 +340,8 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label4.Location = new System.Drawing.Point(647, 12);
+            this.label4.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label4.Location = new System.Drawing.Point(765, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 16);
             this.label4.TabIndex = 14;
@@ -354,8 +352,8 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label5.Location = new System.Drawing.Point(122, 12);
+            this.label5.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.label5.Location = new System.Drawing.Point(240, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 16);
             this.label5.TabIndex = 15;
@@ -367,7 +365,7 @@
             this.checkBoxPreference.AutoSize = true;
             this.checkBoxPreference.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxPreference.ForeColor = System.Drawing.Color.Indigo;
-            this.checkBoxPreference.Location = new System.Drawing.Point(969, 34);
+            this.checkBoxPreference.Location = new System.Drawing.Point(1025, 34);
             this.checkBoxPreference.Name = "checkBoxPreference";
             this.checkBoxPreference.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel2.SetRowSpan(this.checkBoxPreference, 2);
@@ -383,7 +381,7 @@
             this.tableLayoutPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 600F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.dataGridViewOffre, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.panelPreference, 2, 0);
@@ -393,9 +391,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1085, 386);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1139, 393);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // dataGridViewOffre
@@ -408,40 +404,40 @@
             this.dataGridViewOffre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOffre.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewOffre.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOffre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOffre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewOffre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOffre.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOffre.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewOffre.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridViewOffre.EnableHeadersVisualStyles = false;
             this.dataGridViewOffre.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridViewOffre.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridViewOffre.Location = new System.Drawing.Point(245, 3);
+            this.dataGridViewOffre.Location = new System.Drawing.Point(272, 3);
             this.dataGridViewOffre.MultiSelect = false;
             this.dataGridViewOffre.Name = "dataGridViewOffre";
             this.dataGridViewOffre.ReadOnly = true;
             this.dataGridViewOffre.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOffre.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOffre.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewOffre.RowHeadersVisible = false;
             this.dataGridViewOffre.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewOffre.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -451,6 +447,8 @@
             // 
             // panelPreference
             // 
+            this.panelPreference.Controls.Add(this.labelPreferenceSociete);
+            this.panelPreference.Controls.Add(this.label3);
             this.panelPreference.Controls.Add(this.buttonEnregistrer);
             this.panelPreference.Controls.Add(this.buttonReinitialiser);
             this.panelPreference.Controls.Add(this.labelPreferenceJours);
@@ -462,18 +460,19 @@
             this.panelPreference.Controls.Add(this.label7);
             this.panelPreference.Controls.Add(this.label6);
             this.panelPreference.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPreference.Location = new System.Drawing.Point(845, 3);
+            this.panelPreference.Location = new System.Drawing.Point(872, 3);
             this.panelPreference.Name = "panelPreference";
-            this.panelPreference.Size = new System.Drawing.Size(237, 380);
+            this.panelPreference.Size = new System.Drawing.Size(264, 387);
             this.panelPreference.TabIndex = 2;
             // 
             // buttonEnregistrer
             // 
+            this.buttonEnregistrer.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonEnregistrer.BackColor = System.Drawing.Color.Thistle;
             this.buttonEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEnregistrer.ForeColor = System.Drawing.Color.Indigo;
-            this.buttonEnregistrer.Location = new System.Drawing.Point(123, 123);
+            this.buttonEnregistrer.Location = new System.Drawing.Point(137, 139);
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(84, 23);
             this.buttonEnregistrer.TabIndex = 26;
@@ -483,11 +482,12 @@
             // 
             // buttonReinitialiser
             // 
+            this.buttonReinitialiser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonReinitialiser.BackColor = System.Drawing.Color.Thistle;
             this.buttonReinitialiser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonReinitialiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReinitialiser.ForeColor = System.Drawing.Color.Indigo;
-            this.buttonReinitialiser.Location = new System.Drawing.Point(32, 123);
+            this.buttonReinitialiser.Location = new System.Drawing.Point(46, 139);
             this.buttonReinitialiser.Name = "buttonReinitialiser";
             this.buttonReinitialiser.Size = new System.Drawing.Size(86, 23);
             this.buttonReinitialiser.TabIndex = 25;
@@ -497,11 +497,11 @@
             // 
             // labelPreferenceJours
             // 
-            this.labelPreferenceJours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelPreferenceJours.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelPreferenceJours.AutoSize = true;
             this.labelPreferenceJours.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferenceJours.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferenceJours.Location = new System.Drawing.Point(88, 78);
+            this.labelPreferenceJours.Location = new System.Drawing.Point(139, 101);
             this.labelPreferenceJours.Name = "labelPreferenceJours";
             this.labelPreferenceJours.Size = new System.Drawing.Size(37, 15);
             this.labelPreferenceJours.TabIndex = 24;
@@ -509,11 +509,11 @@
             // 
             // labelPreferencePoste
             // 
-            this.labelPreferencePoste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelPreferencePoste.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelPreferencePoste.AutoSize = true;
             this.labelPreferencePoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferencePoste.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferencePoste.Location = new System.Drawing.Point(88, 55);
+            this.labelPreferencePoste.Location = new System.Drawing.Point(141, 56);
             this.labelPreferencePoste.Name = "labelPreferencePoste";
             this.labelPreferencePoste.Size = new System.Drawing.Size(38, 15);
             this.labelPreferencePoste.TabIndex = 23;
@@ -521,11 +521,11 @@
             // 
             // labelPreferenceContrat
             // 
-            this.labelPreferenceContrat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelPreferenceContrat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelPreferenceContrat.AutoSize = true;
             this.labelPreferenceContrat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferenceContrat.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferenceContrat.Location = new System.Drawing.Point(88, 31);
+            this.labelPreferenceContrat.Location = new System.Drawing.Point(139, 79);
             this.labelPreferenceContrat.Name = "labelPreferenceContrat";
             this.labelPreferenceContrat.Size = new System.Drawing.Size(46, 15);
             this.labelPreferenceContrat.TabIndex = 22;
@@ -533,11 +533,11 @@
             // 
             // labelPreferenceRegion
             // 
-            this.labelPreferenceRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelPreferenceRegion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelPreferenceRegion.AutoSize = true;
             this.labelPreferenceRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferenceRegion.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferenceRegion.Location = new System.Drawing.Point(88, 9);
+            this.labelPreferenceRegion.Location = new System.Drawing.Point(139, 32);
             this.labelPreferenceRegion.Name = "labelPreferenceRegion";
             this.labelPreferenceRegion.Size = new System.Drawing.Size(47, 15);
             this.labelPreferenceRegion.TabIndex = 21;
@@ -545,11 +545,11 @@
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Indigo;
-            this.label9.Location = new System.Drawing.Point(34, 78);
+            this.label9.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label9.Location = new System.Drawing.Point(85, 101);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 15);
             this.label9.TabIndex = 20;
@@ -557,11 +557,11 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Indigo;
-            this.label8.Location = new System.Drawing.Point(32, 55);
+            this.label8.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.label8.Location = new System.Drawing.Point(84, 56);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 15);
             this.label8.TabIndex = 19;
@@ -569,11 +569,11 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Indigo;
-            this.label7.Location = new System.Drawing.Point(25, 31);
+            this.label7.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label7.Location = new System.Drawing.Point(76, 79);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 15);
             this.label7.TabIndex = 18;
@@ -581,22 +581,88 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Indigo;
-            this.label6.Location = new System.Drawing.Point(25, 9);
+            this.label6.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.label6.Location = new System.Drawing.Point(76, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 15);
             this.label6.TabIndex = 17;
             this.label6.Text = "Région:";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label2.Location = new System.Drawing.Point(590, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Contrat";
+            // 
+            // bindingSourceSociete
+            // 
+            this.bindingSourceSociete.CurrentItemChanged += new System.EventHandler(this.bindingSourceSociete_CurrentItemChanged);
+            // 
+            // comboBoxSociete
+            // 
+            this.comboBoxSociete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxSociete.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.comboBoxSociete.FormattingEnabled = true;
+            this.comboBoxSociete.ItemHeight = 19;
+            this.comboBoxSociete.Location = new System.Drawing.Point(65, 31);
+            this.comboBoxSociete.Name = "comboBoxSociete";
+            this.comboBoxSociete.Size = new System.Drawing.Size(169, 25);
+            this.comboBoxSociete.Style = MetroFramework.MetroColorStyle.Silver;
+            this.comboBoxSociete.TabIndex = 19;
+            this.comboBoxSociete.UseSelectable = true;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label1.Location = new System.Drawing.Point(65, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Société";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label3.Location = new System.Drawing.Point(74, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 15);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Société:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelPreferenceSociete
+            // 
+            this.labelPreferenceSociete.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelPreferenceSociete.AutoSize = true;
+            this.labelPreferenceSociete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPreferenceSociete.ForeColor = System.Drawing.Color.Orchid;
+            this.labelPreferenceSociete.Location = new System.Drawing.Point(139, 12);
+            this.labelPreferenceSociete.Name = "labelPreferenceSociete";
+            this.labelPreferenceSociete.Size = new System.Drawing.Size(48, 15);
+            this.labelPreferenceSociete.TabIndex = 28;
+            this.labelPreferenceSociete.Text = "Société";
             // 
             // frmGrey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1097, 605);
+            this.ClientSize = new System.Drawing.Size(1151, 612);
             this.Controls.Add(this.panel1);
             this.Name = "frmGrey";
             this.Padding = new System.Windows.Forms.Padding(6, 60, 6, 28);
@@ -618,6 +684,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffre)).EndInit();
             this.panelPreference.ResumeLayout(false);
             this.panelPreference.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -631,8 +698,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label labelResultat;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelPoste;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private MetroFramework.Controls.MetroGrid dataGridViewOffre;
         private System.Windows.Forms.Button buttonDelete;
@@ -657,5 +723,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private MetroFramework.Controls.MetroComboBox comboBoxSociete;
+        private System.Windows.Forms.BindingSource bindingSourceSociete;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPreferenceSociete;
+        private System.Windows.Forms.Label label3;
     }
 }

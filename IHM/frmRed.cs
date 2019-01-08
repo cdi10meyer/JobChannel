@@ -22,7 +22,7 @@ namespace IHM
             CurrentOffre = offre;
             labelResultat.Text = "Etes-vous certain de vouloir supprimer cette offre?";
             labelDatePublication.Text = offre.DatePublication.ToShortDateString();
-            labelSociete.Text = offre.MySociete.NomSociete.ToUpper();
+            labelSociete.Text = offre.MySelection.MySociete.NomSociete.ToUpper();
             labelRegion.Text = offre.MySelection.MyRegion.NomRegion;
             labelContrat.Text = offre.MySelection.MyContrat.TypeContrat;
             labelPoste.Text = offre.MySelection.MyPoste.TypePoste;

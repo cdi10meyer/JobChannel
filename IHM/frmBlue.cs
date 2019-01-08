@@ -20,7 +20,7 @@ namespace IHM
 
             labelTitre.Text = $"Détails de l'offre N°{offre.IdOffre}";
             labelDatePublication.Text = offre.DatePublication.ToShortDateString();
-            labelSociete.Text = offre.MySociete.NomSociete.ToUpper();
+            labelSociete.Text = offre.MySelection.MySociete.NomSociete.ToUpper();
             labelRegion.Text = offre.MySelection.MyRegion.NomRegion;
             labelContrat.Text = offre.MySelection.MyContrat.TypeContrat;
             labelPoste.Text = offre.MySelection.MyPoste.TypePoste;

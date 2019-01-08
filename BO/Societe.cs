@@ -21,6 +21,8 @@ namespace BO
         #region "Constructeurs"
         public Societe()
         {
+            IdSociete = 0;
+            NomSociete = "Toutes";
         }
         #endregion "Constructeurs"
 
@@ -30,7 +32,7 @@ namespace BO
 
         public override string ToString()
         {
-            return NomSociete.ToUpper();
+            return NomSociete;
         }
 
         public int CompareTo(Societe other)

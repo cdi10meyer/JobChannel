@@ -14,6 +14,8 @@ namespace BO
         [DataMember]
         public string Publication { get { return DatePublication.ToShortDateString(); } private set { } }
         [DataMember]
+        public string NomSociete { get { return MySelection.MySociete.NomSociete; } private set { } }
+        [DataMember]
         public string NomRegion { get { return MySelection.MyRegion.NomRegion; } private set { } }
         [DataMember]
         public string TypePoste { get { return MySelection.MyPoste.TypePoste; } private set { } }
@@ -28,8 +30,6 @@ namespace BO
         [DataMember]
         public DateTime DatePublication { get; set; }
         [DataMember]
-        public Societe MySociete { get; set; }
-        [DataMember]
         public Selection MySelection { get; set; }
 
         #endregion "Propriétés d'instance"
@@ -37,16 +37,14 @@ namespace BO
         #region "Constructeurs"
         public Offre()
         {
-            MySociete = new Societe();
             MySelection = new Selection();
         }
 
         public int CompareTo(Offre other)
         {
-            int date = this.DatePublication.CompareTo(other.DatePublication)*-1;
-            int societe = this.MySociete.CompareTo(other.MySociete);
+            int date = this.Publication.CompareTo(other.Publication) *-1;
             int selection = this.MySelection.CompareTo(other.MySelection);
-            int resultat = (date != 0) ? date : (societe != 0) ? societe : selection;
+            int resultat = (date != 0) ? date : selection;
             
             return resultat;
         }

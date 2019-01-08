@@ -70,7 +70,7 @@ namespace IHM
         private void FillingComboBox()
         {
             SocieteManager societeManager = new SocieteManager();
-            bindingSourceSociete.DataSource = societeManager.RetrieveAllSocietes();
+            bindingSourceSociete.DataSource = societeManager.RetrieveAll();
             comboBoxSociete.DataSource = bindingSourceSociete;
             comboBoxSociete.ValueMember = "IdSociete";
             comboBoxSociete.DisplayMember = "NomSociete";
@@ -83,13 +83,13 @@ namespace IHM
 
 
             ContratManager contratManager = new ContratManager();
-            bindingSourceContrat.DataSource = contratManager.RetrieveAllContrats();
+            bindingSourceContrat.DataSource = contratManager.RetrieveAll();
             comboBoxContrat.DataSource = bindingSourceContrat;
             comboBoxContrat.ValueMember = "IdContrat";
             comboBoxContrat.DisplayMember = "TypeContrat";
 
             PosteManager posteManager = new PosteManager();
-            bindingSourcePoste.DataSource = posteManager.RetrieveAllPostes();
+            bindingSourcePoste.DataSource = posteManager.RetrieveAll();
             comboBoxPoste.DataSource = bindingSourcePoste;
             comboBoxPoste.ValueMember = "IdPoste";
             comboBoxPoste.DisplayMember = "TypePoste";
@@ -102,7 +102,7 @@ namespace IHM
 
                 societeNew = (Societe)bindingSourceSociete.Current;
                 labelSociete.Text = societeNew.NomSociete;
-                _NewOffre.MySociete = societeNew;
+                _NewOffre.MySelection.MySociete = societeNew;
                 panelSociete.BackColor = Color.Honeydew;
                 labelSociete.ForeColor = Color.OliveDrab;
 

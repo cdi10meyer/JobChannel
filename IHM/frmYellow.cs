@@ -49,13 +49,13 @@ namespace IHM
 
 
             ContratManager contratManager = new ContratManager();
-            bindingSourceContrat.DataSource = contratManager.RetrieveAllContrats();
+            bindingSourceContrat.DataSource = contratManager.RetrieveAll();
             comboBoxContrat.DataSource = bindingSourceContrat;
             comboBoxContrat.ValueMember = "IdContrat";
             comboBoxContrat.DisplayMember = "TypeContrat";
 
             PosteManager posteManager = new PosteManager();
-            bindingSourcePoste.DataSource = posteManager.RetrieveAllPostes();
+            bindingSourcePoste.DataSource = posteManager.RetrieveAll();
             comboBoxPoste.DataSource = bindingSourcePoste;
             comboBoxPoste.ValueMember = "IdPoste";
             comboBoxPoste.DisplayMember = "TypePoste";
@@ -104,7 +104,7 @@ namespace IHM
         private void FillFormulaire(Offre offre)
         {
             labelDatePublication.Text = offre.DatePublication.ToShortDateString();
-            labelSociete.Text = offre.MySociete.NomSociete.ToUpper();
+            labelSociete.Text = offre.MySelection.MySociete.NomSociete.ToUpper();
             labelRegionOld.Text = offre.MySelection.MyRegion.NomRegion;
             labelContratOld.Text = offre.MySelection.MyContrat.TypeContrat;
             labelPosteOld.Text = offre.MySelection.MyPoste.TypePoste;
