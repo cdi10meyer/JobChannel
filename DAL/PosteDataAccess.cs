@@ -10,18 +10,22 @@ using System.Threading.Tasks;
 namespace DAL
 {
     [DataContract]
-    public class PosteDataAccess
+    public class PosteDataAccess : ConsultationDataAccess
     {
-
-        public DataTable SelectAllPostes()
+        public PosteDataAccess()
         {
-            DataTable SchemaTable = new DataTable();
-            SqlCommand objSelectCommand = Connection.CreateConnection();
-            objSelectCommand.CommandText = "dbo.P_SELECT_AllPostes";
-            objSelectCommand.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(SchemaTable);
-            return SchemaTable;
+            Procedure = "dbo.P_SELECT_AllPostes";
         }
+
+        //public DataTable SelectAllPostes()
+        //{
+        //    DataTable SchemaTable = new DataTable();
+        //    SqlCommand objSelectCommand = Connection.CreateConnection();
+        //    objSelectCommand.CommandText = "dbo.P_SELECT_AllPostes";
+        //    objSelectCommand.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+        //    objDataAdapter.Fill(SchemaTable);
+        //    return SchemaTable;
+        //}
     }
 }

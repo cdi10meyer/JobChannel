@@ -8,36 +8,23 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Societe : IComparable<Societe>
+    public class Societe : Consultation
     {
-        #region "Propriétés d'instance"
-        [DataMember]
-        public int IdSociete { get; set; }
-        [DataMember]
-        public string NomSociete { get; set; }
-
-        #endregion "Propriétés d'instance"
-
         #region "Constructeurs"
         public Societe()
         {
-            IdSociete = 0;
-            NomSociete = "Toutes";
+            Id = 0;
+            Nom = "Toutes";
+        }
+        public Societe(Consultation consultation)
+        {
+            Id = consultation.Id;
+            Nom = consultation.Nom;
         }
         #endregion "Constructeurs"
-
-        #region "Méthodes propres à la classe"
-
-        #endregion "Méthodes propres à la classe"
-
         public override string ToString()
         {
-            return NomSociete;
-        }
-
-        public int CompareTo(Societe other)
-        {
-            return this.NomSociete.CompareTo(other.NomSociete);
+            return Nom.ToUpper();
         }
     }
 }

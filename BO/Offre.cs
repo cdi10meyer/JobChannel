@@ -8,21 +8,19 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Offre : IComparable<Offre>
+    public class Offre : Consultation, IComparable<Offre>
     {
         #region "Propriétés d'instance"
         [DataMember]
         public string Publication { get { return DatePublication.ToShortDateString(); } private set { } }
         [DataMember]
-        public string NomSociete { get { return MySelection.MySociete.NomSociete; } private set { } }
+        public string NomSociete { get { return MySelection.MySociete.Nom.ToUpper(); } private set { } }
         [DataMember]
-        public string NomRegion { get { return MySelection.MyRegion.NomRegion; } private set { } }
+        public string NomRegion { get { return MySelection.MyRegion.Nom; } private set { } }
         [DataMember]
-        public string TypePoste { get { return MySelection.MyPoste.TypePoste; } private set { } }
+        public string TypePoste { get { return MySelection.MyPoste.Nom; } private set { } }
         [DataMember]
-        public string TypeContrat { get { return MySelection.MyContrat.TypeContrat; } private set { } }
-        [DataMember]
-        public int IdOffre { get; set; }
+        public string TypeContrat { get { return MySelection.MyContrat.Nom; } private set { } }
         [DataMember]
         public string Description { get; set; }
         [DataMember]
@@ -40,18 +38,15 @@ namespace BO
             MySelection = new Selection();
         }
 
-        public int CompareTo(Offre other)
-        {
-            int date = this.Publication.CompareTo(other.Publication) *-1;
-            int selection = this.MySelection.CompareTo(other.MySelection);
-            int resultat = (date != 0) ? date : selection;
-            
-            return resultat;
-        }
-
         #endregion "Constructeurs"
 
+        public int CompareTo(Offre other)
+        {
+            int date = this.DatePublication.CompareTo(other.DatePublication) * -1;
+            int selection = this.MySelection.CompareTo(other.MySelection);
+            int resultat = (date != 0) ? date : selection;
 
-
+            return resultat;
+        }
     }
 }

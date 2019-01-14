@@ -34,7 +34,7 @@ namespace IHM
             contratNew = new Contrat();
             posteNew = new Poste();
 
-            labelTitre.Text = $"Modification de l'offre N°{_OldOffre.IdOffre}";
+            labelTitre.Text = $"Modification de l'offre N°{_OldOffre.Id}";
             labelResultat.Text = String.Empty;
 
         }
@@ -42,23 +42,23 @@ namespace IHM
         {
 
             RegionManager regionManager = new RegionManager();
-            bindingSourceRegion.DataSource = regionManager.RetrieveAll();
+            bindingSourceRegion.DataSource = regionManager.RetrieveAll("Selectionner une région...", new BO.Region());
             comboBoxRegion.DataSource = bindingSourceRegion;
-            comboBoxRegion.ValueMember = "IdRegion";
-            comboBoxRegion.DisplayMember = "NomRegion";
+            comboBoxRegion.ValueMember = "Id";
+            comboBoxRegion.DisplayMember = "Nom";
 
 
             ContratManager contratManager = new ContratManager();
-            bindingSourceContrat.DataSource = contratManager.RetrieveAll();
+            bindingSourceContrat.DataSource = contratManager.RetrieveAll("Selectionner un contrat...", new Contrat());
             comboBoxContrat.DataSource = bindingSourceContrat;
-            comboBoxContrat.ValueMember = "IdContrat";
-            comboBoxContrat.DisplayMember = "TypeContrat";
+            comboBoxContrat.ValueMember = "Id";
+            comboBoxContrat.DisplayMember = "Nom";
 
             PosteManager posteManager = new PosteManager();
-            bindingSourcePoste.DataSource = posteManager.RetrieveAll();
+            bindingSourcePoste.DataSource = posteManager.RetrieveAll("Selectionner un poste...", new Poste());
             comboBoxPoste.DataSource = bindingSourcePoste;
-            comboBoxPoste.ValueMember = "IdPoste";
-            comboBoxPoste.DisplayMember = "TypePoste";
+            comboBoxPoste.ValueMember = "Id";
+            comboBoxPoste.DisplayMember = "Nom";
 
         }
 
@@ -68,8 +68,8 @@ namespace IHM
             if (bindingSourceRegion.Current != null && regionNew != null)
             {
 
-                regionNew = (BO.Region)bindingSourceRegion.Current;
-                labelRegionNew.Text = regionNew.NomRegion;
+                regionNew = new BO.Region((Consultation)bindingSourceRegion.Current);
+                labelRegionNew.Text = regionNew.Nom;
                 _NewOffre.MySelection.MyRegion = regionNew;
 
             }
@@ -81,8 +81,8 @@ namespace IHM
             if (bindingSourceContrat.Current != null && contratNew != null)
             {
 
-                contratNew = (Contrat)bindingSourceContrat.Current;
-                labelContratNew.Text = contratNew.TypeContrat;
+                contratNew = new Contrat((Consultation)bindingSourceContrat.Current);
+                labelContratNew.Text = contratNew.Nom;
                 _NewOffre.MySelection.MyContrat = contratNew;
 
             }
@@ -93,8 +93,8 @@ namespace IHM
             if (bindingSourcePoste.Current != null && posteNew != null)
             {
 
-                posteNew = (Poste)bindingSourcePoste.Current;
-                labelPosteNew.Text = posteNew.TypePoste;
+                posteNew = new Poste((Consultation)bindingSourcePoste.Current);
+                labelPosteNew.Text = posteNew.Nom;
                 _NewOffre.MySelection.MyPoste = posteNew;
 
             }
@@ -104,10 +104,10 @@ namespace IHM
         private void FillFormulaire(Offre offre)
         {
             labelDatePublication.Text = offre.DatePublication.ToShortDateString();
-            labelSociete.Text = offre.MySelection.MySociete.NomSociete.ToUpper();
-            labelRegionOld.Text = offre.MySelection.MyRegion.NomRegion;
-            labelContratOld.Text = offre.MySelection.MyContrat.TypeContrat;
-            labelPosteOld.Text = offre.MySelection.MyPoste.TypePoste;
+            labelSociete.Text = offre.MySelection.MySociete.Nom.ToUpper();
+            labelRegionOld.Text = offre.MySelection.MyRegion.Nom;
+            labelContratOld.Text = offre.MySelection.MyContrat.Nom;
+            labelPosteOld.Text = offre.MySelection.MyPoste.Nom;
             textBoxDescriptionOld.Text = offre.Description;
             textBoxLienAnnonceOld.Text = offre.LienAnnonce;
             labelRegionNew.Text = String.Empty;
@@ -129,7 +129,7 @@ namespace IHM
             _NewOffre.Description = (textBoxDescriptionNew.Text == String.Empty) ? textBoxDescriptionOld.Text : textBoxDescriptionNew.Text;
             _NewOffre.LienAnnonce = (textBoxLienAnnonceNew.Text == String.Empty) ? textBoxLienAnnonceOld.Text : textBoxLienAnnonceNew.Text;
             OffreManager offreManager = new OffreManager();
-            Ok = offreManager.UpdateOffre(_NewOffre);
+            Ok = offreManager.Update(_NewOffre);
             if (Ok)
             {
                 this.FillFormulaire(_NewOffre);

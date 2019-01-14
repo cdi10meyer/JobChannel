@@ -8,37 +8,20 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Region : IComparable<Region>
+    public class Region : Consultation
     {
-        #region "Propriétés d'instance"
-        [DataMember]
-        public int IdRegion { get; set; }
-        [DataMember]
-        public string NomRegion { get; set; }
-
-        #endregion "Propriétés d'instance"
-
         #region "Constructeurs"
         public Region()
         {
-            IdRegion = 0;
-            NomRegion = "Toutes";
+            Id = 0;
+            Nom = "Toutes";
+        }
+        public Region(Consultation consultation)
+        {
+            Id = consultation.Id;
+            Nom = consultation.Nom;
         }
 
         #endregion "Constructeurs"
-
-        #region "Méthodes propres à la classe"
-
-        #endregion "Méthodes propres à la classe"
-
-        public override string ToString()
-        {
-            return NomRegion;
-        }
-
-        public int CompareTo(Region other)
-        {
-            return this.NomRegion.CompareTo(other.NomRegion);
-        }
     }
 }

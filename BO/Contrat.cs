@@ -8,37 +8,19 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Contrat : IComparable<Contrat>
+    public class Contrat : Consultation
     {
-        #region "Propriétés d'instance"
-        [DataMember]
-        public int IdContrat { get; set; }
-        [DataMember]
-        public string TypeContrat { get; set; }
-
-        #endregion "Propriétés d'instance"
-
         #region "Constructeurs"
         public Contrat()
         {
-            IdContrat = 0;
-            TypeContrat = "Tous";
+            Id = 0;
+            Nom = "Tous";
         }
-
+        public Contrat(Consultation consultation)
+        {
+            Id = consultation.Id;
+            Nom = consultation.Nom;
+        }
         #endregion "Constructeurs"
-
-        #region "Méthodes propres à la classe"
-
-        #endregion "Méthodes propres à la classe"
-
-        public override string ToString()
-        {
-            return TypeContrat;
-        }
-
-        public int CompareTo(Contrat other)
-        {
-            return this.TypeContrat.CompareTo(other.TypeContrat);
-        }
     }
 }

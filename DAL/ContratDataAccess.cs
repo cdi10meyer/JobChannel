@@ -9,18 +9,22 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class ContratDataAccess
+    public class ContratDataAccess : ConsultationDataAccess
     {
-
-        public DataTable SelectAllContrats()
+        public ContratDataAccess()
         {
-            DataTable SchemaTable = new DataTable();
-            SqlCommand objSelectCommand = Connection.CreateConnection();
-            objSelectCommand.CommandText = "dbo.P_SELECT_AllContrats";
-            objSelectCommand.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(SchemaTable);
-            return SchemaTable;
+            Procedure = "dbo.P_SELECT_AllContrats";
         }
+
+        //public DataTable SelectAllContrats()
+        //{
+        //    DataTable SchemaTable = new DataTable();
+        //    SqlCommand objSelectCommand = Connection.CreateConnection();
+        //    objSelectCommand.CommandText = "dbo.P_SELECT_AllContrats";
+        //    objSelectCommand.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+        //    objDataAdapter.Fill(SchemaTable);
+        //    return SchemaTable;
+        //}
     }
 }

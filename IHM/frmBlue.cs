@@ -18,12 +18,13 @@ namespace IHM
         {
             InitializeComponent();
 
-            labelTitre.Text = $"Détails de l'offre N°{offre.IdOffre}";
+            labelTitre.Text = $"Détails de l'offre N°{offre.Id}";
             labelDatePublication.Text = offre.DatePublication.ToShortDateString();
-            labelSociete.Text = offre.MySelection.MySociete.NomSociete.ToUpper();
-            labelRegion.Text = offre.MySelection.MyRegion.NomRegion;
-            labelContrat.Text = offre.MySelection.MyContrat.TypeContrat;
-            labelPoste.Text = offre.MySelection.MyPoste.TypePoste;
+            labelSociete.Text = offre.MySelection.MySociete.Nom.ToUpper();
+            //labelSociete.Text = offre.MySelection.MySociete.NomSociete.ToUpper();
+            labelRegion.Text = offre.MySelection.MyRegion.Nom;
+            labelContrat.Text = offre.MySelection.MyContrat.Nom;
+            labelPoste.Text = offre.MySelection.MyPoste.Nom;
             labelDescription.Text = offre.Description;
             labelLienAnnonce.Text = offre.LienAnnonce;
 

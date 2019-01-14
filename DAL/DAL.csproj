@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connection.cs" />
+    <Compile Include="ConsultationDataAccess.cs" />
     <Compile Include="ContratDataAccess.cs" />
     <Compile Include="DALException.cs" />
     <Compile Include="OffreDataAccess.cs" />

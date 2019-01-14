@@ -22,10 +22,10 @@ namespace IHM
             CurrentOffre = offre;
             labelResultat.Text = "Etes-vous certain de vouloir supprimer cette offre?";
             labelDatePublication.Text = offre.DatePublication.ToShortDateString();
-            labelSociete.Text = offre.MySelection.MySociete.NomSociete.ToUpper();
-            labelRegion.Text = offre.MySelection.MyRegion.NomRegion;
-            labelContrat.Text = offre.MySelection.MyContrat.TypeContrat;
-            labelPoste.Text = offre.MySelection.MyPoste.TypePoste;
+            labelSociete.Text = offre.MySelection.MySociete.Nom.ToUpper();
+            labelRegion.Text = offre.MySelection.MyRegion.Nom;
+            labelContrat.Text = offre.MySelection.MyContrat.Nom;
+            labelPoste.Text = offre.MySelection.MyPoste.Nom;
             labelDescription.Text = offre.Description;
             labelLienAnnonce.Text = offre.LienAnnonce;
         }
@@ -40,7 +40,7 @@ namespace IHM
         private void buttonOk_Click(object sender, EventArgs e)
         {
             OffreManager offreManager = new OffreManager();
-            bool deleteOffre = offreManager.DeleteOffre(CurrentOffre);
+            bool deleteOffre = offreManager.Delete(CurrentOffre);
             if (deleteOffre)
             {
                 this.DialogResult = DialogResult.OK;

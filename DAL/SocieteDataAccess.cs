@@ -10,19 +10,23 @@ using System.Threading.Tasks;
 namespace DAL
 {
     [DataContract]
-    public class SocieteDataAccess
+    public class SocieteDataAccess : ConsultationDataAccess
     {
-
-        public DataTable SelectAllSocietes()
+        public SocieteDataAccess()
         {
-            DataTable SchemaTable = new DataTable();
-            SqlCommand objSelectCommand = Connection.CreateConnection();
-            objSelectCommand.CommandText = "dbo.P_SELECT_AllSocietes";
-            objSelectCommand.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(SchemaTable);
-            return SchemaTable;
+            Procedure = "dbo.P_SELECT_AllSocietes";
         }
+
+        //public DataTable SelectAllSocietes()
+        //{
+        //    DataTable SchemaTable = new DataTable();
+        //    SqlCommand objSelectCommand = Connection.CreateConnection();
+        //    objSelectCommand.CommandText = "dbo.P_SELECT_AllSocietes";
+        //    objSelectCommand.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+        //    objDataAdapter.Fill(SchemaTable);
+        //    return SchemaTable;
+        //}
 
         public int UpdateSociete(int idSociete, string nomSociete)
         {

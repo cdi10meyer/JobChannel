@@ -48,6 +48,7 @@
     <Compile Include="Poste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs" />
+    <Compile Include="Consultation.cs" />
     <Compile Include="Selection.cs" />
     <Compile Include="Societe.cs" />
   </ItemGroup>

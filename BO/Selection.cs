@@ -12,7 +12,6 @@ namespace BO
     [DataContract]
     public class Selection : IComparable<Selection>
     {
-
         #region "Propriétés d'instance"
         [DataMember]
         public Societe MySociete { get; set; }
@@ -56,7 +55,7 @@ namespace BO
 
         public override string ToString()
         {
-            return $"{MyRegion.NomRegion}";
+            return $"{MyRegion.Nom}";
         }
 
         public int CompareTo(Selection other)

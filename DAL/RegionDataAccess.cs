@@ -10,18 +10,21 @@ using System.Threading.Tasks;
 namespace DAL
 {
     [DataContract]
-    public class RegionDataAccess
+    public class RegionDataAccess : ConsultationDataAccess
     {
-
-        public DataTable SelectAllRegions()
+        public RegionDataAccess()
         {
-            DataTable SchemaTable = new DataTable();
-            SqlCommand objSelectCommand = Connection.CreateConnection();
-            objSelectCommand.CommandText = "dbo.P_SELECT_AllRegions";
-            objSelectCommand.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(SchemaTable);
-            return SchemaTable;
+            Procedure = "dbo.P_SELECT_AllRegions";
         }
+        //public DataTable SelectAllRegions()
+        //{
+        //    DataTable SchemaTable = new DataTable();
+        //    SqlCommand objSelectCommand = Connection.CreateConnection();
+        //    objSelectCommand.CommandText = "dbo.P_SELECT_AllRegions";
+        //    objSelectCommand.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+        //    objDataAdapter.Fill(SchemaTable);
+        //    return SchemaTable;
+        //}
     }
 }

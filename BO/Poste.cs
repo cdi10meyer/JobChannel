@@ -8,39 +8,22 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Poste : IComparable<Poste>
+    public class Poste : Consultation
     {
-
-        #region "Propriétés d'instance"
-        [DataMember]
-        public int IdPoste { get; set; }
-
-        [DataMember]
-        public string TypePoste { get; set; }
-
-        #endregion "Propriétés d'instance"
 
         #region "Constructeurs"
         public Poste()
         {
-            IdPoste = 0;
-            TypePoste = "Tous";
+            Id = 0;
+            Nom = "Tous";
+        }
+        public Poste(Consultation consultation)
+        {
+            Id = consultation.Id;
+            Nom = consultation.Nom;
         }
 
         #endregion "Constructeurs"
 
-        #region "Méthodes propres à la classe"
-
-        #endregion "Méthodes propres à la classe"
-
-        public override string ToString()
-        {
-            return TypePoste;
-        }
-
-        public int CompareTo(Poste other)
-        {
-            return this.TypePoste.CompareTo(other.TypePoste);
-        }
     }
 }
