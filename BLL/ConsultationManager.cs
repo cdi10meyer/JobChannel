@@ -42,6 +42,13 @@ namespace BLL
             comboBox.ValueMember = "Id";
             comboBox.DisplayMember = "Nom";
         }
+        public static void RemoveSelection(TextBox textbox)
+        {
+            if (textbox != null)
+            {
+                textbox.SelectionLength = 0;
+            }
+        }
 
     }
 }

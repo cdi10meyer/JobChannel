@@ -159,6 +159,7 @@ namespace IHM
         }
         private void textBoxDescription_TextChanged(object sender, EventArgs e)
         {
+            textBoxDescription.SelectionStart = textBoxDescription.Text.Length;
             bool empty = String.IsNullOrWhiteSpace(textBoxDescription.Text);
             panelDescription.BackColor = (empty) ? _ColorEmpty : _ColorClair;
             textBoxDescription.BackColor = (empty) ? _ColorEmpty : _ColorClair;

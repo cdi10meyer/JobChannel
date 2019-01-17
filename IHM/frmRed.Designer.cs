@@ -47,7 +47,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.labelPoste = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.labelDescription = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.labelLienAnnonce = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,8 +54,8 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.labelResultat = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelResultat = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -64,6 +63,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -329,6 +329,7 @@
             // 
             // panel7
             // 
+            this.panel7.AutoScroll = true;
             this.panel7.BackColor = System.Drawing.Color.MistyRose;
             this.panel7.Controls.Add(this.labelDescription);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -337,17 +338,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(620, 84);
             this.panel7.TabIndex = 5;
-            // 
-            // labelDescription
-            // 
-            this.labelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(0, 5);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(76, 16);
-            this.labelDescription.TabIndex = 0;
-            this.labelDescription.Text = "Description";
             // 
             // panel8
             // 
@@ -410,7 +400,7 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 293);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(797, 37);
             this.tableLayoutPanel3.TabIndex = 15;
             // 
@@ -444,19 +434,6 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // labelResultat
-            // 
-            this.labelResultat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelResultat.AutoSize = true;
-            this.labelResultat.BackColor = System.Drawing.Color.Transparent;
-            this.labelResultat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResultat.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelResultat.Location = new System.Drawing.Point(369, 12);
-            this.labelResultat.Name = "labelResultat";
-            this.labelResultat.Size = new System.Drawing.Size(70, 20);
-            this.labelResultat.TabIndex = 17;
-            this.labelResultat.Text = "résultat";
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.Gainsboro;
@@ -471,6 +448,19 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(809, 44);
             this.tableLayoutPanel4.TabIndex = 18;
+            // 
+            // labelResultat
+            // 
+            this.labelResultat.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelResultat.AutoSize = true;
+            this.labelResultat.BackColor = System.Drawing.Color.Transparent;
+            this.labelResultat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResultat.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelResultat.Location = new System.Drawing.Point(369, 12);
+            this.labelResultat.Name = "labelResultat";
+            this.labelResultat.Size = new System.Drawing.Size(70, 20);
+            this.labelResultat.TabIndex = 17;
+            this.labelResultat.Text = "résultat";
             // 
             // panel9
             // 
@@ -542,6 +532,16 @@
             this.panel15.Size = new System.Drawing.Size(50, 333);
             this.panel15.TabIndex = 26;
             // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Location = new System.Drawing.Point(0, 6);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(76, 16);
+            this.labelDescription.TabIndex = 1;
+            this.labelDescription.Text = "Description";
+            // 
             // frmRed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,7 +603,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label labelPoste;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label labelLienAnnonce;
         private System.Windows.Forms.Label label1;
@@ -620,5 +619,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label labelDescription;
     }
 }

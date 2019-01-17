@@ -119,6 +119,7 @@ namespace IHM
         
         private void textBoxDescriptionNew_TextChanged(object sender, EventArgs e)
         {
+            textBoxDescriptionNew.SelectionStart = textBoxDescriptionNew.Text.Length;
             buttonUpdate.Enabled = EnabledUpdate();
             labelResultat.Text = String.Empty;
         }
@@ -136,7 +137,7 @@ namespace IHM
             labelRegionOld.Text = uneOffre.MySelection.MyRegion.Nom;
             labelContratOld.Text = uneOffre.MySelection.MyContrat.Nom;
             labelPosteOld.Text = uneOffre.MySelection.MyPoste.Nom;
-            textBoxDescriptionOld.Text = uneOffre.Description;
+            labelDescriptionOld.Text = uneOffre.Description;
             textBoxLienAnnonceOld.Text = uneOffre.LienAnnonce;
             labelRegionNew.Text = _OldOffre.MySelection.MyRegion.Nom;
             labelContratNew.Text = _OldOffre.MySelection.MyContrat.Nom;
@@ -146,7 +147,7 @@ namespace IHM
         }
         private bool EnabledUpdate()
         {
-            return !(textBoxDescriptionOld.Text == textBoxDescriptionNew.Text
+            return !(labelDescriptionOld.Text == textBoxDescriptionNew.Text
                    && textBoxLienAnnonceOld.Text == textBoxLienAnnonceNew.Text
                    && labelRegionOld.Text == labelRegionNew.Text
                    && labelContratOld.Text == labelContratNew.Text

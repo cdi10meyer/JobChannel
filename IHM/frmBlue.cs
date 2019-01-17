@@ -1,4 +1,5 @@
-﻿using BO;
+﻿using BLL;
+using BO;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace IHM
         public frmBlue(Offre offre)
         {
             InitializeComponent();
-
+            //textBoxDescription
             labelTitre.Text = $"Détails de l'offre N°{offre.Id}";
             labelDatePublication.Text = offre.DatePublication.ToShortDateString();
             labelSociete.Text = offre.MySelection.MySociete.Nom.ToUpper();

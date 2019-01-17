@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bindingSourceOffre = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceRegion = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceContrat = new System.Windows.Forms.BindingSource(this.components);
@@ -73,6 +73,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.bindingSourceSociete = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceJour = new System.Windows.Forms.BindingSource(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonRecuperer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).BeginInit();
@@ -151,7 +153,7 @@
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
             this.tableLayoutPanel2.ColumnCount = 14;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
@@ -161,7 +163,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.buttonDelete, 10, 1);
@@ -202,13 +204,14 @@
             this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDelete.Location = new System.Drawing.Point(914, 26);
+            this.buttonDelete.Location = new System.Drawing.Point(924, 26);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel2.SetRowSpan(this.buttonDelete, 2);
             this.buttonDelete.Size = new System.Drawing.Size(26, 21);
             this.buttonDelete.TabIndex = 8;
+            this.toolTip.SetToolTip(this.buttonDelete, "Supprimer l\'offre sélectionnée");
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
@@ -223,13 +226,14 @@
             this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonUpdate.Location = new System.Drawing.Point(854, 26);
+            this.buttonUpdate.Location = new System.Drawing.Point(864, 26);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel2.SetRowSpan(this.buttonUpdate, 2);
             this.buttonUpdate.Size = new System.Drawing.Size(26, 21);
             this.buttonUpdate.TabIndex = 7;
+            this.toolTip.SetToolTip(this.buttonUpdate, "Modifier l\'offre sélectionnée");
             this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
@@ -244,13 +248,14 @@
             this.buttonInsert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonInsert.Location = new System.Drawing.Point(884, 26);
+            this.buttonInsert.Location = new System.Drawing.Point(894, 26);
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(2);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel2.SetRowSpan(this.buttonInsert, 2);
             this.buttonInsert.Size = new System.Drawing.Size(26, 21);
             this.buttonInsert.TabIndex = 9;
+            this.toolTip.SetToolTip(this.buttonInsert, "Créer une nouvelle offre");
             this.buttonInsert.UseVisualStyleBackColor = false;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
             // 
@@ -265,13 +270,14 @@
             this.buttonSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.buttonSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSelect.Location = new System.Drawing.Point(824, 26);
+            this.buttonSelect.Location = new System.Drawing.Point(834, 26);
             this.buttonSelect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel2.SetRowSpan(this.buttonSelect, 2);
             this.buttonSelect.Size = new System.Drawing.Size(26, 21);
             this.buttonSelect.TabIndex = 6;
+            this.toolTip.SetToolTip(this.buttonSelect, "Visualiser l\'offre sélectionnée");
             this.buttonSelect.UseVisualStyleBackColor = false;
             this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
             // 
@@ -297,7 +303,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(640, 8);
+            this.label2.Location = new System.Drawing.Point(650, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 18;
@@ -309,7 +315,7 @@
             this.comboBoxContrat.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxContrat.FormattingEnabled = true;
             this.comboBoxContrat.ItemHeight = 19;
-            this.comboBoxContrat.Location = new System.Drawing.Point(640, 27);
+            this.comboBoxContrat.Location = new System.Drawing.Point(650, 27);
             this.comboBoxContrat.Name = "comboBoxContrat";
             this.comboBoxContrat.Size = new System.Drawing.Size(169, 25);
             this.comboBoxContrat.Style = MetroFramework.MetroColorStyle.Silver;
@@ -322,7 +328,7 @@
             this.comboBoxPoste.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxPoste.FormattingEnabled = true;
             this.comboBoxPoste.ItemHeight = 19;
-            this.comboBoxPoste.Location = new System.Drawing.Point(465, 27);
+            this.comboBoxPoste.Location = new System.Drawing.Point(475, 27);
             this.comboBoxPoste.Name = "comboBoxPoste";
             this.comboBoxPoste.Size = new System.Drawing.Size(169, 25);
             this.comboBoxPoste.Style = MetroFramework.MetroColorStyle.Silver;
@@ -335,7 +341,7 @@
             this.labelPoste.AutoSize = true;
             this.labelPoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPoste.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.labelPoste.Location = new System.Drawing.Point(465, 8);
+            this.labelPoste.Location = new System.Drawing.Point(475, 8);
             this.labelPoste.Name = "labelPoste";
             this.labelPoste.Size = new System.Drawing.Size(48, 16);
             this.labelPoste.TabIndex = 5;
@@ -347,7 +353,7 @@
             this.comboBoxRegion.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxRegion.FormattingEnabled = true;
             this.comboBoxRegion.ItemHeight = 19;
-            this.comboBoxRegion.Location = new System.Drawing.Point(290, 27);
+            this.comboBoxRegion.Location = new System.Drawing.Point(300, 27);
             this.comboBoxRegion.Name = "comboBoxRegion";
             this.comboBoxRegion.Size = new System.Drawing.Size(169, 25);
             this.comboBoxRegion.Style = MetroFramework.MetroColorStyle.Silver;
@@ -360,7 +366,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label5.Location = new System.Drawing.Point(290, 8);
+            this.label5.Location = new System.Drawing.Point(300, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 16);
             this.label5.TabIndex = 15;
@@ -372,7 +378,7 @@
             this.comboBoxSociete.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxSociete.FormattingEnabled = true;
             this.comboBoxSociete.ItemHeight = 19;
-            this.comboBoxSociete.Location = new System.Drawing.Point(115, 27);
+            this.comboBoxSociete.Location = new System.Drawing.Point(125, 27);
             this.comboBoxSociete.Name = "comboBoxSociete";
             this.comboBoxSociete.Size = new System.Drawing.Size(169, 25);
             this.comboBoxSociete.Style = MetroFramework.MetroColorStyle.Silver;
@@ -385,7 +391,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(115, 8);
+            this.label1.Location = new System.Drawing.Point(125, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 16);
             this.label1.TabIndex = 20;
@@ -399,7 +405,7 @@
             this.comboBoxJour.ItemHeight = 19;
             this.comboBoxJour.Location = new System.Drawing.Point(5, 27);
             this.comboBoxJour.Name = "comboBoxJour";
-            this.comboBoxJour.Size = new System.Drawing.Size(104, 25);
+            this.comboBoxJour.Size = new System.Drawing.Size(114, 25);
             this.comboBoxJour.Style = MetroFramework.MetroColorStyle.Silver;
             this.comboBoxJour.TabIndex = 13;
             this.comboBoxJour.UseSelectable = true;
@@ -445,23 +451,23 @@
             this.dataGridViewOffre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewOffre.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewOffre.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOffre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOffre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewOffre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOffre.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOffre.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewOffre.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridViewOffre.EnableHeadersVisualStyles = false;
             this.dataGridViewOffre.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -472,14 +478,14 @@
             this.dataGridViewOffre.Name = "dataGridViewOffre";
             this.dataGridViewOffre.ReadOnly = true;
             this.dataGridViewOffre.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOffre.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOffre.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewOffre.RowHeadersVisible = false;
             this.dataGridViewOffre.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewOffre.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -489,6 +495,7 @@
             // 
             // panelPreference
             // 
+            this.panelPreference.Controls.Add(this.buttonRecuperer);
             this.panelPreference.Controls.Add(this.buttonSupprimer);
             this.panelPreference.Controls.Add(this.labelPreferenceSociete);
             this.panelPreference.Controls.Add(this.label3);
@@ -515,11 +522,12 @@
             this.buttonSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSupprimer.ForeColor = System.Drawing.Color.Indigo;
-            this.buttonSupprimer.Location = new System.Drawing.Point(111, 139);
+            this.buttonSupprimer.Location = new System.Drawing.Point(111, 197);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Size = new System.Drawing.Size(84, 23);
             this.buttonSupprimer.TabIndex = 29;
             this.buttonSupprimer.Text = "Supprimer";
+            this.toolTip.SetToolTip(this.buttonSupprimer, "Supprimer les préferences enregistrées");
             this.buttonSupprimer.UseVisualStyleBackColor = false;
             this.buttonSupprimer.Click += new System.EventHandler(this.buttonSupprimer_Click);
             // 
@@ -529,7 +537,7 @@
             this.labelPreferenceSociete.AutoSize = true;
             this.labelPreferenceSociete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferenceSociete.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferenceSociete.Location = new System.Drawing.Point(112, 37);
+            this.labelPreferenceSociete.Location = new System.Drawing.Point(100, 37);
             this.labelPreferenceSociete.Name = "labelPreferenceSociete";
             this.labelPreferenceSociete.Size = new System.Drawing.Size(48, 15);
             this.labelPreferenceSociete.TabIndex = 28;
@@ -541,7 +549,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(47, 37);
+            this.label3.Location = new System.Drawing.Point(35, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 15);
             this.label3.TabIndex = 27;
@@ -555,11 +563,12 @@
             this.buttonEnregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEnregistrer.ForeColor = System.Drawing.Color.Indigo;
-            this.buttonEnregistrer.Location = new System.Drawing.Point(65, 168);
+            this.buttonEnregistrer.Location = new System.Drawing.Point(111, 168);
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(84, 23);
             this.buttonEnregistrer.TabIndex = 26;
             this.buttonEnregistrer.Text = "Enregistrer";
+            this.toolTip.SetToolTip(this.buttonEnregistrer, "Enregistrer les préferences sélectionnées");
             this.buttonEnregistrer.UseVisualStyleBackColor = false;
             this.buttonEnregistrer.Click += new System.EventHandler(this.buttonEnregistrer_Click);
             // 
@@ -570,11 +579,12 @@
             this.buttonReinitialiser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonReinitialiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReinitialiser.ForeColor = System.Drawing.Color.Indigo;
-            this.buttonReinitialiser.Location = new System.Drawing.Point(19, 139);
+            this.buttonReinitialiser.Location = new System.Drawing.Point(19, 168);
             this.buttonReinitialiser.Name = "buttonReinitialiser";
             this.buttonReinitialiser.Size = new System.Drawing.Size(86, 23);
             this.buttonReinitialiser.TabIndex = 25;
-            this.buttonReinitialiser.Text = "Récupérer";
+            this.buttonReinitialiser.Text = "Réinitialiser";
+            this.toolTip.SetToolTip(this.buttonReinitialiser, "Réinitialiser les préferences sélectionnées");
             this.buttonReinitialiser.UseVisualStyleBackColor = false;
             this.buttonReinitialiser.Click += new System.EventHandler(this.buttonReinitialiser_Click);
             // 
@@ -584,7 +594,7 @@
             this.labelPreferenceJours.AutoSize = true;
             this.labelPreferenceJours.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferenceJours.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferenceJours.Location = new System.Drawing.Point(112, 15);
+            this.labelPreferenceJours.Location = new System.Drawing.Point(100, 15);
             this.labelPreferenceJours.Name = "labelPreferenceJours";
             this.labelPreferenceJours.Size = new System.Drawing.Size(37, 15);
             this.labelPreferenceJours.TabIndex = 24;
@@ -596,7 +606,7 @@
             this.labelPreferencePoste.AutoSize = true;
             this.labelPreferencePoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferencePoste.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferencePoste.Location = new System.Drawing.Point(114, 81);
+            this.labelPreferencePoste.Location = new System.Drawing.Point(102, 81);
             this.labelPreferencePoste.Name = "labelPreferencePoste";
             this.labelPreferencePoste.Size = new System.Drawing.Size(38, 15);
             this.labelPreferencePoste.TabIndex = 23;
@@ -608,7 +618,7 @@
             this.labelPreferenceContrat.AutoSize = true;
             this.labelPreferenceContrat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferenceContrat.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferenceContrat.Location = new System.Drawing.Point(112, 104);
+            this.labelPreferenceContrat.Location = new System.Drawing.Point(100, 104);
             this.labelPreferenceContrat.Name = "labelPreferenceContrat";
             this.labelPreferenceContrat.Size = new System.Drawing.Size(46, 15);
             this.labelPreferenceContrat.TabIndex = 22;
@@ -620,7 +630,7 @@
             this.labelPreferenceRegion.AutoSize = true;
             this.labelPreferenceRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPreferenceRegion.ForeColor = System.Drawing.Color.Orchid;
-            this.labelPreferenceRegion.Location = new System.Drawing.Point(112, 59);
+            this.labelPreferenceRegion.Location = new System.Drawing.Point(100, 59);
             this.labelPreferenceRegion.Name = "labelPreferenceRegion";
             this.labelPreferenceRegion.Size = new System.Drawing.Size(47, 15);
             this.labelPreferenceRegion.TabIndex = 21;
@@ -632,7 +642,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.label9.Location = new System.Drawing.Point(40, 15);
+            this.label9.Location = new System.Drawing.Point(28, 15);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 15);
             this.label9.TabIndex = 20;
@@ -644,7 +654,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label8.Location = new System.Drawing.Point(57, 81);
+            this.label8.Location = new System.Drawing.Point(45, 81);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 15);
             this.label8.TabIndex = 19;
@@ -656,7 +666,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label7.Location = new System.Drawing.Point(49, 104);
+            this.label7.Location = new System.Drawing.Point(37, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 15);
             this.label7.TabIndex = 18;
@@ -668,7 +678,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label6.Location = new System.Drawing.Point(49, 59);
+            this.label6.Location = new System.Drawing.Point(37, 59);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 15);
             this.label6.TabIndex = 17;
@@ -681,6 +691,22 @@
             // bindingSourceJour
             // 
             this.bindingSourceJour.CurrentItemChanged += new System.EventHandler(this.bindingSourceJour_CurrentItemChanged);
+            // 
+            // buttonRecuperer
+            // 
+            this.buttonRecuperer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonRecuperer.BackColor = System.Drawing.Color.Thistle;
+            this.buttonRecuperer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonRecuperer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRecuperer.ForeColor = System.Drawing.Color.Indigo;
+            this.buttonRecuperer.Location = new System.Drawing.Point(19, 197);
+            this.buttonRecuperer.Name = "buttonRecuperer";
+            this.buttonRecuperer.Size = new System.Drawing.Size(86, 23);
+            this.buttonRecuperer.TabIndex = 30;
+            this.buttonRecuperer.Text = "Récupérer";
+            this.toolTip.SetToolTip(this.buttonRecuperer, "Récupérer les préferences enregistrées");
+            this.buttonRecuperer.UseVisualStyleBackColor = false;
+            this.buttonRecuperer.Click += new System.EventHandler(this.buttonRecuperer_Click);
             // 
             // frmGrey
             // 
@@ -758,5 +784,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonSupprimer;
         private System.Windows.Forms.BindingSource bindingSourceJour;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button buttonRecuperer;
     }
 }

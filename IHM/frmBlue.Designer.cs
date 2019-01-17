@@ -46,12 +46,10 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.labelPoste = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.labelDescription = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.labelLienAnnonce = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelTitre = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -60,6 +58,8 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelTitre = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -313,6 +313,7 @@
             // 
             // panel7
             // 
+            this.panel7.AutoScroll = true;
             this.panel7.BackColor = System.Drawing.Color.AliceBlue;
             this.panel7.Controls.Add(this.labelDescription);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -321,17 +322,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(626, 84);
             this.panel7.TabIndex = 5;
-            // 
-            // labelDescription
-            // 
-            this.labelDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelDescription.AutoSize = true;
-            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescription.Location = new System.Drawing.Point(0, 5);
-            this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(76, 16);
-            this.labelDescription.TabIndex = 0;
-            this.labelDescription.Text = "Description";
             // 
             // panel8
             // 
@@ -381,19 +371,6 @@
             this.label6.Size = new System.Drawing.Size(100, 20);
             this.label6.TabIndex = 13;
             this.label6.Text = "Description";
-            // 
-            // labelTitre
-            // 
-            this.labelTitre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTitre.AutoSize = true;
-            this.labelTitre.BackColor = System.Drawing.Color.Transparent;
-            this.labelTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitre.ForeColor = System.Drawing.Color.SteelBlue;
-            this.labelTitre.Location = new System.Drawing.Point(382, 12);
-            this.labelTitre.Name = "labelTitre";
-            this.labelTitre.Size = new System.Drawing.Size(45, 20);
-            this.labelTitre.TabIndex = 20;
-            this.labelTitre.Text = "Titre";
             // 
             // panel1
             // 
@@ -480,6 +457,29 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(809, 44);
             this.tableLayoutPanel3.TabIndex = 28;
             // 
+            // labelTitre
+            // 
+            this.labelTitre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTitre.AutoSize = true;
+            this.labelTitre.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitre.ForeColor = System.Drawing.Color.SteelBlue;
+            this.labelTitre.Location = new System.Drawing.Point(382, 12);
+            this.labelTitre.Name = "labelTitre";
+            this.labelTitre.Size = new System.Drawing.Size(45, 20);
+            this.labelTitre.TabIndex = 20;
+            this.labelTitre.Text = "Titre";
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescription.Location = new System.Drawing.Point(0, 5);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(76, 16);
+            this.labelDescription.TabIndex = 0;
+            this.labelDescription.Text = "Description";
+            // 
             // frmBlue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,7 +532,6 @@
         private System.Windows.Forms.Label labelRegion;
         private System.Windows.Forms.Label labelContrat;
         private System.Windows.Forms.Label labelPoste;
-        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Label labelLienAnnonce;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -550,5 +549,6 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label labelDescription;
     }
 }

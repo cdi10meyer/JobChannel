@@ -35,7 +35,9 @@ namespace IHM
         private Selection _RecordedSelection;
         private Selection _Preference;
         private Offre _RecordedOffre;
-        private const string ERREUR = "Veuillez Sélectionner une offre";
+
+        private const string ERREUR = "Veuillez sélectionner une offre";
+        private const string SELECTIONNEE = "sélectionnée";
         private const string CREE = "crée";
         private const string MODIFIE = "modifiée";
         private const string SUPPRIMEE = "supprimée";
@@ -58,9 +60,8 @@ namespace IHM
             _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
 
             this.FillingDataGridView(_RecordedSelection);
-
-            //labelResultat.Text = String.Empty;
-            this.EnabledButtonPreference();
+            
+            this.HideButtonPreference();
 
             panelPreference.Visible = false;
 
@@ -125,7 +126,8 @@ namespace IHM
             if (bindingSourceOffre.Current != null)
             {
                 _RecordedOffre = (Offre)bindingSourceOffre.Current;
-                labelResultat.Text =$"Offre n°{_RecordedOffre.Id} séléctionnée";
+                _RecordedId = _RecordedOffre.Id;
+                labelResultat.Text = ConstructLabelResultat(_RecordedId, SELECTIONNEE);
                 labelResultat.ForeColor = Color.Gainsboro;
             }
             else
@@ -169,7 +171,7 @@ namespace IHM
                     {
                         this.Opacity = 1;
                         FillingDataGridView(_RecordedSelection);
-                        labelResultat.Text = ConstructAction(_RecordedId,MODIFIE);
+                        labelResultat.Text = ConstructLabelResultat(_RecordedId,MODIFIE);
                         labelResultat.ForeColor = Color.Orange;
                     }
                 }
@@ -195,7 +197,7 @@ namespace IHM
                     FillingDataGridView(_RecordedSelection);
                     dataGridViewOffre.Rows[0].Selected = true;
                     _RecordedId = Convert.ToInt32(dataGridViewOffre.SelectedCells[5].Value);
-                    labelResultat.Text = ConstructAction(_RecordedId,CREE);
+                    labelResultat.Text = ConstructLabelResultat(_RecordedId,CREE);
                     labelResultat.ForeColor = Color.OliveDrab;
                 }
             }
@@ -214,7 +216,7 @@ namespace IHM
                     if (fenetre.DialogResult == DialogResult.OK)
                     {
                         FillingDataGridView(_RecordedSelection);
-                        labelResultat.Text = ConstructAction(_RecordedId, SUPPRIMEE);
+                        labelResultat.Text = ConstructLabelResultat(_RecordedId, SUPPRIMEE);
                         labelResultat.ForeColor = Color.DarkRed;
                     }
                 }
@@ -245,9 +247,14 @@ namespace IHM
             }
         }
 
-        private void buttonReinitialiser_Click(object sender, EventArgs e)
+        private void buttonRecuperer_Click(object sender, EventArgs e)
         {
             _Preference = this.GetPreference();
+            this.FillingPreference(_Preference);
+        }
+        private void buttonReinitialiser_Click(object sender, EventArgs e)
+        {
+            _Preference = new Selection(_DefaultSociete, _DefaultPoste, _DefaultRegion, _DefaultContrat, _DefaultJour);
             this.FillingPreference(_Preference);
         }
 
@@ -261,7 +268,6 @@ namespace IHM
             this.DeletePreference();
             _Preference = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
             this.FillingPreference(_Preference);
-
         }
         #endregion "Gestion des préférences"
 
@@ -302,7 +308,6 @@ namespace IHM
             {
                 totalRowHeight += row.Height;
             }
-
             dataGridViewOffre.Height = totalRowHeight;
         }
         private void ModelingColumnsDataGridView()
@@ -323,9 +328,9 @@ namespace IHM
             dataGridViewOffre.Columns["TypePoste"].DefaultCellStyle.ForeColor = Color.DarkMagenta;
         }
 
-        public string ConstructAction(int id,string action)
+        public string ConstructLabelResultat(int id,string action)
         {
-            return $"Offre n°{id} {action} avec succès";
+            return $"Offre n°{id} {action}";
         }
 
         private void FillingPreference(Selection preference)
@@ -375,24 +380,24 @@ namespace IHM
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(_Preference.GetType());
             serializer.WriteObject(fichier, _Preference);
             fichier.Close();
-            this.EnabledButtonPreference();
+            this.HideButtonPreference();
         }
 
         private void DeletePreference()
         {
             File.Delete(PREFERENCEFILE);
-            this.EnabledButtonPreference();
+            this.HideButtonPreference();
         }
 
-        private void EnabledButtonPreference()
+        private void HideButtonPreference()
         {
             bool enabled = File.Exists(PREFERENCEFILE);
-            buttonReinitialiser.Enabled = enabled;
-            buttonSupprimer.Enabled = enabled;
+            buttonRecuperer.Visible = enabled;
+            buttonSupprimer.Visible = enabled;
         }
+
         #endregion "Méthodes propres à la classe"
 
-       
     }
 }
 

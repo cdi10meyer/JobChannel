@@ -67,14 +67,14 @@
             this.asterixSociete = new System.Windows.Forms.Label();
             this.champSociete = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBoxRegion = new System.Windows.Forms.ComboBox();
-            this.comboBoxContrat = new System.Windows.Forms.ComboBox();
-            this.comboBoxPoste = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxSociete = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxSociete = new MetroFramework.Controls.MetroComboBox();
+            this.comboBoxRegion = new MetroFramework.Controls.MetroComboBox();
+            this.comboBoxContrat = new MetroFramework.Controls.MetroComboBox();
+            this.comboBoxPoste = new MetroFramework.Controls.MetroComboBox();
             this.labelInsert = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.labelTitre = new System.Windows.Forms.Label();
@@ -559,6 +559,7 @@
             this.textBoxDescription.Location = new System.Drawing.Point(3, 5);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxDescription.Size = new System.Drawing.Size(631, 76);
             this.textBoxDescription.TabIndex = 16;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
@@ -653,14 +654,14 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00002F));
-            this.tableLayoutPanel3.Controls.Add(this.comboBoxRegion, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.comboBoxContrat, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.comboBoxPoste, 4, 1);
             this.tableLayoutPanel3.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label9, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.label10, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.comboBoxSociete, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label11, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxSociete, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxRegion, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxContrat, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.comboBoxPoste, 4, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(55, 53);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -671,44 +672,15 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(822, 54);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // comboBoxRegion
-            // 
-            this.comboBoxRegion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxRegion.FormattingEnabled = true;
-            this.comboBoxRegion.Location = new System.Drawing.Point(238, 27);
-            this.comboBoxRegion.Name = "comboBoxRegion";
-            this.comboBoxRegion.Size = new System.Drawing.Size(169, 21);
-            this.comboBoxRegion.TabIndex = 0;
-            this.comboBoxRegion.Text = "Selectionnez une région...";
-            // 
-            // comboBoxContrat
-            // 
-            this.comboBoxContrat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxContrat.FormattingEnabled = true;
-            this.comboBoxContrat.Location = new System.Drawing.Point(413, 27);
-            this.comboBoxContrat.Name = "comboBoxContrat";
-            this.comboBoxContrat.Size = new System.Drawing.Size(169, 21);
-            this.comboBoxContrat.TabIndex = 1;
-            this.comboBoxContrat.Text = "Selectionnez un contrat...";
-            // 
-            // comboBoxPoste
-            // 
-            this.comboBoxPoste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxPoste.FormattingEnabled = true;
-            this.comboBoxPoste.Location = new System.Drawing.Point(588, 27);
-            this.comboBoxPoste.Name = "comboBoxPoste";
-            this.comboBoxPoste.Size = new System.Drawing.Size(169, 21);
-            this.comboBoxPoste.TabIndex = 2;
-            this.comboBoxPoste.Text = "Selectionnez un poste...";
-            // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(238, 11);
+            this.label8.Location = new System.Drawing.Point(238, 8);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
+            this.label8.Size = new System.Drawing.Size(58, 16);
             this.label8.TabIndex = 3;
             this.label8.Text = "Région";
             // 
@@ -716,10 +688,11 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(413, 11);
+            this.label9.Location = new System.Drawing.Point(413, 8);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.Size = new System.Drawing.Size(57, 16);
             this.label9.TabIndex = 4;
             this.label9.Text = "Contrat";
             // 
@@ -727,33 +700,77 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(588, 11);
+            this.label10.Location = new System.Drawing.Point(588, 8);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.Size = new System.Drawing.Size(48, 16);
             this.label10.TabIndex = 5;
             this.label10.Text = "Poste";
-            // 
-            // comboBoxSociete
-            // 
-            this.comboBoxSociete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxSociete.FormattingEnabled = true;
-            this.comboBoxSociete.Location = new System.Drawing.Point(63, 27);
-            this.comboBoxSociete.Name = "comboBoxSociete";
-            this.comboBoxSociete.Size = new System.Drawing.Size(169, 21);
-            this.comboBoxSociete.TabIndex = 8;
-            this.comboBoxSociete.Text = "Selectionnez une société...";
             // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(63, 11);
+            this.label11.Location = new System.Drawing.Point(63, 8);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 13);
+            this.label11.Size = new System.Drawing.Size(61, 16);
             this.label11.TabIndex = 9;
             this.label11.Text = "Société";
+            // 
+            // comboBoxSociete
+            // 
+            this.comboBoxSociete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxSociete.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.comboBoxSociete.FormattingEnabled = true;
+            this.comboBoxSociete.ItemHeight = 19;
+            this.comboBoxSociete.Location = new System.Drawing.Point(63, 27);
+            this.comboBoxSociete.Name = "comboBoxSociete";
+            this.comboBoxSociete.Size = new System.Drawing.Size(169, 25);
+            this.comboBoxSociete.Style = MetroFramework.MetroColorStyle.Silver;
+            this.comboBoxSociete.TabIndex = 10;
+            this.comboBoxSociete.UseSelectable = true;
+            // 
+            // comboBoxRegion
+            // 
+            this.comboBoxRegion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxRegion.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.comboBoxRegion.FormattingEnabled = true;
+            this.comboBoxRegion.ItemHeight = 19;
+            this.comboBoxRegion.Location = new System.Drawing.Point(238, 27);
+            this.comboBoxRegion.Name = "comboBoxRegion";
+            this.comboBoxRegion.Size = new System.Drawing.Size(169, 25);
+            this.comboBoxRegion.Style = MetroFramework.MetroColorStyle.Silver;
+            this.comboBoxRegion.TabIndex = 11;
+            this.comboBoxRegion.UseSelectable = true;
+            // 
+            // comboBoxContrat
+            // 
+            this.comboBoxContrat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxContrat.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.comboBoxContrat.FormattingEnabled = true;
+            this.comboBoxContrat.ItemHeight = 19;
+            this.comboBoxContrat.Location = new System.Drawing.Point(413, 27);
+            this.comboBoxContrat.Name = "comboBoxContrat";
+            this.comboBoxContrat.Size = new System.Drawing.Size(169, 25);
+            this.comboBoxContrat.Style = MetroFramework.MetroColorStyle.Silver;
+            this.comboBoxContrat.TabIndex = 12;
+            this.comboBoxContrat.UseSelectable = true;
+            // 
+            // comboBoxPoste
+            // 
+            this.comboBoxPoste.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxPoste.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.comboBoxPoste.FormattingEnabled = true;
+            this.comboBoxPoste.ItemHeight = 19;
+            this.comboBoxPoste.Location = new System.Drawing.Point(588, 27);
+            this.comboBoxPoste.Name = "comboBoxPoste";
+            this.comboBoxPoste.Size = new System.Drawing.Size(169, 25);
+            this.comboBoxPoste.Style = MetroFramework.MetroColorStyle.Silver;
+            this.comboBoxPoste.TabIndex = 13;
+            this.comboBoxPoste.UseSelectable = true;
             // 
             // labelInsert
             // 
@@ -953,14 +970,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label champDescription;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.ComboBox comboBoxRegion;
-        private System.Windows.Forms.ComboBox comboBoxContrat;
-        private System.Windows.Forms.ComboBox comboBoxPoste;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelPoste;
-        private System.Windows.Forms.ComboBox comboBoxSociete;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.BindingSource bindingSourceRegion;
         private System.Windows.Forms.BindingSource bindingSourceContrat;
@@ -990,5 +1003,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label asterixSociete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private MetroFramework.Controls.MetroComboBox comboBoxSociete;
+        private MetroFramework.Controls.MetroComboBox comboBoxRegion;
+        private MetroFramework.Controls.MetroComboBox comboBoxContrat;
+        private MetroFramework.Controls.MetroComboBox comboBoxPoste;
     }
 }
