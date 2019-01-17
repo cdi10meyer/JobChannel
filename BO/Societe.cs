@@ -11,10 +11,14 @@ namespace BO
     public class Societe : Consultation
     {
         #region "Constructeurs"
-        public Societe()
+        public Societe(string nom)
         {
             Id = 0;
-            Nom = "Toutes";
+            Nom = nom;
+        }
+        public Societe() : this(String.Empty)
+        {
+
         }
         public Societe(Consultation consultation)
         {

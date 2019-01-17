@@ -30,10 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnVisualiser = new System.Windows.Forms.Button();
-            this.btnCreer = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCreer = new System.Windows.Forms.Button();
+            this.btnVisualiser = new System.Windows.Forms.Button();
+            this.labelTitre = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +63,7 @@
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnCreer, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnVisualiser, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelTitre, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -71,37 +73,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(669, 312);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // btnVisualiser
-            // 
-            this.btnVisualiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVisualiser.BackColor = System.Drawing.Color.Transparent;
-            this.btnVisualiser.FlatAppearance.BorderSize = 3;
-            this.btnVisualiser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVisualiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisualiser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnVisualiser.Location = new System.Drawing.Point(55, 132);
-            this.btnVisualiser.Name = "btnVisualiser";
-            this.btnVisualiser.Size = new System.Drawing.Size(194, 42);
-            this.btnVisualiser.TabIndex = 0;
-            this.btnVisualiser.Text = "Visualiser";
-            this.btnVisualiser.UseVisualStyleBackColor = false;
-            this.btnVisualiser.Click += new System.EventHandler(this.btnVisualiser_Click);
-            // 
-            // btnCreer
-            // 
-            this.btnCreer.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreer.FlatAppearance.BorderSize = 3;
-            this.btnCreer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCreer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCreer.Location = new System.Drawing.Point(420, 186);
-            this.btnCreer.Name = "btnCreer";
-            this.btnCreer.Size = new System.Drawing.Size(194, 42);
-            this.btnCreer.TabIndex = 0;
-            this.btnCreer.Text = "Créer";
-            this.btnCreer.UseVisualStyleBackColor = false;
-            this.btnCreer.Click += new System.EventHandler(this.btnCreer_Click);
             // 
             // label1
             // 
@@ -127,6 +98,52 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnCreer
+            // 
+            this.btnCreer.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreer.FlatAppearance.BorderSize = 3;
+            this.btnCreer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCreer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCreer.Location = new System.Drawing.Point(420, 186);
+            this.btnCreer.Name = "btnCreer";
+            this.btnCreer.Size = new System.Drawing.Size(194, 42);
+            this.btnCreer.TabIndex = 0;
+            this.btnCreer.Text = "Créer";
+            this.btnCreer.UseVisualStyleBackColor = false;
+            this.btnCreer.Click += new System.EventHandler(this.btnCreer_Click);
+            // 
+            // btnVisualiser
+            // 
+            this.btnVisualiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVisualiser.BackColor = System.Drawing.Color.Transparent;
+            this.btnVisualiser.FlatAppearance.BorderSize = 3;
+            this.btnVisualiser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVisualiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualiser.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVisualiser.Location = new System.Drawing.Point(55, 132);
+            this.btnVisualiser.Name = "btnVisualiser";
+            this.btnVisualiser.Size = new System.Drawing.Size(194, 42);
+            this.btnVisualiser.TabIndex = 0;
+            this.btnVisualiser.Text = "Visualiser";
+            this.btnVisualiser.UseVisualStyleBackColor = false;
+            this.btnVisualiser.Click += new System.EventHandler(this.btnVisualiser_Click);
+            // 
+            // labelTitre
+            // 
+            this.labelTitre.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelTitre.AutoSize = true;
+            this.labelTitre.BackColor = System.Drawing.Color.Transparent;
+            this.labelTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelTitre.Location = new System.Drawing.Point(86, 50);
+            this.labelTitre.Margin = new System.Windows.Forms.Padding(3, 50, 3, 0);
+            this.labelTitre.Name = "labelTitre";
+            this.labelTitre.Size = new System.Drawing.Size(79, 20);
+            this.labelTitre.TabIndex = 5;
+            this.labelTitre.Text = "ACCUEIL";
+            this.labelTitre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAccueil
             // 
@@ -159,5 +176,6 @@
         private System.Windows.Forms.Button btnCreer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelTitre;
     }
 }

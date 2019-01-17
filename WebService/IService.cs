@@ -13,7 +13,7 @@ namespace WebService
     public interface IService
     {
 
-        //#region "Offre"
+        #region "Listes Offres"
 
         [OperationContract]
         [WebGet(UriTemplate = "RetrieveAllOffres", ResponseFormat = WebMessageFormat.Json)]
@@ -21,7 +21,7 @@ namespace WebService
 
         [OperationContract]
         [WebGet(UriTemplate = "RetrieveOffresBySelection/{idSociete}/{idRegion}/{idPoste}/{idContrat}/{nbrJour}", ResponseFormat = WebMessageFormat.Json)]
-        List<Offre> RetrieveOffresBySelection(string idSociete,string idRegion, string idPoste, string idContrat, string nbrJour);
+        List<Offre> RetrieveOffresBySelection(string idSociete, string idRegion, string idPoste, string idContrat, string nbrJour);
 
         //[OperationContract]
         //[WebInvoke(UriTemplate = "GetOffresBySelection", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
@@ -36,31 +36,27 @@ namespace WebService
         //[OperationContract]
         //bool EraseOffre(Offre offre);
 
-        //#endregion "Offre"
+        #endregion "Listes Offres"
 
-        //#region "Selection"
-        //[OperationContract]
-        //List<Region> GetAllRegions();
+        #region "Listes Consultations"
+        [OperationContract]
+        [WebGet(UriTemplate = "RetrieveAllSocietes/{textItem}", ResponseFormat = WebMessageFormat.Json)]
+        List<Societe> RetrieveAllSocietes(string textItem);
 
-        //[OperationContract]
-        //List<Contrat> GetAllContrats();
+        [OperationContract]
+        [WebGet(UriTemplate = "RetrieveAllRegions/{textItem}", ResponseFormat = WebMessageFormat.Json)]
+        List<Region> RetrieveAllRegions(string textItem);
 
-        //[OperationContract]
-        //List<Poste> GetAllPostes();
-        //#endregion "Selection"
+        [OperationContract]
+        [WebGet(UriTemplate = "RetrieveAllPostes/{textItem}", ResponseFormat = WebMessageFormat.Json)]
+        List<Poste> RetrieveAllPostes(string textItem);
 
-        //#region "Societe"
-        //[OperationContract]
-        //List<Societe> GetAllSocietes();
+        [OperationContract]
+        [WebGet(UriTemplate = "RetrieveAllContrats/{textItem}", ResponseFormat = WebMessageFormat.Json)]
+        List<Contrat> RetrieveAllContrats(string textItem);
 
-        //[OperationContract]
-        //int SetSociete(string nomSociete);
+        #endregion "Listes Consultations"
 
-        //[OperationContract]
-        //bool ModifySociete(Societe societe);
-
-        //[OperationContract]
-        //bool EraseSociete(Societe societe);
-        //#endregion "Societe"
     }
+
 }

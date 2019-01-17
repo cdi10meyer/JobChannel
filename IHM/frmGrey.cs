@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace IHM
 {
     public partial class frmGrey : MetroForm
@@ -21,7 +23,15 @@ namespace IHM
         private BO.Region _RecordedRegion;
         private Contrat _RecordedContrat;
         private Poste _RecordedPoste;
-        private int _RecordedJours;
+        private Jour _RecordedJour;
+        private int _RecordedId;
+
+        private Societe _DefaultSociete = new Societe("Toutes les sociétés");
+        private BO.Region _DefaultRegion = new BO.Region("Toutes les régions");
+        private Contrat _DefaultContrat = new Contrat("Tous les contrats");
+        private Poste _DefaultPoste = new Poste("Tous les postes");
+        private Jour _DefaultJour = new Jour("Tous les jours");
+
         private Selection _RecordedSelection;
         private Selection _Preference;
         private Offre _RecordedOffre;
@@ -30,146 +40,39 @@ namespace IHM
         private const string MODIFIE = "modifiée";
         private const string SUPPRIMEE = "supprimée";
         private const string PREFERENCEFILE = "preference.json";
-        private List<string> _Jours = new List<string>()
-            {
-                "Tous",
-                "10",
-                "20",
-                "30"
-            };
 
         public frmGrey() : base()
         {
             InitializeComponent();
 
-            _RecordedSociete = new Societe();
-            _RecordedRegion = new BO.Region();
-            _RecordedContrat = new Contrat();
-            _RecordedPoste = new Poste();
-            _RecordedOffre = new Offre();
-            _RecordedJours = 0;
+            _RecordedSociete = _DefaultSociete;
+            _RecordedRegion = _DefaultRegion;
+            _RecordedContrat = _DefaultContrat;
+            _RecordedPoste = _DefaultPoste;
+            _RecordedJour = _DefaultJour;
 
-            this.FillingComboBox();
-            _RecordedSelection = new Selection(_RecordedSociete,_RecordedPoste,_RecordedRegion,_RecordedContrat, 0);
+            _RecordedOffre = new Offre();
+            
+            this.FillingAllComboBox();
+
+            _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
+
             this.FillingDataGridView(_RecordedSelection);
 
-            this.ModelingColumns();
-
-            labelResultat.Text = String.Empty;
+            //labelResultat.Text = String.Empty;
             this.EnabledButtonPreference();
 
             panelPreference.Visible = false;
 
         }
-        #region "Méthodes propres à la classe"
-        private void FillingComboBox()
-        {
-            SocieteManager societeManager = new SocieteManager();
 
-            bindingSourceSociete.DataSource = societeManager.RetrieveAll("Toutes", new Societe());
-            comboBoxSociete.DataSource = bindingSourceSociete;
-            comboBoxSociete.ValueMember = "Id";
-            comboBoxSociete.DisplayMember = "Nom";
-
-            RegionManager regionManager = new RegionManager();
-            List<BO.Region> regions = new List<BO.Region>();
-            BO.Region region = new BO.Region();
-            bindingSourceRegion.DataSource = regionManager.RetrieveAll("Toutes", new BO.Region());
-            comboBoxRegion.DataSource = bindingSourceRegion;
-            comboBoxRegion.ValueMember = "Id";
-            comboBoxRegion.DisplayMember = "Nom";
-
-            ContratManager contratManager = new ContratManager();
-            bindingSourceContrat.DataSource = contratManager.RetrieveAll("Tous", new Contrat());
-            comboBoxContrat.DataSource = bindingSourceContrat;
-            comboBoxContrat.ValueMember = "Id";
-            comboBoxContrat.DisplayMember = "Nom";
-
-            PosteManager posteManager = new PosteManager();
-            bindingSourcePoste.DataSource = posteManager.RetrieveAll("Tous", new Poste());
-            comboBoxPoste.DataSource = bindingSourcePoste;
-            comboBoxPoste.ValueMember = "Id";
-            comboBoxPoste.DisplayMember = "Nom";
-
-
-            comboBoxJours.DataSource = _Jours;
-        }
-        private void FillingDataGridView(Selection selection)
-        {
-            List<Offre> offres;
-            OffreManager offreManager = new OffreManager();
-
-            offres = (selection != null) ? offreManager.RetrieveBySelection(selection) : offreManager.RetrieveAll();
-
-            bindingSourceOffre.DataSource = offres;
-            dataGridViewOffre.DataSource = bindingSourceOffre;
-            ModelingDataGridView();
-        }
-        private void ModelingDataGridView()
-        {
-            int nombre = dataGridViewOffre.RowCount;
-            dataGridViewOffre.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            int totalRowHeight = dataGridViewOffre.ColumnHeadersHeight + 5;
-
-
-            foreach (DataGridViewRow row in dataGridViewOffre.Rows)
-            {
-                totalRowHeight += row.Height;
-            }
-
-            dataGridViewOffre.Height = totalRowHeight;
-        }
-        private void ModelingColumns()
-        {
-            dataGridViewOffre.Columns["Id"].Visible = false;
-            dataGridViewOffre.Columns["Nom"].Visible = false;
-            dataGridViewOffre.Columns["MySelection"].Visible = false;
-            dataGridViewOffre.Columns["Description"].Visible = false;
-            dataGridViewOffre.Columns["LienAnnonce"].Visible = false;
-            dataGridViewOffre.Columns["DatePublication"].Visible = false;
-            dataGridViewOffre.Columns["NomSociete"].HeaderText = "Société";
-            dataGridViewOffre.Columns["NomRegion"].HeaderText = "Région";
-            dataGridViewOffre.Columns["TypeContrat"].HeaderText = "Contrat";
-            dataGridViewOffre.Columns["TypePoste"].HeaderText = "Poste";
-            dataGridViewOffre.Columns["Publication"].DefaultCellStyle.ForeColor = Color.DarkOliveGreen;
-            dataGridViewOffre.Columns["NomSociete"].DefaultCellStyle.ForeColor = Color.DarkGreen;
-            dataGridViewOffre.Columns["NomRegion"].DefaultCellStyle.ForeColor = Color.DarkSlateBlue;
-            dataGridViewOffre.Columns["TypeContrat"].DefaultCellStyle.ForeColor = Color.DarkCyan;
-            dataGridViewOffre.Columns["TypePoste"].DefaultCellStyle.ForeColor = Color.DarkMagenta;
-        }
-
-        public string ConstructAction(string action)
-        {
-            return $"Offre {action} avec succès";
-        }
-
-        private void FillingPreference(Selection preference)
-        {
-            labelPreferenceSociete.Text = preference.MySociete.Nom;
-            comboBoxSociete.SelectedValue = comboBoxSociete.FindStringExact(labelPreferenceSociete.Text);
-
-            labelPreferenceRegion.Text = preference.MyRegion.Nom;
-            comboBoxRegion.SelectedValue = comboBoxRegion.FindStringExact(labelPreferenceRegion.Text);
-
-            labelPreferencePoste.Text = preference.MyPoste.Nom;
-            comboBoxPoste.SelectedValue = comboBoxPoste.FindStringExact(labelPreferencePoste.Text);
-
-            labelPreferenceContrat.Text = preference.MyContrat.Nom;
-            comboBoxContrat.SelectedValue = comboBoxContrat.FindStringExact(labelPreferenceContrat.Text);
-
-            labelPreferenceJours.Text = (preference.NbrJour != 0) ? _Preference.NbrJour.ToString() : _Jours.First();
-            comboBoxJours.SelectedIndex = comboBoxJours.FindStringExact(labelPreferenceJours.Text);
-
-        }
-
-        #endregion "Méthodes propres à la classe"
-
+        #region "Gestion des selections"
         private void bindingSourceSociete_CurrentItemChanged(object sender, EventArgs e)
         {
             if (bindingSourceSociete.Current != null && _RecordedSelection != null)
             {
                 _RecordedSociete = new Societe((Consultation)bindingSourceSociete.Current);
-               _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
                 labelPreferenceSociete.Text = _RecordedSelection.MySociete.Nom;
                 this.FillingDataGridView(_RecordedSelection);
             }
@@ -179,7 +82,7 @@ namespace IHM
             if (bindingSourceRegion.Current != null && _RecordedSelection != null)
             {
                 _RecordedRegion = new BO.Region((Consultation)bindingSourceRegion.Current);
-                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
                 labelPreferenceRegion.Text = _RecordedSelection.MyRegion.Nom;
                 this.FillingDataGridView(_RecordedSelection);
             }
@@ -190,7 +93,7 @@ namespace IHM
             if (bindingSourceContrat.Current != null && _RecordedSelection != null)
             {
                 _RecordedContrat = new Contrat((Consultation)bindingSourceContrat.Current);
-                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
                 labelPreferenceContrat.Text = _RecordedSelection.MyContrat.Nom;
                 this.FillingDataGridView(_RecordedSelection);
             }
@@ -201,23 +104,20 @@ namespace IHM
             if (bindingSourcePoste.Current != null && _RecordedSelection != null)
             {
                 _RecordedPoste = new Poste((Consultation)bindingSourcePoste.Current);
-                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
                 labelPreferencePoste.Text = _RecordedSelection.MyPoste.Nom;
                 this.FillingDataGridView(_RecordedSelection);
             }
         }
-
-        private void comboBoxJours_SelectedValueChanged(object sender, EventArgs e)
+        private void bindingSourceJour_CurrentItemChanged(object sender, EventArgs e)
         {
-            if (comboBoxJours.SelectedValue != null && _RecordedSelection != null)
+            if (bindingSourceJour.Current != null && _RecordedSelection != null)
             {
-                _RecordedJours = (comboBoxJours.SelectedValue.ToString() != _Jours.First()) ? Convert.ToInt32(comboBoxJours.SelectedValue) : 0;
-
-                _RecordedSelection = new Selection(_RecordedSociete,_RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJours);
-                labelPreferenceJours.Text = (_RecordedSelection.NbrJour != 0) ? _RecordedSelection.NbrJour.ToString() : _Jours.First();
+                _RecordedJour = new Jour((Consultation)bindingSourceJour.Current);
+                _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
+                labelPreferenceJours.Text = _RecordedSelection.NbrJour.Nom;
                 this.FillingDataGridView(_RecordedSelection);
             }
-
         }
 
         private void bindingSourceOffre_CurrentItemChanged(object sender, EventArgs e)
@@ -225,6 +125,8 @@ namespace IHM
             if (bindingSourceOffre.Current != null)
             {
                 _RecordedOffre = (Offre)bindingSourceOffre.Current;
+                labelResultat.Text =$"Offre n°{_RecordedOffre.Id} séléctionnée";
+                labelResultat.ForeColor = Color.Gainsboro;
             }
             else
             {
@@ -232,7 +134,10 @@ namespace IHM
             }
         }
 
+        #endregion "Gestion des selections"
 
+        #region "Gestion des boutons CRUD"
+        
         private void buttonSelect_Click(object sender, EventArgs e)
         {
             if (_RecordedOffre != null)
@@ -255,6 +160,7 @@ namespace IHM
         {
             if (_RecordedOffre != null)
             {
+                _RecordedId = _RecordedOffre.Id;
                 this.Opacity = 0.5;
                 using (frmYellow fenetre = new frmYellow(_RecordedOffre))
                 {
@@ -263,7 +169,7 @@ namespace IHM
                     {
                         this.Opacity = 1;
                         FillingDataGridView(_RecordedSelection);
-                        labelResultat.Text = ConstructAction(MODIFIE);
+                        labelResultat.Text = ConstructAction(_RecordedId,MODIFIE);
                         labelResultat.ForeColor = Color.Orange;
                     }
                 }
@@ -287,7 +193,9 @@ namespace IHM
                 {
                     this.Opacity = 1;
                     FillingDataGridView(_RecordedSelection);
-                    labelResultat.Text = ConstructAction(CREE);
+                    dataGridViewOffre.Rows[0].Selected = true;
+                    _RecordedId = Convert.ToInt32(dataGridViewOffre.SelectedCells[5].Value);
+                    labelResultat.Text = ConstructAction(_RecordedId,CREE);
                     labelResultat.ForeColor = Color.OliveDrab;
                 }
             }
@@ -299,13 +207,14 @@ namespace IHM
             this.Opacity = 0.5;
             if (_RecordedOffre != null)
             {
+                _RecordedId = _RecordedOffre.Id;
                 using (frmRed fenetre = new frmRed(_RecordedOffre))
                 {
                     fenetre.ShowDialog();
                     if (fenetre.DialogResult == DialogResult.OK)
                     {
                         FillingDataGridView(_RecordedSelection);
-                        labelResultat.Text = ConstructAction(SUPPRIMEE);
+                        labelResultat.Text = ConstructAction(_RecordedId, SUPPRIMEE);
                         labelResultat.ForeColor = Color.DarkRed;
                     }
                 }
@@ -318,7 +227,9 @@ namespace IHM
             this.Opacity = 1;
 
         }
+        #endregion "Gestion des boutons CRUD"
 
+        #region "Gestion des préférences"
         private void checkBoxPreference_CheckedChanged(object sender, EventArgs e)
         {
             panelPreference.Visible = checkBoxPreference.Checked;
@@ -329,7 +240,7 @@ namespace IHM
             }
             else
             {
-                _Preference = new Selection();
+                _Preference = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
                 this.FillingPreference(_Preference);
             }
         }
@@ -348,12 +259,97 @@ namespace IHM
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
             this.DeletePreference();
-            _Preference = new Selection();
+            _Preference = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
             this.FillingPreference(_Preference);
 
         }
+        #endregion "Gestion des préférences"
+
+        #region "Méthodes propres à la classe"
+        private void FillingAllComboBox()
+        {
+            SocieteManager societeManager = new SocieteManager();
+            RegionManager regionManager = new RegionManager();
+            ContratManager contratManager = new ContratManager();
+            PosteManager posteManager = new PosteManager();
+            JourManager jourManager = new JourManager();
+
+            societeManager.FillingComboBox(_DefaultSociete, bindingSourceSociete, comboBoxSociete);
+            regionManager.FillingComboBox(_DefaultRegion, bindingSourceRegion, comboBoxRegion);
+            contratManager.FillingComboBox(_DefaultContrat, bindingSourceContrat, comboBoxContrat);
+            posteManager.FillingComboBox(_DefaultPoste, bindingSourcePoste, comboBoxPoste);
+            jourManager.FillingComboBox(_DefaultJour, bindingSourceJour, comboBoxJour);
+        }
+
+        private void FillingDataGridView(Selection selection)
+        {
+            List<Offre> offres;
+            OffreManager offreManager = new OffreManager();
+
+            offres = (selection != null) ? offreManager.RetrieveBySelection(selection) : offreManager.RetrieveAll();
+
+            bindingSourceOffre.DataSource = offres;
+            dataGridViewOffre.DataSource = bindingSourceOffre;
+            ModelingRowsDataGridView();
+            ModelingColumnsDataGridView();
+        }
+        private void ModelingRowsDataGridView()
+        {
+            int nombre = dataGridViewOffre.RowCount;
+            dataGridViewOffre.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            int totalRowHeight = dataGridViewOffre.ColumnHeadersHeight;
+            foreach (DataGridViewRow row in dataGridViewOffre.Rows)
+            {
+                totalRowHeight += row.Height;
+            }
+
+            dataGridViewOffre.Height = totalRowHeight;
+        }
+        private void ModelingColumnsDataGridView()
+        {
+            dataGridViewOffre.Columns["Id"].Visible = false;
+            dataGridViewOffre.Columns["MySelection"].Visible = false;
+            dataGridViewOffre.Columns["Description"].Visible = false;
+            dataGridViewOffre.Columns["LienAnnonce"].Visible = false;
+            dataGridViewOffre.Columns["DatePublication"].Visible = false;
+            dataGridViewOffre.Columns["NomSociete"].HeaderText = "Société";
+            dataGridViewOffre.Columns["NomRegion"].HeaderText = "Région";
+            dataGridViewOffre.Columns["TypeContrat"].HeaderText = "Contrat";
+            dataGridViewOffre.Columns["TypePoste"].HeaderText = "Poste";
+            dataGridViewOffre.Columns["Publication"].DefaultCellStyle.ForeColor = Color.DarkOliveGreen;
+            dataGridViewOffre.Columns["NomSociete"].DefaultCellStyle.ForeColor = Color.DarkGreen;
+            dataGridViewOffre.Columns["NomRegion"].DefaultCellStyle.ForeColor = Color.DarkSlateBlue;
+            dataGridViewOffre.Columns["TypeContrat"].DefaultCellStyle.ForeColor = Color.DarkCyan;
+            dataGridViewOffre.Columns["TypePoste"].DefaultCellStyle.ForeColor = Color.DarkMagenta;
+        }
+
+        public string ConstructAction(int id,string action)
+        {
+            return $"Offre n°{id} {action} avec succès";
+        }
+
+        private void FillingPreference(Selection preference)
+        {
+            labelPreferenceSociete.Text = preference.MySociete.Nom;
+            comboBoxSociete.SelectedValue = comboBoxSociete.FindStringExact(labelPreferenceSociete.Text);
+
+            labelPreferenceRegion.Text = preference.MyRegion.Nom;
+            comboBoxRegion.SelectedValue = comboBoxRegion.FindStringExact(labelPreferenceRegion.Text);
+
+            labelPreferencePoste.Text = preference.MyPoste.Nom;
+            comboBoxPoste.SelectedValue = comboBoxPoste.FindStringExact(labelPreferencePoste.Text);
+
+            labelPreferenceContrat.Text = preference.MyContrat.Nom;
+            comboBoxContrat.SelectedValue = comboBoxContrat.FindStringExact(labelPreferenceContrat.Text);
+
+            labelPreferenceJours.Text = preference.NbrJour.Nom;
+            comboBoxJour.SelectedIndex = comboBoxJour.FindStringExact(labelPreferenceJours.Text);
+
+        }
+
         private Selection GetPreference()
         {
+            //File.Delete(PREFERENCEFILE);
             if (File.Exists(PREFERENCEFILE))
             {
                 Stream fichier = File.OpenRead(PREFERENCEFILE);
@@ -363,7 +359,7 @@ namespace IHM
             }
             else
             {
-                _Preference = new Selection();
+                _Preference = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
             }
             return _Preference;
         }
@@ -394,6 +390,9 @@ namespace IHM
             buttonReinitialiser.Enabled = enabled;
             buttonSupprimer.Enabled = enabled;
         }
+        #endregion "Méthodes propres à la classe"
+
+       
     }
 }
 

@@ -11,6 +11,6 @@ namespace BLL
 {
     public interface IConsultable<T> where T : Consultation
     {
-        List<T> RetrieveAll(string textItem, Consultation consultation);
+        List<T> RetrieveAll(T consultation);
     }
 }

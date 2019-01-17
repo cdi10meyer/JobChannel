@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Offre : Consultation, IComparable<Offre>
+    public class Offre :  IComparable<Offre>
     {
         #region "Propriétés d'instance"
+        
         [DataMember]
         public string Publication { get { return DatePublication.ToShortDateString(); } private set { } }
         [DataMember]
@@ -21,6 +22,8 @@ namespace BO
         public string TypePoste { get { return MySelection.MyPoste.Nom; } private set { } }
         [DataMember]
         public string TypeContrat { get { return MySelection.MyContrat.Nom; } private set { } }
+        [DataMember]
+        public int Id { get; set; }
         [DataMember]
         public string Description { get; set; }
         [DataMember]
@@ -36,6 +39,15 @@ namespace BO
         public Offre()
         {
             MySelection = new Selection();
+        }
+
+        public Offre(Offre offre)
+        {
+            Id = offre.Id;
+            Description = offre.Description;
+            LienAnnonce = offre.LienAnnonce;
+            DatePublication = offre.DatePublication;
+            MySelection = offre.MySelection;
         }
 
         #endregion "Constructeurs"

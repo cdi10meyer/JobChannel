@@ -23,7 +23,7 @@ namespace BO
         public Poste MyPoste { get; set; }
         
         [DataMember]
-        public int NbrJour { get; set; }
+        public Jour NbrJour { get; set; }
 
         #endregion "Propriétés d'instance"
 
@@ -35,9 +35,10 @@ namespace BO
             MyRegion = new Region();
             MyContrat = new Contrat();
             MyPoste = new Poste();
+            NbrJour = new Jour();
         }
 
-        public Selection(Societe societe,Poste poste, Region region, Contrat contrat, int nbrJour)
+        public Selection(Societe societe,Poste poste, Region region, Contrat contrat, Jour nbrJour)
         {
             MySociete = societe;
             MyPoste = poste;
@@ -47,11 +48,7 @@ namespace BO
         }
 
         #endregion "Constructeurs"
-
-
-        #region "Méthodes propres à la classe"
-
-        #endregion "Méthodes propres à la classe"
+        
 
         public override string ToString()
         {

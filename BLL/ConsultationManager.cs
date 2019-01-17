@@ -1,65 +1,47 @@
 ﻿using BO;
 using DAL;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BLL
 {
     public abstract class ConsultationManager : IConsultable<Consultation>
     {
-        public string Id { get; set; }
-        public string Nom { get; set; }
+        private static string URL_SERVICE = "http://user17.2isa.org/Service.svc";
+        private static RestClient Client = new RestClient(URL_SERVICE);
+        internal Consultation Consultation { get; set; }
+        //internal ConsultationDataAccess DataAccess { get; set; }
+        internal RestRequest Request { get; set; }
 
-        public List<Consultation> RetrieveAll(string textItem, Consultation consultation)
+        //internal ConsultationManager Manager { get; set; }
+        //internal string Id { get; set; }
+        //internal string Nom { get; set; }
+
+        public List<Consultation> RetrieveAll(Consultation consultation)
         {
-            ConsultationDataAccess dataAccess;
-            List<Consultation> consultations;
-            Consultation consultationItem;
-            if (consultation is Region)
+            List<Consultation> consultations = new List<Consultation>();
+            Request.AddParameter("textItem", consultation.Nom, ParameterType.UrlSegment);
+            Request.RequestFormat = DataFormat.Json;
+            IRestResponse<List<Consultation>> response = Client.Execute<List<Consultation>>(Request);
+            if (response.ResponseStatus == ResponseStatus.Completed)
             {
-                dataAccess = new RegionDataAccess();
-                consultationItem = new Region();
-
+                consultations = response.Data;
             }
-            else if (consultation is Societe)
-            {
-                dataAccess = new SocieteDataAccess();
-                consultationItem = new Societe();
-            }
-            else if (consultation is Poste)
-            {
-                dataAccess = new PosteDataAccess();
-                consultationItem = new Poste();
-            }
-            else
-            {
-                dataAccess = new ContratDataAccess();
-                consultationItem = new Contrat();
-            }
-
-            consultations = new List<Consultation>();
-            DataTable schemaTable = dataAccess.SelectAll();
-
-
-            foreach (DataRow row in schemaTable.Rows)
-            {
-                consultation = new Consultation();
-                consultation.Id = Convert.ToInt32(row[Id]);
-                consultation.Nom = row[Nom].ToString();
-
-                consultations.Add(consultation);
-
-            }
-            //Consultation consultationItem = new Consultation();
-            consultationItem.Id = 0;
-            consultationItem.Nom = textItem;
-            consultations.Insert(0, consultationItem);
             return consultations;
         }
-        
+        public void FillingComboBox(Consultation consultation, BindingSource bindingSource, ComboBox comboBox)
+        {
+            bindingSource.DataSource = this.RetrieveAll(consultation);
+            comboBox.DataSource = bindingSource;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Nom";
+        }
+
     }
 }

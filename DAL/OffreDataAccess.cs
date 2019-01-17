@@ -59,7 +59,7 @@ namespace DAL
             return rowCount;
         }
         public int InsertOffre(int IdContrat, int idPoste, int idSociete, int idRegion, string description, string lienAnnonce)
-        {
+        {   
             SqlCommand objInsertCommand = Connection.CreateConnection();
             objInsertCommand.CommandText = "P_INSERT_Offre";
             objInsertCommand.CommandType = CommandType.StoredProcedure;

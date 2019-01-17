@@ -20,58 +20,49 @@ namespace IHM
         BO.Region regionNew;
         Contrat contratNew;
         Poste posteNew;
+        private BO.Region _DefaultRegion = new BO.Region( "Selectionner une région...");
+        private Contrat _DefaultContrat = new Contrat("Selectionner un contrat...");
+        private Poste _DefaultPoste = new Poste("Selectionner un poste...");
+        private RegionManager _RegionManager;
+        private PosteManager _PosteManager;
+        private ContratManager _ContratManager;
         bool Ok = false;
         public frmYellow(Offre offre)
         {
             InitializeComponent();
+
+            _RegionManager = new RegionManager();
+            _PosteManager = new PosteManager();
+            _ContratManager = new ContratManager();
+
             _OldOffre = offre;
             _NewOffre = offre;
+
             this.DialogResult = DialogResult.Cancel;
 
-            this.FillingComboBox();
-            this.FillFormulaire(offre);
-            regionNew = new BO.Region();
-            contratNew = new Contrat();
-            posteNew = new Poste();
+            this.FillFormulaire(_OldOffre);
+
+            this.FillingAllComboBox();
+
+            buttonUpdate.Enabled = EnabledUpdate();
+
+            regionNew = _DefaultRegion;
+            contratNew = _DefaultContrat;
+            posteNew = _DefaultPoste;
 
             labelTitre.Text = $"Modification de l'offre N°{_OldOffre.Id}";
             labelResultat.Text = String.Empty;
 
         }
-        private void FillingComboBox()
-        {
-
-            RegionManager regionManager = new RegionManager();
-            bindingSourceRegion.DataSource = regionManager.RetrieveAll("Selectionner une région...", new BO.Region());
-            comboBoxRegion.DataSource = bindingSourceRegion;
-            comboBoxRegion.ValueMember = "Id";
-            comboBoxRegion.DisplayMember = "Nom";
-
-
-            ContratManager contratManager = new ContratManager();
-            bindingSourceContrat.DataSource = contratManager.RetrieveAll("Selectionner un contrat...", new Contrat());
-            comboBoxContrat.DataSource = bindingSourceContrat;
-            comboBoxContrat.ValueMember = "Id";
-            comboBoxContrat.DisplayMember = "Nom";
-
-            PosteManager posteManager = new PosteManager();
-            bindingSourcePoste.DataSource = posteManager.RetrieveAll("Selectionner un poste...", new Poste());
-            comboBoxPoste.DataSource = bindingSourcePoste;
-            comboBoxPoste.ValueMember = "Id";
-            comboBoxPoste.DisplayMember = "Nom";
-
-        }
-
+        
         private void bindingSourceRegion_CurrentChanged(object sender, EventArgs e)
         {
-
             if (bindingSourceRegion.Current != null && regionNew != null)
             {
-
                 regionNew = new BO.Region((Consultation)bindingSourceRegion.Current);
-                labelRegionNew.Text = regionNew.Nom;
-                _NewOffre.MySelection.MyRegion = regionNew;
-
+                labelRegionNew.Text = (regionNew.Id !=0)?regionNew.Nom : _OldOffre.MySelection.MyRegion.Nom;
+                buttonUpdate.Enabled = EnabledUpdate();
+                labelResultat.Text = String.Empty;
             }
 
         }
@@ -80,11 +71,10 @@ namespace IHM
         {
             if (bindingSourceContrat.Current != null && contratNew != null)
             {
-
                 contratNew = new Contrat((Consultation)bindingSourceContrat.Current);
-                labelContratNew.Text = contratNew.Nom;
-                _NewOffre.MySelection.MyContrat = contratNew;
-
+                labelContratNew.Text = (contratNew.Id != 0)? contratNew.Nom : _OldOffre.MySelection.MyContrat.Nom;
+                buttonUpdate.Enabled = EnabledUpdate();
+                labelResultat.Text = String.Empty;
             }
         }
 
@@ -92,27 +82,11 @@ namespace IHM
         {
             if (bindingSourcePoste.Current != null && posteNew != null)
             {
-
                 posteNew = new Poste((Consultation)bindingSourcePoste.Current);
-                labelPosteNew.Text = posteNew.Nom;
-                _NewOffre.MySelection.MyPoste = posteNew;
-
+                labelPosteNew.Text = (posteNew.Id != 0) ? posteNew.Nom : _OldOffre.MySelection.MyPoste.Nom;
+                buttonUpdate.Enabled = EnabledUpdate();
+                labelResultat.Text = String.Empty;
             }
-        }
-
-
-        private void FillFormulaire(Offre offre)
-        {
-            labelDatePublication.Text = offre.DatePublication.ToShortDateString();
-            labelSociete.Text = offre.MySelection.MySociete.Nom.ToUpper();
-            labelRegionOld.Text = offre.MySelection.MyRegion.Nom;
-            labelContratOld.Text = offre.MySelection.MyContrat.Nom;
-            labelPosteOld.Text = offre.MySelection.MyPoste.Nom;
-            textBoxDescriptionOld.Text = offre.Description;
-            textBoxLienAnnonceOld.Text = offre.LienAnnonce;
-            labelRegionNew.Text = String.Empty;
-            labelContratNew.Text = String.Empty;
-            labelPosteNew.Text = String.Empty;
         }
 
         private void frmYellow_FormClosing(object sender, FormClosingEventArgs e)
@@ -122,24 +96,69 @@ namespace IHM
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-
-            _NewOffre.MySelection.MyRegion = (labelRegionOld.Text == String.Empty) ? _OldOffre.MySelection.MyRegion : _NewOffre.MySelection.MyRegion;
-            _NewOffre.MySelection.MyContrat = (labelContratNew.Text == String.Empty) ? _OldOffre.MySelection.MyContrat : _NewOffre.MySelection.MyContrat;
-            _NewOffre.MySelection.MyPoste = (labelPosteNew.Text == String.Empty) ? _OldOffre.MySelection.MyPoste : _NewOffre.MySelection.MyPoste;
-            _NewOffre.Description = (textBoxDescriptionNew.Text == String.Empty) ? textBoxDescriptionOld.Text : textBoxDescriptionNew.Text;
-            _NewOffre.LienAnnonce = (textBoxLienAnnonceNew.Text == String.Empty) ? textBoxLienAnnonceOld.Text : textBoxLienAnnonceNew.Text;
+            _NewOffre.MySelection.MyPoste = (posteNew.Id != 0) ? posteNew : _OldOffre.MySelection.MyPoste;
+            _NewOffre.MySelection.MyContrat = (contratNew.Id != 0) ? contratNew : _OldOffre.MySelection.MyContrat;
+            _NewOffre.MySelection.MyRegion = (regionNew.Id != 0) ? regionNew : _OldOffre.MySelection.MyRegion;
+            _NewOffre.Description = textBoxDescriptionNew.Text;
+            _NewOffre.LienAnnonce = String.IsNullOrWhiteSpace(textBoxLienAnnonceNew.Text) ? String.Empty : textBoxLienAnnonceNew.Text; 
             OffreManager offreManager = new OffreManager();
             Ok = offreManager.Update(_NewOffre);
             if (Ok)
             {
                 this.FillFormulaire(_NewOffre);
                 labelResultat.Text = $"Offre modifiée";
+                buttonUpdate.Enabled = EnabledUpdate();
             }
             else
             {
                 labelResultat.Text = $"Offre non modifiée";
                 labelResultat.ForeColor = Color.DarkRed;
+                buttonUpdate.Enabled = EnabledUpdate();
             }
+        }
+        
+        private void textBoxDescriptionNew_TextChanged(object sender, EventArgs e)
+        {
+            buttonUpdate.Enabled = EnabledUpdate();
+            labelResultat.Text = String.Empty;
+        }
+
+        private void textBoxLienAnnonceNew_TextChanged(object sender, EventArgs e)
+        {
+            buttonUpdate.Enabled = EnabledUpdate();
+            labelResultat.Text = String.Empty;
+        }
+
+        private void FillFormulaire(Offre uneOffre)
+        {
+            labelDatePublication.Text = uneOffre.DatePublication.ToShortDateString();
+            labelSociete.Text = uneOffre.MySelection.MySociete.Nom.ToUpper();
+            labelRegionOld.Text = uneOffre.MySelection.MyRegion.Nom;
+            labelContratOld.Text = uneOffre.MySelection.MyContrat.Nom;
+            labelPosteOld.Text = uneOffre.MySelection.MyPoste.Nom;
+            textBoxDescriptionOld.Text = uneOffre.Description;
+            textBoxLienAnnonceOld.Text = uneOffre.LienAnnonce;
+            labelRegionNew.Text = _OldOffre.MySelection.MyRegion.Nom;
+            labelContratNew.Text = _OldOffre.MySelection.MyContrat.Nom;
+            labelPosteNew.Text = _OldOffre.MySelection.MyPoste.Nom;
+            textBoxDescriptionNew.Text = _OldOffre.Description;
+            textBoxLienAnnonceNew.Text = _OldOffre.LienAnnonce;
+        }
+        private bool EnabledUpdate()
+        {
+            return !(textBoxDescriptionOld.Text == textBoxDescriptionNew.Text
+                   && textBoxLienAnnonceOld.Text == textBoxLienAnnonceNew.Text
+                   && labelRegionOld.Text == labelRegionNew.Text
+                   && labelContratOld.Text == labelContratNew.Text
+                   && labelPosteOld.Text == labelPosteNew.Text)
+                   && !String.IsNullOrWhiteSpace(textBoxDescriptionNew.Text);
+        }
+        private void FillingAllComboBox()
+        {
+            _RegionManager.FillingComboBox(_DefaultRegion, bindingSourceRegion, comboBoxRegion);
+            _ContratManager.FillingComboBox(_DefaultContrat, bindingSourceContrat, comboBoxContrat);
+            _PosteManager.FillingComboBox(_DefaultPoste, bindingSourcePoste, comboBoxPoste);
+
         }
     }
 }

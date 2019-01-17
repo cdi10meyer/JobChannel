@@ -8,19 +8,25 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Region : Consultation
+    public class Jour : Consultation
     {
         #region "Constructeurs"
-        public Region(string nom)
+
+        public Jour(int id)
+        {
+            Id = id;
+            Nom = $"{id} derniers jours";
+        }
+        public Jour(string nom)
         {
             Id = 0;
             Nom = nom;
         }
-        public Region() : this(String.Empty)
+        public Jour() : this(String.Empty)
         {
 
         }
-        public Region(Consultation consultation)
+        public Jour(Consultation consultation)
         {
             Id = consultation.Id;
             Nom = consultation.Nom;

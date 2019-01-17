@@ -20,28 +20,46 @@ namespace IHM
         private Contrat _ContratNew;
         private Poste _PosteNew;
         private Societe _SocieteNew;
+
+        private BO.Region _DefaultRegion = new BO.Region("Selectionner une région...");
+        private Contrat _DefaultContrat = new Contrat( "Selectionner un contrat...");
+        private Poste _DefaultPoste = new Poste("Selectionner un poste...");
+        private Societe _DefaultSociete = new Societe("Selectionner une société...");
+
         private Color _ColorEmpty = Color.Snow;
         private Color _ColorClair = Color.Honeydew;
         private Color _ColorFonce = Color.OliveDrab;
+
+        private SocieteManager _SocieteManager;
+        private RegionManager _RegionManager;
+        private PosteManager _PosteManager;
+        private ContratManager _ContratManager;
         //private const string CHAMPS = "*Champs obligatoire*";
         private bool Ok = false;
 
         public frmGreen()
         {
             InitializeComponent();
+            _RegionNew = _DefaultRegion;
+            _ContratNew = _DefaultContrat;
+            _PosteNew = _DefaultPoste;
+            _SocieteNew = _DefaultSociete;
+
+            _SocieteManager = new SocieteManager();
+            _RegionManager = new RegionManager();
+            _PosteManager = new PosteManager();
+            _ContratManager = new ContratManager();
+
             this.DialogResult = DialogResult.Cancel;
             _NewOffre = new Offre();
 
-            this.FillingComboBox();
+            this.FillingAllComboBox();
 
             this.FillFormulaire();
 
             buttonInsert.Visible = this.EnabledInsertion();
 
-            _RegionNew = new BO.Region();
-            _ContratNew = new Contrat();
-            _PosteNew = new Poste();
-            _SocieteNew = new Societe();
+            
 
             labelTitre.Text = "Création d'une nouvelle Offre";
             labelInsert.Text = "Veuillez remplir les champs obligatoires";
@@ -69,39 +87,18 @@ namespace IHM
             panelDescription.BackColor = _ColorEmpty;
             textBoxDescription.BackColor = _ColorEmpty;
         }
-        private void FillingComboBox()
+        private void FillingAllComboBox()
         {
-            SocieteManager societeManager = new SocieteManager();
-            bindingSourceSociete.DataSource = societeManager.RetrieveAll("Selectionner une société...", new Societe());
-            comboBoxSociete.DataSource = bindingSourceSociete;
-            comboBoxSociete.ValueMember = "Id";
-            comboBoxSociete.DisplayMember = "Nom";
-
-            RegionManager regionManager = new RegionManager();
-            bindingSourceRegion.DataSource = regionManager.RetrieveAll("Selectionner une région...", new BO.Region());
-            comboBoxRegion.DataSource = bindingSourceRegion;
-            comboBoxRegion.ValueMember = "Id";
-            comboBoxRegion.DisplayMember = "Nom";
-
-
-            ContratManager contratManager = new ContratManager();
-            bindingSourceContrat.DataSource = contratManager.RetrieveAll("Selectionner un contrat...", new Contrat());
-            comboBoxContrat.DataSource = bindingSourceContrat;
-            comboBoxContrat.ValueMember = "Id";
-            comboBoxContrat.DisplayMember = "Nom";
-
-            PosteManager posteManager = new PosteManager();
-            bindingSourcePoste.DataSource = posteManager.RetrieveAll("Selectionner un poste...", new Poste());
-            comboBoxPoste.DataSource = bindingSourcePoste;
-            comboBoxPoste.ValueMember = "Id";
-            comboBoxPoste.DisplayMember = "Nom";
-
+            _SocieteManager.FillingComboBox(_DefaultSociete, bindingSourceSociete, comboBoxSociete);
+            _RegionManager.FillingComboBox(_DefaultRegion, bindingSourceRegion, comboBoxRegion);
+            _ContratManager.FillingComboBox(_DefaultContrat, bindingSourceContrat, comboBoxContrat);
+            _PosteManager.FillingComboBox(_DefaultPoste, bindingSourcePoste, comboBoxPoste);
         }
         private void bindingSourceSociete_CurrentItemChanged(object sender, EventArgs e)
         {
             if (bindingSourceSociete.Current != null && _SocieteNew != null)
             {
-                _SocieteNew = (Societe)bindingSourceSociete.Current;
+                _SocieteNew = new Societe((Consultation)bindingSourceSociete.Current);
 
                 labelSociete.Text = (_SocieteNew.Id != 0) ? _SocieteNew.Nom : String.Empty;
                 _NewOffre.MySelection.MySociete = (_SocieteNew.Id != 0) ? _SocieteNew : null;
@@ -115,7 +112,7 @@ namespace IHM
         {
             if (bindingSourceRegion.Current != null && _RegionNew != null)
             {
-                _RegionNew = (BO.Region)bindingSourceRegion.Current;
+                _RegionNew = new BO.Region((Consultation)bindingSourceRegion.Current);
 
                 labelRegion.Text = (_RegionNew.Id !=0)?_RegionNew.Nom : String.Empty;
                 _NewOffre.MySelection.MyRegion = (_RegionNew.Id != 0) ? _RegionNew : null;
@@ -129,7 +126,7 @@ namespace IHM
         {
             if (bindingSourceContrat.Current != null && _ContratNew != null)
             {
-                _ContratNew = (Contrat)bindingSourceContrat.Current;
+                _ContratNew = new Contrat((Consultation)bindingSourceContrat.Current);
 
                 labelContrat.Text =(_ContratNew.Id!=0)? _ContratNew.Nom : String.Empty;
                 _NewOffre.MySelection.MyContrat = (_ContratNew.Id != 0) ? _ContratNew : null;
@@ -145,7 +142,7 @@ namespace IHM
         {
             if (bindingSourcePoste.Current != null && _PosteNew != null)
             {
-                _PosteNew = (Poste)bindingSourcePoste.Current;
+                _PosteNew = new Poste((Consultation)bindingSourcePoste.Current);
                 labelPoste.Text = (_PosteNew.Id !=0)?_PosteNew.Nom : String.Empty;
                 _NewOffre.MySelection.MyPoste = (_PosteNew.Id != 0) ? _PosteNew : null;
                 panelPoste.BackColor = (_PosteNew.Id != 0) ? _ColorFonce : _ColorEmpty;
@@ -172,7 +169,7 @@ namespace IHM
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             _NewOffre.Description = textBoxDescription.Text;
-            _NewOffre.LienAnnonce = textBoxLienAnnonce.Text;
+            _NewOffre.LienAnnonce = String.IsNullOrWhiteSpace(textBoxLienAnnonce.Text)? String.Empty: textBoxLienAnnonce.Text;
 
             OffreManager offreManager = new OffreManager();
             int insertOffre = offreManager.Create(_NewOffre);

@@ -1,5 +1,6 @@
 ﻿using BO;
 using DAL;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,8 +14,10 @@ namespace BLL
     {
         public ContratManager()
         {
-            Id = "ID_CONTRAT";
-            Nom = "TYPE_CONTRAT";
+            Consultation = new Contrat();
+            Request = new RestRequest("RetrieveAllContrats/{textItem}");
+            //Id = "ID_CONTRAT";
+            //Nom = "TYPE_CONTRAT";
         }
 
         //public List<Contrat> RetrieveAll(string textItem)

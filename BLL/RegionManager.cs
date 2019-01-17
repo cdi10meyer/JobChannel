@@ -1,5 +1,6 @@
 ﻿using BO;
 using DAL;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,8 +14,10 @@ namespace BLL
     {
         public RegionManager()
         {
-            Id = "ID_REGION";
-            Nom = "NOM_REGION";
+            Consultation = new Region();
+            Request = new RestRequest("RetrieveAllRegions/{textItem}");
+            //Id = "ID_REGION";
+            //Nom = "NOM_REGION";
         }
         //public List<Region> RetrieveAllRegionsToutes()
         //{

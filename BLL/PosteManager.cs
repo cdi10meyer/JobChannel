@@ -1,5 +1,6 @@
 ﻿using BO;
 using DAL;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,8 +14,10 @@ namespace BLL
     {
         public PosteManager()
         {
-            Id = "ID_POSTE";
-            Nom = "TYPE_POSTE";
+            Consultation = new Poste();
+            Request = new RestRequest("RetrieveAllPostes/{textItem}");
+            //Id = "ID_POSTE";
+            //Nom = "TYPE_POSTE";
         }
 
         //public List<Poste> RetrieveAll(string textItem, ConsultationDataAccess dataAccess, List<Consultation> consultations, Consultation consultation)

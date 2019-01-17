@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contrat.cs" />
+    <Compile Include="Jour.cs" />
     <Compile Include="Offre.cs" />
     <Compile Include="Poste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

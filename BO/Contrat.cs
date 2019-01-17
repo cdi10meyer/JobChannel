@@ -11,10 +11,14 @@ namespace BO
     public class Contrat : Consultation
     {
         #region "Constructeurs"
-        public Contrat()
+        public Contrat(string nom)
         {
             Id = 0;
-            Nom = "Tous";
+            Nom = nom;
+        }
+        public Contrat() : this(String.Empty)
+        {
+
         }
         public Contrat(Consultation consultation)
         {

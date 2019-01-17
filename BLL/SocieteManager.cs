@@ -1,5 +1,6 @@
 ﻿using BO;
 using DAL;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,8 +14,10 @@ namespace BLL
     {
         public SocieteManager()
         {
-            Id = "ID_SOCIETE";
-            Nom = "NOM_SOCIETE";
+            Consultation = new Societe();
+            Request = new RestRequest("RetrieveAllSocietes/{textItem}");
+            //Id = "ID_SOCIETE";
+            //Nom = "NOM_SOCIETE";
         }
 
         public bool Update(Societe societe)

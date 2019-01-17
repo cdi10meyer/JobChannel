@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.DirectoryServices.AccountManagement;
 
 namespace IHM
 {
@@ -18,8 +19,10 @@ namespace IHM
         public frmAccueil() : base()
         {
             InitializeComponent();
+            labelTitre.Text = $"{UserPrincipal.Current.GivenName} {UserPrincipal.Current.Surname}";
+
         }
-        
+
 
         private void btnVisualiser_Click(object sender, EventArgs e)
         {

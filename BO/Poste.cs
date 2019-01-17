@@ -12,10 +12,15 @@ namespace BO
     {
 
         #region "Constructeurs"
-        public Poste()
+
+        public Poste(string nom)
         {
             Id = 0;
-            Nom = "Tous";
+            Nom = nom;
+        }
+        public Poste() : this(String.Empty)
+        {
+
         }
         public Poste(Consultation consultation)
         {

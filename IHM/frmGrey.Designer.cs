@@ -53,7 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxSociete = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxJours = new MetroFramework.Controls.MetroComboBox();
+            this.comboBoxJour = new MetroFramework.Controls.MetroComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewOffre = new MetroFramework.Controls.MetroGrid();
@@ -72,6 +72,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.bindingSourceSociete = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceJour = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).BeginInit();
@@ -83,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffre)).BeginInit();
             this.panelPreference.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceJour)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingSourceOffre
@@ -149,12 +151,12 @@
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Gainsboro;
             this.tableLayoutPanel2.ColumnCount = 14;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 175F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -175,7 +177,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label5, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxSociete, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBoxJours, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxJour, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label4, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 45);
@@ -295,7 +297,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(630, 8);
+            this.label2.Location = new System.Drawing.Point(640, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 18;
@@ -307,7 +309,7 @@
             this.comboBoxContrat.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxContrat.FormattingEnabled = true;
             this.comboBoxContrat.ItemHeight = 19;
-            this.comboBoxContrat.Location = new System.Drawing.Point(630, 27);
+            this.comboBoxContrat.Location = new System.Drawing.Point(640, 27);
             this.comboBoxContrat.Name = "comboBoxContrat";
             this.comboBoxContrat.Size = new System.Drawing.Size(169, 25);
             this.comboBoxContrat.Style = MetroFramework.MetroColorStyle.Silver;
@@ -320,7 +322,7 @@
             this.comboBoxPoste.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxPoste.FormattingEnabled = true;
             this.comboBoxPoste.ItemHeight = 19;
-            this.comboBoxPoste.Location = new System.Drawing.Point(455, 27);
+            this.comboBoxPoste.Location = new System.Drawing.Point(465, 27);
             this.comboBoxPoste.Name = "comboBoxPoste";
             this.comboBoxPoste.Size = new System.Drawing.Size(169, 25);
             this.comboBoxPoste.Style = MetroFramework.MetroColorStyle.Silver;
@@ -333,7 +335,7 @@
             this.labelPoste.AutoSize = true;
             this.labelPoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPoste.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.labelPoste.Location = new System.Drawing.Point(455, 8);
+            this.labelPoste.Location = new System.Drawing.Point(465, 8);
             this.labelPoste.Name = "labelPoste";
             this.labelPoste.Size = new System.Drawing.Size(48, 16);
             this.labelPoste.TabIndex = 5;
@@ -345,7 +347,7 @@
             this.comboBoxRegion.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxRegion.FormattingEnabled = true;
             this.comboBoxRegion.ItemHeight = 19;
-            this.comboBoxRegion.Location = new System.Drawing.Point(280, 27);
+            this.comboBoxRegion.Location = new System.Drawing.Point(290, 27);
             this.comboBoxRegion.Name = "comboBoxRegion";
             this.comboBoxRegion.Size = new System.Drawing.Size(169, 25);
             this.comboBoxRegion.Style = MetroFramework.MetroColorStyle.Silver;
@@ -358,7 +360,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.label5.Location = new System.Drawing.Point(280, 8);
+            this.label5.Location = new System.Drawing.Point(290, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 16);
             this.label5.TabIndex = 15;
@@ -370,7 +372,7 @@
             this.comboBoxSociete.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.comboBoxSociete.FormattingEnabled = true;
             this.comboBoxSociete.ItemHeight = 19;
-            this.comboBoxSociete.Location = new System.Drawing.Point(105, 27);
+            this.comboBoxSociete.Location = new System.Drawing.Point(115, 27);
             this.comboBoxSociete.Name = "comboBoxSociete";
             this.comboBoxSociete.Size = new System.Drawing.Size(169, 25);
             this.comboBoxSociete.Style = MetroFramework.MetroColorStyle.Silver;
@@ -383,25 +385,24 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(105, 8);
+            this.label1.Location = new System.Drawing.Point(115, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 16);
             this.label1.TabIndex = 20;
             this.label1.Text = "Société";
             // 
-            // comboBoxJours
+            // comboBoxJour
             // 
-            this.comboBoxJours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxJours.FontSize = MetroFramework.MetroComboBoxSize.Small;
-            this.comboBoxJours.FormattingEnabled = true;
-            this.comboBoxJours.ItemHeight = 19;
-            this.comboBoxJours.Location = new System.Drawing.Point(5, 27);
-            this.comboBoxJours.Name = "comboBoxJours";
-            this.comboBoxJours.Size = new System.Drawing.Size(94, 25);
-            this.comboBoxJours.Style = MetroFramework.MetroColorStyle.Silver;
-            this.comboBoxJours.TabIndex = 13;
-            this.comboBoxJours.UseSelectable = true;
-            this.comboBoxJours.SelectedValueChanged += new System.EventHandler(this.comboBoxJours_SelectedValueChanged);
+            this.comboBoxJour.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxJour.FontSize = MetroFramework.MetroComboBoxSize.Small;
+            this.comboBoxJour.FormattingEnabled = true;
+            this.comboBoxJour.ItemHeight = 19;
+            this.comboBoxJour.Location = new System.Drawing.Point(5, 27);
+            this.comboBoxJour.Name = "comboBoxJour";
+            this.comboBoxJour.Size = new System.Drawing.Size(104, 25);
+            this.comboBoxJour.Style = MetroFramework.MetroColorStyle.Silver;
+            this.comboBoxJour.TabIndex = 13;
+            this.comboBoxJour.UseSelectable = true;
             // 
             // label4
             // 
@@ -677,6 +678,10 @@
             // 
             this.bindingSourceSociete.CurrentItemChanged += new System.EventHandler(this.bindingSourceSociete_CurrentItemChanged);
             // 
+            // bindingSourceJour
+            // 
+            this.bindingSourceJour.CurrentItemChanged += new System.EventHandler(this.bindingSourceJour_CurrentItemChanged);
+            // 
             // frmGrey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -706,6 +711,7 @@
             this.panelPreference.ResumeLayout(false);
             this.panelPreference.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceJour)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -729,7 +735,7 @@
         private MetroFramework.Controls.MetroComboBox comboBoxRegion;
         private MetroFramework.Controls.MetroComboBox comboBoxContrat;
         private MetroFramework.Controls.MetroComboBox comboBoxPoste;
-        private MetroFramework.Controls.MetroComboBox comboBoxJours;
+        private MetroFramework.Controls.MetroComboBox comboBoxJour;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBoxPreference;
@@ -751,5 +757,6 @@
         private System.Windows.Forms.Label labelPreferenceSociete;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonSupprimer;
+        private System.Windows.Forms.BindingSource bindingSourceJour;
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="IConsultable.cs" />
     <Compile Include="IGerable.cs" />
     <Compile Include="ISelectionable.cs" />
+    <Compile Include="JourManager.cs" />
     <Compile Include="OffreManager.cs" />
     <Compile Include="PosteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

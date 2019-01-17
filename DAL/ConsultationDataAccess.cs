@@ -16,6 +16,7 @@ namespace DAL
         public DataTable SchemaTable { get; set; }
         [DataMember]
         public string Procedure { get; set; }
+
         public DataTable SelectAll()
         {
             SchemaTable = new DataTable();
