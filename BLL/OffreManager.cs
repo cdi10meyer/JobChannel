@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class OffreManager :  ISelectionable<Offre>
+    public class OffreManager :  IConsultableManager<Offre>,ISelectionableManager<Offre>, IGerableManager<Offre>
     {
         #region "Connection"
         private static string URL_SERVICE = "http://user17.2isa.org/Service.svc";
@@ -40,16 +40,7 @@ namespace BLL
             return rowCount > 0;
         }
 
-        public List<Offre> RetrieveAll(string textItem)
-        {
-            return RetrieveAllTous();
-        }
-        public List<Offre> RetrieveAll()
-        {
-            return RetrieveAll(null);
-        }
-
-        public List<Offre> RetrieveAllTous()
+        public List<Offre> RetrieveAll(Offre offre)
         {
             List<Offre> offres = new List<Offre>();
             RestRequest request = new RestRequest("RetrieveAllOffres", Method.GET);
@@ -61,6 +52,10 @@ namespace BLL
             }
             offres.Sort();
             return offres;
+        }
+        public List<Offre> RetrieveAll()
+        {
+            return RetrieveAll(null);
         }
 
         public List<Offre> RetrieveBySelection(Selection selection)

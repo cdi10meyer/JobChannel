@@ -11,17 +11,13 @@ using System.Windows.Forms;
 
 namespace BLL
 {
-    public abstract class ConsultationManager : IConsultable<Consultation>
+    public abstract class ConsultationManager : IConsultableManager<Consultation>
     {
         private static string URL_SERVICE = "http://user17.2isa.org/Service.svc";
         private static RestClient Client = new RestClient(URL_SERVICE);
-        internal Consultation Consultation { get; set; }
-        //internal ConsultationDataAccess DataAccess { get; set; }
-        internal RestRequest Request { get; set; }
 
-        //internal ConsultationManager Manager { get; set; }
-        //internal string Id { get; set; }
-        //internal string Nom { get; set; }
+        internal Consultation Consultation { get; set; }
+        internal RestRequest Request { get; set; }
 
         public List<Consultation> RetrieveAll(Consultation consultation)
         {
@@ -41,13 +37,6 @@ namespace BLL
             comboBox.DataSource = bindingSource;
             comboBox.ValueMember = "Id";
             comboBox.DisplayMember = "Nom";
-        }
-        public static void RemoveSelection(TextBox textbox)
-        {
-            if (textbox != null)
-            {
-                textbox.SelectionLength = 0;
-            }
         }
 
     }

@@ -1,16 +1,16 @@
 ﻿using BO;
+using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL
 {
-    public interface IGerable<T> where T : Consultation
+    public interface IConsultableManager<T>
     {
-        bool Update(T gerable);
-        int Create(T gerable);
-        bool Delete(T gerable);
+        List<T> RetrieveAll(T consultation);
     }
 }

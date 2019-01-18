@@ -12,10 +12,10 @@ namespace BO
     {
         #region "Constructeurs"
 
-        public Jour(int id)
+        public Jour(int id, string nom)
         {
             Id = id;
-            Nom = $"{id} derniers jours";
+            Nom = $"{id} {nom}";
         }
         public Jour(string nom)
         {

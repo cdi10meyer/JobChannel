@@ -10,25 +10,32 @@ using System.Threading.Tasks;
 namespace DAL
 {
     [DataContract]
-    public class OffreDataAccess 
+    public class OffreDataAccess : ConsultationDataAccess
     {
-        [DataMember]
-        public DataTable SchemaTable { get; set; }
-        public DataTable SelectAllOffres()
+        
+        public OffreDataAccess()
         {
-            SchemaTable = new DataTable();
-            SqlCommand objSelectCommand = Connection.CreateConnection();
-            objSelectCommand.CommandText = "dbo.P_SELECT_AllOffres";
-            objSelectCommand.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(SchemaTable);
-            return SchemaTable;
+            Procedure = "dbo.P_SELECT_AllOffres";
         }
+        //[DataMember]
+        //public SqlCommand ObjSqlCommand = new SqlCommand().CreateConnection();
+        //[DataMember]
+        //public DataTable SchemaTable { get; set; }
+        //public DataTable SelectAllOffres()
+        //{
+        //    SchemaTable = new DataTable();
+        //    SqlCommand objSelectCommand = ObjSqlCommand;
+        //    objSelectCommand.CommandText = "dbo.P_SELECT_AllOffres";
+        //    objSelectCommand.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+        //    objDataAdapter.Fill(SchemaTable);
+        //    return SchemaTable;
+        //}
 
         public DataTable SelectOffresBySelection(int idSociete,int idRegion, int idPoste, int idContrat, int nbrJour)
         {
             SchemaTable = new DataTable();
-            SqlCommand objSelectCommand = Connection.CreateConnection();
+            SqlCommand objSelectCommand = ObjSqlCommand;
             objSelectCommand.CommandText = "dbo.P_SELECT_OffresBySelection";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
             objSelectCommand.Parameters.AddWithValue("@I_IdSociete", idSociete);
@@ -43,7 +50,7 @@ namespace DAL
 
         public int UpdateOffre(int idOffre, int IdContrat, int idPoste, int idSociete, int idRegion, string description, string lienAnnonce)
         {
-            SqlCommand objUpdateCommand = Connection.CreateConnection();
+            SqlCommand objUpdateCommand = ObjSqlCommand;
             objUpdateCommand.Connection.Open();
             objUpdateCommand.CommandText = "P_UPDATE_Offre";
             objUpdateCommand.CommandType = CommandType.StoredProcedure;
@@ -60,7 +67,7 @@ namespace DAL
         }
         public int InsertOffre(int IdContrat, int idPoste, int idSociete, int idRegion, string description, string lienAnnonce)
         {   
-            SqlCommand objInsertCommand = Connection.CreateConnection();
+            SqlCommand objInsertCommand = ObjSqlCommand;
             objInsertCommand.CommandText = "P_INSERT_Offre";
             objInsertCommand.CommandType = CommandType.StoredProcedure;
             objInsertCommand.Parameters.AddWithValue("@I_IdContrat", IdContrat);
@@ -81,7 +88,7 @@ namespace DAL
 
         public int DeleteOffre(int idOffre)
         {
-            SqlCommand objDeleteCommand = Connection.CreateConnection();
+            SqlCommand objDeleteCommand = ObjSqlCommand;
             objDeleteCommand.Connection.Open();
             objDeleteCommand.CommandText = "P_DELETE_Offre";
             objDeleteCommand.CommandType = CommandType.StoredProcedure;

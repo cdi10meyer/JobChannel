@@ -278,7 +278,7 @@ namespace IHM
             RegionManager regionManager = new RegionManager();
             ContratManager contratManager = new ContratManager();
             PosteManager posteManager = new PosteManager();
-            JourManager jourManager = new JourManager();
+            JourManager jourManager = new JourManager("derniers jours");
 
             societeManager.FillingComboBox(_DefaultSociete, bindingSourceSociete, comboBoxSociete);
             regionManager.FillingComboBox(_DefaultRegion, bindingSourceRegion, comboBoxRegion);
@@ -313,6 +313,7 @@ namespace IHM
         private void ModelingColumnsDataGridView()
         {
             dataGridViewOffre.Columns["Id"].Visible = false;
+            //dataGridViewOffre.Columns["Nom"].Visible = false;
             dataGridViewOffre.Columns["MySelection"].Visible = false;
             dataGridViewOffre.Columns["Description"].Visible = false;
             dataGridViewOffre.Columns["LienAnnonce"].Visible = false;

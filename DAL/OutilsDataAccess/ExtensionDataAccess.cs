@@ -8,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    internal static class Connection
+    public static class ExtensionDataAccess
     {
-        internal static SqlCommand CreateConnection()
+        /// <summary>
+        /// Méthode d'extension de la classe SqlCommand permettant de créer une connection
+        /// </summary>
+        /// <param name="sqlCommand"></param>
+        /// <returns>SqlCommand</returns>
+        public static SqlCommand CreateConnection(this SqlCommand sqlCommand)
         {
             try
             {
@@ -20,9 +25,9 @@ namespace DAL
                 objSqlCommand.Connection = objSqlConnection;
                 return objSqlCommand;
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
-                throw new DALException("Probléme de connexion", ex);
+                throw new ExceptionDataAccess("Probléme de connexion", ex);
             }
         }
     }

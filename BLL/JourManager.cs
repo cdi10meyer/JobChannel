@@ -8,16 +8,21 @@ using BO;
 
 namespace BLL
 {
-    public class JourManager : IConsultable<Jour>
+    public class JourManager : IConsultableManager<Jour>
     {
+        public string TextItem { get; set; }
+        public JourManager(string textItem)
+        {
+            TextItem = textItem;
+        }
         public List<Jour> RetrieveAll(Jour jour)
         {
             List<Jour> jours = new List<Jour>()
             {
                 jour,
-                new Jour(8),
-                new Jour(15),
-                new Jour(30)
+                new Jour(8,TextItem),
+                new Jour(15, TextItem),
+                new Jour(30, TextItem)
 
             };
             return jours;

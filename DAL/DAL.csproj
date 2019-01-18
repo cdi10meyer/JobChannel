@@ -44,26 +44,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
     <Compile Include="ConsultationDataAccess.cs" />
-    <Compile Include="ContratDataAccess.cs" />
-    <Compile Include="DALException.cs" />
+    <Compile Include="InterfacesDataAccess\IGerableDataAccess.cs" />
+    <Compile Include="SelectionsDataAccess\ContratDataAccess.cs" />
+    <Compile Include="OutilsDataAccess\ExceptionDataAccess.cs" />
+    <Compile Include="OutilsDataAccess\ExtensionDataAccess.cs" />
     <Compile Include="OffreDataAccess.cs" />
-    <Compile Include="PosteDataAccess.cs" />
+    <Compile Include="SelectionsDataAccess\PosteDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegionDataAccess.cs" />
-    <Compile Include="SocieteDataAccess.cs" />
+    <Compile Include="SelectionsDataAccess\RegionDataAccess.cs" />
+    <Compile Include="SelectionsDataAccess\SocieteDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BO\BO.csproj">
+      <Project>{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}</Project>
+      <Name>BO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

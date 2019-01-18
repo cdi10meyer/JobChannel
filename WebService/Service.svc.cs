@@ -126,7 +126,7 @@ namespace WebService
         public List<Offre> RetrieveAllOffres()
         {
             OffreDataAccess dataAccess = new OffreDataAccess();
-            DataTable schemaTable = dataAccess.SelectAllOffres();
+            DataTable schemaTable = dataAccess.SelectAll();
             List<Offre> offres = new List<Offre>();
 
             foreach (DataRow row in schemaTable.Rows)

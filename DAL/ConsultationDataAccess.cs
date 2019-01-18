@@ -13,6 +13,8 @@ namespace DAL
     public class ConsultationDataAccess
     {
         [DataMember]
+        public SqlCommand ObjSqlCommand = new SqlCommand().CreateConnection();
+        [DataMember]
         public DataTable SchemaTable { get; set; }
         [DataMember]
         public string Procedure { get; set; }
@@ -20,7 +22,7 @@ namespace DAL
         public DataTable SelectAll()
         {
             SchemaTable = new DataTable();
-            SqlCommand objSelectCommand = Connection.CreateConnection();
+            SqlCommand objSelectCommand = ObjSqlCommand;
             objSelectCommand.CommandText = Procedure;
             objSelectCommand.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);

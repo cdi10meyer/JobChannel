@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class SocieteManager : ConsultationManager
+    public class SocieteManager : ConsultationManager, IGerableManager<Societe>
     {
         public SocieteManager()
         {

@@ -12,25 +12,15 @@ namespace DAL
     [DataContract]
     public class SocieteDataAccess : ConsultationDataAccess
     {
+        
         public SocieteDataAccess()
         {
             Procedure = "dbo.P_SELECT_AllSocietes";
         }
 
-        //public DataTable SelectAllSocietes()
-        //{
-        //    DataTable SchemaTable = new DataTable();
-        //    SqlCommand objSelectCommand = Connection.CreateConnection();
-        //    objSelectCommand.CommandText = "dbo.P_SELECT_AllSocietes";
-        //    objSelectCommand.CommandType = CommandType.StoredProcedure;
-        //    SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-        //    objDataAdapter.Fill(SchemaTable);
-        //    return SchemaTable;
-        //}
-
         public int UpdateSociete(int idSociete, string nomSociete)
         {
-            SqlCommand objUpdateCommand = Connection.CreateConnection();
+            SqlCommand objUpdateCommand = ObjSqlCommand;
             objUpdateCommand.Connection.Open();
             objUpdateCommand.CommandText = "P_UPDATE_Societe";
             objUpdateCommand.CommandType = CommandType.StoredProcedure;
@@ -42,12 +32,14 @@ namespace DAL
         }
         public int InsertSociete(string nomSociete)
         {
-            SqlCommand objInsertCommand = Connection.CreateConnection();
+            SqlCommand objInsertCommand = ObjSqlCommand;
             objInsertCommand.CommandText = "P_INSERT_Societe";
             objInsertCommand.CommandType = CommandType.StoredProcedure;
             objInsertCommand.Parameters.AddWithValue("@I_NomSociete", nomSociete);
-            SqlParameter ligne = new SqlParameter("@O_IdSociete", SqlDbType.Int);
-            ligne.Direction = ParameterDirection.Output;
+            SqlParameter ligne = new SqlParameter("@O_IdSociete", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Output
+            };
             objInsertCommand.Parameters.Add(ligne);
             objInsertCommand.Connection.Open();
             SqlDataReader reader = objInsertCommand.ExecuteReader();
@@ -58,7 +50,7 @@ namespace DAL
 
         public int DeleteSociete(int idSociete)
         {
-            SqlCommand objDeleteCommand = Connection.CreateConnection();
+            SqlCommand objDeleteCommand = ObjSqlCommand;
             objDeleteCommand.Connection.Open();
             objDeleteCommand.CommandText = "P_DELETE_Societe";
             objDeleteCommand.CommandType = CommandType.StoredProcedure;

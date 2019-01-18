@@ -43,15 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contrat.cs" />
-    <Compile Include="Jour.cs" />
+    <Compile Include="Consultations\Contrat.cs" />
+    <Compile Include="Consultations\Jour.cs" />
     <Compile Include="Offre.cs" />
-    <Compile Include="Poste.cs" />
+    <Compile Include="Consultations\Poste.cs" />
+    <Compile Include="Interfaces\IConsultable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Region.cs" />
+    <Compile Include="Consultations\Region.cs" />
     <Compile Include="Consultation.cs" />
     <Compile Include="Selection.cs" />
-    <Compile Include="Societe.cs" />
+    <Compile Include="Consultations\Societe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
