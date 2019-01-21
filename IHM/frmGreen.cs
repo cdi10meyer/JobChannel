@@ -59,8 +59,6 @@ namespace IHM
 
             buttonInsert.Visible = this.EnabledInsertion();
 
-            
-
             labelTitre.Text = "Création d'une nouvelle Offre";
             labelInsert.Text = "Veuillez remplir les champs obligatoires";
             labelInsert.ForeColor = Color.DarkRed;

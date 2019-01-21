@@ -158,7 +158,7 @@ namespace WebService
             OffreDataAccess dataAccess = new OffreDataAccess();
 
             List<Offre> offres = new List<Offre>();
-            DataTable schemaTable = dataAccess.SelectOffresBySelection(Convert.ToInt32(idSociete), Convert.ToInt32(idRegion), Convert.ToInt32(idPoste), Convert.ToInt32(idContrat), Convert.ToInt32(nbrJour));
+            DataTable schemaTable = dataAccess.SelectBySelection(Convert.ToInt32(idSociete), Convert.ToInt32(idRegion), Convert.ToInt32(idPoste), Convert.ToInt32(idContrat), Convert.ToInt32(nbrJour));
 
             foreach (DataRow row in schemaTable.Rows)
             {

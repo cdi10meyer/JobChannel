@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public interface IConsultableManager<T>
+    public interface IConsultableManager<Consultation>
     {
-        List<T> RetrieveAll(T consultation);
+        List<Consultation> RetrieveAll(Consultation consultation);
     }
 }

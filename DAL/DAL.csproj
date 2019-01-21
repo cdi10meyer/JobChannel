@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsultationDataAccess.cs" />
-    <Compile Include="InterfacesDataAccess\IGerableDataAccess.cs" />
+    <Compile Include="InterfaceDataAccess\IConsultableDataAccess.cs" />
+    <Compile Include="InterfaceDataAccess\IGerableDataAccess.cs" />
+    <Compile Include="InterfaceDataAccess\ISelectionableDataAccess.cs" />
     <Compile Include="SelectionsDataAccess\ContratDataAccess.cs" />
     <Compile Include="OutilsDataAccess\ExceptionDataAccess.cs" />
     <Compile Include="OutilsDataAccess\ExtensionDataAccess.cs" />

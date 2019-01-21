@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Consultation : IConsultable<Consultation>,IComparable<Consultation>
+    public class Consultation : IComparable<Consultation>
     {
         [DataMember]
         public int Id { get; set; }

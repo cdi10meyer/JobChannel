@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class OffreManager :  IConsultableManager<Offre>,ISelectionableManager<Offre>, IGerableManager<Offre>
+    public class OffreManager :  IConsultableManager<Offre>, ISelectionableManager<Offre>, IGerableManager<Offre>
     {
         #region "Connection"
         private static string URL_SERVICE = "http://user17.2isa.org/Service.svc";
@@ -20,14 +20,14 @@ namespace BLL
         public bool Update(Offre offre)
         {
             OffreDataAccess dataAccess = new OffreDataAccess();
-            int rowCount = dataAccess.UpdateOffre(offre.Id, offre.MySelection.MyContrat.Id, offre.MySelection.MyPoste.Id, offre.MySelection.MySociete.Id, offre.MySelection.MyRegion.Id, offre.Description, offre.LienAnnonce);
+            int rowCount = dataAccess.Update(offre);
             return rowCount > 0;
         }
 
         public int Create(Offre offre)
         {
             OffreDataAccess dataAccess = new OffreDataAccess();
-            int idSociete = dataAccess.InsertOffre(offre.MySelection.MyContrat.Id, offre.MySelection.MyPoste.Id, offre.MySelection.MySociete.Id, offre.MySelection.MyRegion.Id, offre.Description, offre.LienAnnonce);
+            int idSociete = dataAccess.Insert(offre);
             return idSociete;
         }
 
@@ -35,7 +35,7 @@ namespace BLL
         {
             OffreDataAccess dataAccess = new OffreDataAccess();
 
-            int rowCount = dataAccess.DeleteOffre(offre.Id);
+            int rowCount = dataAccess.Delete(offre);
 
             return rowCount > 0;
         }

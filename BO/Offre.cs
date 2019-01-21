@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BO
 {
     [DataContract]
-    public class Offre : IConsultable<Offre>, IComparable<Offre>
+    public class Offre : IComparable<Offre>
     {
         #region "Propriétés d'instance"
         

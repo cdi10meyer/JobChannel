@@ -23,7 +23,7 @@ namespace BLL
         public bool Update(Societe societe)
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
-            int rowCount = dataAccess.UpdateSociete(societe.Id, societe.Nom);
+            int rowCount = dataAccess.Update(societe);
             //int rowCount = dataAccess.UpdateSociete(societe.IdSociete, societe.NomSociete);
             return rowCount > 0;
         }
@@ -31,7 +31,7 @@ namespace BLL
         public int Create(Societe societe)
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
-            int idSociete = dataAccess.InsertSociete(societe.Nom);
+            int idSociete = dataAccess.Insert(societe);
             //int idSociete = dataAccess.InsertSociete(societe.NomSociete);
             return idSociete;
         }
@@ -39,7 +39,7 @@ namespace BLL
         public bool Delete(Societe societe)
         {
             SocieteDataAccess dataAccess = new SocieteDataAccess();
-            int rowCount = dataAccess.DeleteSociete(societe.Id);
+            int rowCount = dataAccess.Delete(societe);
             //int rowCount = dataAccess.DeleteSociete(societe.IdSociete);
             return rowCount > 0;
         }

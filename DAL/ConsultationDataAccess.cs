@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     [DataContract]
-    public abstract class ConsultationDataAccess
+    public abstract class ConsultationDataAccess : IConsultableDataAccess
     {
         [DataMember]
         public SqlCommand ObjSqlCommand = new SqlCommand().CreateConnection();

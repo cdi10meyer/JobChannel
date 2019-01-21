@@ -50,10 +50,10 @@ namespace BO
         #endregion "Constructeurs"
         
 
-        public override string ToString()
-        {
-            return $"{MyRegion.Nom}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{MyRegion.Nom}";
+        //}
 
         public int CompareTo(Selection other)
         {

@@ -47,11 +47,11 @@ namespace IHM
         {
             InitializeComponent();
 
-            _RecordedSociete = _DefaultSociete;
-            _RecordedRegion = _DefaultRegion;
-            _RecordedContrat = _DefaultContrat;
-            _RecordedPoste = _DefaultPoste;
-            _RecordedJour = _DefaultJour;
+            _RecordedSociete = new Societe(_DefaultSociete);
+            _RecordedRegion = new BO.Region(_DefaultRegion);
+            _RecordedContrat = new Contrat(_DefaultContrat);
+            _RecordedPoste = new Poste(_DefaultPoste);
+            _RecordedJour = new Jour(_DefaultJour);
 
             _RecordedOffre = new Offre();
             
@@ -195,6 +195,7 @@ namespace IHM
                 if (fenetre.DialogResult == DialogResult.OK)
                 {
                     this.Opacity = 1;
+                    _RecordedSelection = new Selection(_DefaultSociete, _DefaultPoste, _DefaultRegion, _DefaultContrat, _DefaultJour);
                     FillingDataGridView(_RecordedSelection);
                     dataGridViewOffre.Rows[0].Selected = true;
                     _RecordedId = Convert.ToInt32(dataGridViewOffre.SelectedCells[5].Value);
