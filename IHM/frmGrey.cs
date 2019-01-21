@@ -62,6 +62,7 @@ namespace IHM
             this.FillingDataGridView(_RecordedSelection);
             
             this.HideButtonPreference();
+            labelAction.Text = String.Empty;
 
             panelPreference.Visible = false;
 
@@ -127,8 +128,8 @@ namespace IHM
             {
                 _RecordedOffre = (Offre)bindingSourceOffre.Current;
                 _RecordedId = _RecordedOffre.Id;
-                labelResultat.Text = ConstructLabelResultat(_RecordedId, SELECTIONNEE);
-                labelResultat.ForeColor = Color.Gainsboro;
+                labelSelection.Text = ConstructLabelResultat(_RecordedId, SELECTIONNEE);
+                labelSelection.ForeColor = Color.Gainsboro;
             }
             else
             {
@@ -153,8 +154,8 @@ namespace IHM
             }
             else
             {
-                labelResultat.Text = ERREUR;
-                labelResultat.ForeColor = Color.SteelBlue;
+                labelAction.Text = ERREUR;
+                labelAction.ForeColor = Color.SteelBlue;
             }
         }
 
@@ -171,16 +172,16 @@ namespace IHM
                     {
                         this.Opacity = 1;
                         FillingDataGridView(_RecordedSelection);
-                        labelResultat.Text = ConstructLabelResultat(_RecordedId,MODIFIE);
-                        labelResultat.ForeColor = Color.Orange;
+                        labelAction.Text = ConstructLabelResultat(_RecordedId,MODIFIE);
+                        labelAction.ForeColor = Color.Orange;
                     }
                 }
                 this.Opacity = 1;
             }
             else
             {
-                labelResultat.Text = ERREUR;
-                labelResultat.ForeColor = Color.Orange;
+                labelAction.Text = ERREUR;
+                labelAction.ForeColor = Color.Orange;
             }
 
         }
@@ -197,8 +198,8 @@ namespace IHM
                     FillingDataGridView(_RecordedSelection);
                     dataGridViewOffre.Rows[0].Selected = true;
                     _RecordedId = Convert.ToInt32(dataGridViewOffre.SelectedCells[5].Value);
-                    labelResultat.Text = ConstructLabelResultat(_RecordedId,CREE);
-                    labelResultat.ForeColor = Color.OliveDrab;
+                    labelAction.Text = ConstructLabelResultat(_RecordedId,CREE);
+                    labelAction.ForeColor = Color.OliveDrab;
                 }
             }
             this.Opacity = 1;
@@ -209,22 +210,23 @@ namespace IHM
             this.Opacity = 0.5;
             if (_RecordedOffre != null)
             {
-                _RecordedId = _RecordedOffre.Id;
+                int recordedId = _RecordedOffre.Id;
                 using (frmRed fenetre = new frmRed(_RecordedOffre))
                 {
                     fenetre.ShowDialog();
                     if (fenetre.DialogResult == DialogResult.OK)
                     {
+
                         FillingDataGridView(_RecordedSelection);
-                        labelResultat.Text = ConstructLabelResultat(_RecordedId, SUPPRIMEE);
-                        labelResultat.ForeColor = Color.DarkRed;
+                        labelAction.Text = ConstructLabelResultat(recordedId, SUPPRIMEE);
+                        labelAction.ForeColor = Color.DarkRed;
                     }
                 }
             }
             else
             {
-                labelResultat.Text = ERREUR;
-                labelResultat.ForeColor = Color.DarkRed;
+                labelAction.Text = ERREUR;
+                labelAction.ForeColor = Color.DarkRed;
             }
             this.Opacity = 1;
 
