@@ -417,10 +417,10 @@
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.buttonCancel.Location = new System.Drawing.Point(567, 0);
+            this.buttonCancel.Location = new System.Drawing.Point(555, 0);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(0);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(90, 37);
+            this.buttonCancel.Size = new System.Drawing.Size(114, 37);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Annuler";
             this.buttonCancel.UseVisualStyleBackColor = true;

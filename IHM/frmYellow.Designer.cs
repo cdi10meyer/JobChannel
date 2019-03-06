@@ -62,6 +62,7 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.labelPosteOld = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.labelDescriptionOld = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.textBoxLienAnnonceOld = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -82,7 +83,6 @@
             this.bindingSourceRegion = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceContrat = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourcePoste = new System.Windows.Forms.BindingSource(this.components);
-            this.labelDescriptionOld = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -552,6 +552,16 @@
             this.panel14.Size = new System.Drawing.Size(310, 84);
             this.panel14.TabIndex = 20;
             // 
+            // labelDescriptionOld
+            // 
+            this.labelDescriptionOld.AutoSize = true;
+            this.labelDescriptionOld.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescriptionOld.Location = new System.Drawing.Point(3, 6);
+            this.labelDescriptionOld.Name = "labelDescriptionOld";
+            this.labelDescriptionOld.Size = new System.Drawing.Size(76, 16);
+            this.labelDescriptionOld.TabIndex = 1;
+            this.labelDescriptionOld.Text = "Description";
+            // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Orange;
@@ -780,16 +790,6 @@
             // bindingSourcePoste
             // 
             this.bindingSourcePoste.CurrentChanged += new System.EventHandler(this.bindingSourcePoste_CurrentChanged);
-            // 
-            // labelDescriptionOld
-            // 
-            this.labelDescriptionOld.AutoSize = true;
-            this.labelDescriptionOld.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescriptionOld.Location = new System.Drawing.Point(3, 6);
-            this.labelDescriptionOld.Name = "labelDescriptionOld";
-            this.labelDescriptionOld.Size = new System.Drawing.Size(76, 16);
-            this.labelDescriptionOld.TabIndex = 1;
-            this.labelDescriptionOld.Text = "Description";
             // 
             // frmYellow
             // 

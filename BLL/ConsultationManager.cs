@@ -22,13 +22,21 @@ namespace BLL
         public List<Consultation> RetrieveAll(Consultation consultation)
         {
             List<Consultation> consultations = new List<Consultation>();
-            Request.AddParameter("textItem", consultation.Nom, ParameterType.UrlSegment);
-            Request.RequestFormat = DataFormat.Json;
-            IRestResponse<List<Consultation>> response = Client.Execute<List<Consultation>>(Request);
-            if (response.ResponseStatus == ResponseStatus.Completed)
+            try
             {
-                consultations = response.Data;
+                Request.AddParameter("textItem", consultation.Nom, ParameterType.UrlSegment);
+                Request.RequestFormat = DataFormat.Json;
+                IRestResponse<List<Consultation>> response = Client.Execute<List<Consultation>>(Request);
+                if (response.ResponseStatus == ResponseStatus.Completed)
+                {
+                    consultations = response.Data;
+                }
             }
+            catch(ExceptionDataAccess e)
+            {
+                MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
+            }
+            
             return consultations;
         }
         public void FillingComboBox(Consultation consultation, BindingSource bindingSource, ComboBox comboBox)

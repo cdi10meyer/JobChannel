@@ -19,8 +19,19 @@ namespace IHM
         public frmAccueil() : base()
         {
             InitializeComponent();
-            labelTitre.Text = $"{UserPrincipal.Current.GivenName} {UserPrincipal.Current.Surname}";
-
+            try
+            {
+                labelTitre.Text = $"{UserPrincipal.Current.GivenName} {UserPrincipal.Current.Surname}";
+            }
+            catch (Exception e)
+            {
+                using (frmBlack fenetre = new frmBlack(e.Message))
+                {
+                    this.Opacity = 0.75;
+                    fenetre.ShowDialog();
+                }
+                this.Opacity = 1;
+            }
         }
 
 

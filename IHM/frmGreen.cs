@@ -177,7 +177,8 @@ namespace IHM
             {
                 labelInsert.Text = $"Nouvelle offre n° {insertOffre} crée";
                 labelInsert.ForeColor = _ColorFonce;
-                this.FillFormulaire();
+                buttonCancel.Text = "Réinitialiser";
+                //this.FillFormulaire();
             }
             else
             {
