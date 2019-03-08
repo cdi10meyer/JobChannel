@@ -41,6 +41,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BLL">
+      <HintPath>..\..\BLL\BLL\bin\Debug\netstandard2.0\BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="BO">
+      <HintPath>..\..\BLL\BO\bin\Debug\netstandard2.0\BO.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -85,14 +91,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{FF6B34F2-8464-48D3-BA12-925C8FE807E0}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BO\BO.csproj">
-      <Project>{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}</Project>
-      <Name>BO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{869E0FE4-A237-4B26-8E0B-CB3715A015EE}</Project>
       <Name>DAL</Name>

@@ -3,17 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{FF6B34F2-8464-48D3-BA12-925C8FE807E0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BO", "BO\BO.csproj", "{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{869E0FE4-A237-4B26-8E0B-CB3715A015EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHM", "IHM\IHM.csproj", "{CB34D5F3-5453-4F5F-A061-766F6C68ABFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{4EE69105-138E-4561-9E3D-C9180D5D4CF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLExtensions", "BLLExtensions\BLLExtensions.csproj", "{D0CB4618-050A-48EA-8DAC-092881A51BE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "BLLExtensions\Extensions.csproj", "{D0CB4618-050A-48EA-8DAC-092881A51BE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FF6B34F2-8464-48D3-BA12-925C8FE807E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF6B34F2-8464-48D3-BA12-925C8FE807E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF6B34F2-8464-48D3-BA12-925C8FE807E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF6B34F2-8464-48D3-BA12-925C8FE807E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{869E0FE4-A237-4B26-8E0B-CB3715A015EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{869E0FE4-A237-4B26-8E0B-CB3715A015EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869E0FE4-A237-4B26-8E0B-CB3715A015EE}.Release|Any CPU.ActiveCfg = Release|Any CPU

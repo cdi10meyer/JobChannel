@@ -1,4 +1,5 @@
-﻿using BO;
+﻿using BLL;
+using BO;
 using DAL;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BLL
+namespace Extensions
 {
     public static class ExtensionManager
     {
@@ -52,6 +53,21 @@ namespace BLL
                 MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
             }
             return rowCount > 0;
+        }
+        public static void FillingComboBox(this ConsultationManager consultationManager,Consultation consultation, BindingSource bindingSource, ComboBox comboBox)
+        {
+            bindingSource.DataSource = consultationManager.RetrieveAll(consultation);
+            comboBox.DataSource = bindingSource;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Nom";
+        }
+
+        public static void FillingComboBox(this JourManager jourManager, Jour jour, BindingSource bindingSource, ComboBox comboBox)
+        {
+            bindingSource.DataSource = jourManager.RetrieveAll(jour);
+            comboBox.DataSource = bindingSource;
+            comboBox.ValueMember = "Id";
+            comboBox.DisplayMember = "Nom";
         }
     }
 }
