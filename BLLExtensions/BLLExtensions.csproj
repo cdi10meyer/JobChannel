@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FF6B34F2-8464-48D3-BA12-925C8FE807E0}</ProjectGuid>
+    <ProjectGuid>{D0CB4618-050A-48EA-8DAC-092881A51BE1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>BLLExtensions</RootNamespace>
+    <AssemblyName>BLLExtensions</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,13 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RestSharp, Version=106.5.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,31 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsultationsManager\ContratManager.cs" />
     <Compile Include="ExtensionManager.cs" />
-    <Compile Include="InterfacesManager\IConsultableManager.cs" />
-    <Compile Include="InterfacesManager\IGerableManager.cs" />
-    <Compile Include="InterfacesManager\ISelectionableManager.cs" />
-    <Compile Include="JourManager.cs" />
-    <Compile Include="OffreManager.cs" />
-    <Compile Include="ConsultationsManager\PosteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConsultationsManager\RegionManager.cs" />
-    <Compile Include="ConsultationManager.cs" />
-    <Compile Include="ConsultationsManager\SocieteManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BO\BO.csproj">
-      <Project>{BC8D8712-6D96-43D3-B9A1-950784DD3EF4}</Project>
-      <Name>BO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{869E0FE4-A237-4B26-8E0B-CB3715A015EE}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

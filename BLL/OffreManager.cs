@@ -11,57 +11,57 @@ using System.Windows.Forms;
 
 namespace BLL
 {
-    public class OffreManager :  IConsultableManager<Offre>, ISelectionableManager<Offre>, IGerableManager<Offre>
+    public class OffreManager :  IConsultableManager<Offre>, ISelectionableManager<Offre>/*, IGerableManager<Offre>*/
     {
         #region "Connection"
         private static string URL_SERVICE = "http://user17.2isa.org/Service.svc";
         private static RestClient Client = new RestClient(URL_SERVICE);
         #endregion "Connection"
 
-        public bool Update(Offre offre)
-        {
-            OffreDataAccess dataAccess = new OffreDataAccess();
-            int rowCount = 0;
-            try
-            {
-                rowCount = dataAccess.Update(offre);
-            }
-            catch (ExceptionDataAccess e)
-            {
-                MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
-            }
-            return rowCount > 0;
-        }
+        //public bool Update(Offre offre)
+        //{
+        //    OffreDataAccess dataAccess = new OffreDataAccess();
+        //    int rowCount = 0;
+        //    try
+        //    {
+        //        rowCount = dataAccess.Update(offre);
+        //    }
+        //    catch (ExceptionDataAccess e)
+        //    {
+        //        MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
+        //    }
+        //    return rowCount > 0;
+        //}
 
-        public int Create(Offre offre)
-        {
-            OffreDataAccess dataAccess = new OffreDataAccess();
-            int idSociete = 0;
-            try
-            {
-                idSociete = dataAccess.Insert(offre);
-            }
-            catch (ExceptionDataAccess e)
-            {
-                MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
-            }
-            return idSociete;
-        }
+        //public int Create(Offre offre)
+        //{
+        //    OffreDataAccess dataAccess = new OffreDataAccess();
+        //    int idSociete = 0;
+        //    try
+        //    {
+        //        idSociete = dataAccess.Insert(offre);
+        //    }
+        //    catch (ExceptionDataAccess e)
+        //    {
+        //        MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
+        //    }
+        //    return idSociete;
+        //}
 
-        public bool Delete(Offre offre)
-        {
-            OffreDataAccess dataAccess = new OffreDataAccess();
-            int rowCount = 0;
-            try
-            {
-                rowCount = dataAccess.Delete(offre);
-            }
-            catch (ExceptionDataAccess e)
-            {
-                MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
-            }
-            return rowCount > 0;
-        }
+        //public bool Delete(Offre offre)
+        //{
+        //    OffreDataAccess dataAccess = new OffreDataAccess();
+        //    int rowCount = 0;
+        //    try
+        //    {
+        //        rowCount = dataAccess.Delete(offre);
+        //    }
+        //    catch (ExceptionDataAccess e)
+        //    {
+        //        MessageBox.Show($"Erreur dans la récupérations des données, {e.Message}", "ERREUR", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
+        //    }
+        //    return rowCount > 0;
+        //}
 
         public List<Offre> RetrieveAll(Offre offre)
         {

@@ -10,39 +10,37 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class SocieteManager : ConsultationManager, IGerableManager<Societe>
+    public class SocieteManager : ConsultationManager/*, IGerableManager<Societe>*/
     {
         public SocieteManager()
         {
             Consultation = new Societe();
             Request = new RestRequest("RetrieveAllSocietes/{textItem}");
-            //Id = "ID_SOCIETE";
-            //Nom = "NOM_SOCIETE";
         }
 
-        public bool Update(Societe societe)
-        {
-            SocieteDataAccess dataAccess = new SocieteDataAccess();
-            int rowCount = dataAccess.Update(societe);
-            //int rowCount = dataAccess.UpdateSociete(societe.IdSociete, societe.NomSociete);
-            return rowCount > 0;
-        }
+        //public bool Update(Societe societe)
+        //{
+        //    SocieteDataAccess dataAccess = new SocieteDataAccess();
+        //    int rowCount = dataAccess.Update(societe);
+        //    //int rowCount = dataAccess.UpdateSociete(societe.IdSociete, societe.NomSociete);
+        //    return rowCount > 0;
+        //}
 
-        public int Create(Societe societe)
-        {
-            SocieteDataAccess dataAccess = new SocieteDataAccess();
-            int idSociete = dataAccess.Insert(societe);
-            //int idSociete = dataAccess.InsertSociete(societe.NomSociete);
-            return idSociete;
-        }
+        //public int Create(Societe societe)
+        //{
+        //    SocieteDataAccess dataAccess = new SocieteDataAccess();
+        //    int idSociete = dataAccess.Insert(societe);
+        //    //int idSociete = dataAccess.InsertSociete(societe.NomSociete);
+        //    return idSociete;
+        //}
 
-        public bool Delete(Societe societe)
-        {
-            SocieteDataAccess dataAccess = new SocieteDataAccess();
-            int rowCount = dataAccess.Delete(societe);
-            //int rowCount = dataAccess.DeleteSociete(societe.IdSociete);
-            return rowCount > 0;
-        }
+        //public bool Delete(Societe societe)
+        //{
+        //    SocieteDataAccess dataAccess = new SocieteDataAccess();
+        //    int rowCount = dataAccess.Delete(societe);
+        //    //int rowCount = dataAccess.DeleteSociete(societe.IdSociete);
+        //    return rowCount > 0;
+        //}
 
         //public List<Societe> RetrieveAll(string textItem)
         //{

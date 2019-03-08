@@ -71,12 +71,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.bindingSourceSociete = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceJour = new System.Windows.Forms.BindingSource(this.components);
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelSelection = new System.Windows.Forms.Label();
             this.labelAction = new System.Windows.Forms.Label();
+            this.bindingSourceSociete = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceJour = new System.Windows.Forms.BindingSource(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).BeginInit();
@@ -87,9 +87,9 @@
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffre)).BeginInit();
             this.panelPreference.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceJour)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // bindingSourceOffre
@@ -690,14 +690,6 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Région:";
             // 
-            // bindingSourceSociete
-            // 
-            this.bindingSourceSociete.CurrentItemChanged += new System.EventHandler(this.bindingSourceSociete_CurrentItemChanged);
-            // 
-            // bindingSourceJour
-            // 
-            this.bindingSourceJour.CurrentItemChanged += new System.EventHandler(this.bindingSourceJour_CurrentItemChanged);
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -741,6 +733,14 @@
             this.labelAction.Text = "résultat";
             this.labelAction.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // bindingSourceSociete
+            // 
+            this.bindingSourceSociete.CurrentItemChanged += new System.EventHandler(this.bindingSourceSociete_CurrentItemChanged);
+            // 
+            // bindingSourceJour
+            // 
+            this.bindingSourceJour.CurrentItemChanged += new System.EventHandler(this.bindingSourceJour_CurrentItemChanged);
+            // 
             // frmGrey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -768,10 +768,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffre)).EndInit();
             this.panelPreference.ResumeLayout(false);
             this.panelPreference.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceJour)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceJour)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHM", "IHM\IHM.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{4EE69105-138E-4561-9E3D-C9180D5D4CF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLExtensions", "BLLExtensions\BLLExtensions.csproj", "{D0CB4618-050A-48EA-8DAC-092881A51BE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4EE69105-138E-4561-9E3D-C9180D5D4CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE69105-138E-4561-9E3D-C9180D5D4CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE69105-138E-4561-9E3D-C9180D5D4CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0CB4618-050A-48EA-8DAC-092881A51BE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0CB4618-050A-48EA-8DAC-092881A51BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0CB4618-050A-48EA-8DAC-092881A51BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0CB4618-050A-48EA-8DAC-092881A51BE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

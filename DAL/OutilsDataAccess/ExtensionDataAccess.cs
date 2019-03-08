@@ -11,7 +11,7 @@ namespace DAL
     public static class ExtensionDataAccess
     {
         /// <summary>
-        /// Méthode d'extension de la classe SqlCommand permettant de créer une connection
+        /// Méthode d'extension de la classe SqlCommand permettant de créer une connexion
         /// </summary>
         /// <param name="sqlCommand"></param>
         /// <returns>SqlCommand</returns>
