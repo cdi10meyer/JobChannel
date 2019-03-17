@@ -121,7 +121,11 @@ namespace WebService
             contrats.Insert(0, contratItem);
             return contrats;
         }
-
+        /// <summary>
+        /// Méthode permettant de récupérer la datatable de la méthode de la DAL
+        /// SelectAllOffres
+        /// </summary>
+        /// <returns>la liste de toutes les offres</returns>
         public List<Offre> RetrieveAllOffres()
         {
             OffreDataAccess dataAccess = new OffreDataAccess();

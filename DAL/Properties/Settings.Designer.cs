@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IHM.Properties {
+namespace DAL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -20,18 +20,6 @@ namespace IHM.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://")]
-        public string AdresseHubWebService {
-            get {
-                return ((string)(this["AdresseHubWebService"]));
-            }
-            set {
-                this["AdresseHubWebService"] = value;
             }
         }
     }

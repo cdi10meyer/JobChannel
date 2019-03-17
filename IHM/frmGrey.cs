@@ -55,13 +55,13 @@ namespace IHM
             _RecordedJour = new Jour(_DefaultJour);
 
             _RecordedOffre = new Offre();
-            
+
             this.FillingAllComboBox();
 
             _RecordedSelection = new Selection(_RecordedSociete, _RecordedPoste, _RecordedRegion, _RecordedContrat, _RecordedJour);
 
             this.FillingDataGridView(_RecordedSelection);
-            
+
             this.HideButtonPreference();
             labelAction.Text = String.Empty;
 
@@ -141,7 +141,7 @@ namespace IHM
         #endregion "Gestion des selections"
 
         #region "Gestion des boutons CRUD"
-        
+
         private void buttonSelect_Click(object sender, EventArgs e)
         {
             if (_RecordedOffre != null)
@@ -173,7 +173,7 @@ namespace IHM
                     {
                         this.Opacity = 1;
                         FillingDataGridView(_RecordedSelection);
-                        labelAction.Text = ConstructLabelResultat(_RecordedId,MODIFIE);
+                        labelAction.Text = ConstructLabelResultat(_RecordedId, MODIFIE);
                         labelAction.ForeColor = Color.Orange;
                     }
                 }
@@ -200,7 +200,7 @@ namespace IHM
                     FillingDataGridView(_RecordedSelection);
                     dataGridViewOffre.Rows[0].Selected = true;
                     _RecordedId = Convert.ToInt32(dataGridViewOffre.SelectedCells[5].Value);
-                    labelAction.Text = ConstructLabelResultat(_RecordedId,CREE);
+                    labelAction.Text = ConstructLabelResultat(_RecordedId, CREE);
                     labelAction.ForeColor = Color.OliveDrab;
                 }
             }
@@ -333,7 +333,7 @@ namespace IHM
             dataGridViewOffre.Columns["TypePoste"].DefaultCellStyle.ForeColor = Color.DarkMagenta;
         }
 
-        public string ConstructLabelResultat(int id,string action)
+        public string ConstructLabelResultat(int id, string action)
         {
             return $"Offre n°{id} {action}";
         }
@@ -403,6 +403,16 @@ namespace IHM
 
         #endregion "Méthodes propres à la classe"
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Opacity = 0.5;
+
+            using (frmPink fenetre = new frmPink())
+            {
+                fenetre.ShowDialog();
+            }
+            this.Opacity = 1;
+        }
     }
 }
 

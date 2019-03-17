@@ -32,17 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.bindingSourceOffre = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceRegion = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourceContrat = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSourcePoste = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonInsert = new System.Windows.Forms.Button();
-            this.buttonSelect = new System.Windows.Forms.Button();
             this.checkBoxPreference = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxContrat = new MetroFramework.Controls.MetroComboBox();
@@ -74,13 +66,18 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelSelection = new System.Windows.Forms.Label();
             this.labelAction = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonInsert = new System.Windows.Forms.Button();
+            this.buttonSelect = new System.Windows.Forms.Button();
+            this.bindingSourceOffre = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceRegion = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceContrat = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourcePoste = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceSociete = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceJour = new System.Windows.Forms.BindingSource(this.components);
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePoste)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -88,25 +85,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOffre)).BeginInit();
             this.panelPreference.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePoste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceJour)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bindingSourceOffre
-            // 
-            this.bindingSourceOffre.CurrentItemChanged += new System.EventHandler(this.bindingSourceOffre_CurrentItemChanged);
-            // 
-            // bindingSourceRegion
-            // 
-            this.bindingSourceRegion.CurrentItemChanged += new System.EventHandler(this.bindingSourceRegion_CurrentItemChanged);
-            // 
-            // bindingSourceContrat
-            // 
-            this.bindingSourceContrat.CurrentItemChanged += new System.EventHandler(this.bindingSourceContrat_CurrentItemChanged);
-            // 
-            // bindingSourcePoste
-            // 
-            this.bindingSourcePoste.CurrentItemChanged += new System.EventHandler(this.bindingSourcePoste_CurrentItemChanged);
             // 
             // panel1
             // 
@@ -182,94 +167,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1082, 57);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.White;
-            this.buttonDelete.BackgroundImage = global::IHM.Properties.Resources.deleteRed;
-            this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonDelete.FlatAppearance.BorderSize = 0;
-            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDelete.Location = new System.Drawing.Point(924, 26);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Padding = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel2.SetRowSpan(this.buttonDelete, 2);
-            this.buttonDelete.Size = new System.Drawing.Size(26, 21);
-            this.buttonDelete.TabIndex = 8;
-            this.toolTip.SetToolTip(this.buttonDelete, "Supprimer l\'offre sélectionnée");
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.White;
-            this.buttonUpdate.BackgroundImage = global::IHM.Properties.Resources.updateYellow;
-            this.buttonUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonUpdate.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonUpdate.FlatAppearance.BorderSize = 0;
-            this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonUpdate.Location = new System.Drawing.Point(864, 26);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel2.SetRowSpan(this.buttonUpdate, 2);
-            this.buttonUpdate.Size = new System.Drawing.Size(26, 21);
-            this.buttonUpdate.TabIndex = 7;
-            this.toolTip.SetToolTip(this.buttonUpdate, "Modifier l\'offre sélectionnée");
-            this.buttonUpdate.UseVisualStyleBackColor = false;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
-            // buttonInsert
-            // 
-            this.buttonInsert.BackColor = System.Drawing.Color.White;
-            this.buttonInsert.BackgroundImage = global::IHM.Properties.Resources.insertGreen;
-            this.buttonInsert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonInsert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonInsert.FlatAppearance.BorderSize = 0;
-            this.buttonInsert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.buttonInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonInsert.Location = new System.Drawing.Point(894, 26);
-            this.buttonInsert.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Padding = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel2.SetRowSpan(this.buttonInsert, 2);
-            this.buttonInsert.Size = new System.Drawing.Size(26, 21);
-            this.buttonInsert.TabIndex = 9;
-            this.toolTip.SetToolTip(this.buttonInsert, "Créer une nouvelle offre");
-            this.buttonInsert.UseVisualStyleBackColor = false;
-            this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
-            // 
-            // buttonSelect
-            // 
-            this.buttonSelect.BackColor = System.Drawing.Color.White;
-            this.buttonSelect.BackgroundImage = global::IHM.Properties.Resources.selectBlue;
-            this.buttonSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSelect.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSelect.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonSelect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.buttonSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.buttonSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSelect.Location = new System.Drawing.Point(834, 26);
-            this.buttonSelect.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Padding = new System.Windows.Forms.Padding(1);
-            this.tableLayoutPanel2.SetRowSpan(this.buttonSelect, 2);
-            this.buttonSelect.Size = new System.Drawing.Size(26, 21);
-            this.buttonSelect.TabIndex = 6;
-            this.toolTip.SetToolTip(this.buttonSelect, "Visualiser l\'offre sélectionnée");
-            this.buttonSelect.UseVisualStyleBackColor = false;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
             // 
             // checkBoxPreference
             // 
@@ -422,6 +319,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.Controls.Add(this.dataGridViewOffre, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.panelPreference, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 105);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -500,9 +398,10 @@
             this.panelPreference.Controls.Add(this.label7);
             this.panelPreference.Controls.Add(this.label6);
             this.panelPreference.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPreference.Location = new System.Drawing.Point(868, 3);
+            this.panelPreference.Location = new System.Drawing.Point(868, 13);
+            this.panelPreference.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.panelPreference.Name = "panelPreference";
-            this.panelPreference.Size = new System.Drawing.Size(211, 401);
+            this.panelPreference.Size = new System.Drawing.Size(211, 391);
             this.panelPreference.TabIndex = 2;
             // 
             // buttonRecuperer
@@ -733,6 +632,110 @@
             this.labelAction.Text = "résultat";
             this.labelAction.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.White;
+            this.buttonDelete.BackgroundImage = global::IHM.Properties.Resources.deleteRed;
+            this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDelete.Location = new System.Drawing.Point(924, 26);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel2.SetRowSpan(this.buttonDelete, 2);
+            this.buttonDelete.Size = new System.Drawing.Size(26, 21);
+            this.buttonDelete.TabIndex = 8;
+            this.toolTip.SetToolTip(this.buttonDelete, "Supprimer l\'offre sélectionnée");
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonUpdate.BackgroundImage = global::IHM.Properties.Resources.updateYellow;
+            this.buttonUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonUpdate.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonUpdate.FlatAppearance.BorderSize = 0;
+            this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUpdate.Location = new System.Drawing.Point(864, 26);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel2.SetRowSpan(this.buttonUpdate, 2);
+            this.buttonUpdate.Size = new System.Drawing.Size(26, 21);
+            this.buttonUpdate.TabIndex = 7;
+            this.toolTip.SetToolTip(this.buttonUpdate, "Modifier l\'offre sélectionnée");
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // buttonInsert
+            // 
+            this.buttonInsert.BackColor = System.Drawing.Color.White;
+            this.buttonInsert.BackgroundImage = global::IHM.Properties.Resources.insertGreen;
+            this.buttonInsert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonInsert.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonInsert.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonInsert.FlatAppearance.BorderSize = 0;
+            this.buttonInsert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonInsert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonInsert.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonInsert.Location = new System.Drawing.Point(894, 26);
+            this.buttonInsert.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonInsert.Name = "buttonInsert";
+            this.buttonInsert.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel2.SetRowSpan(this.buttonInsert, 2);
+            this.buttonInsert.Size = new System.Drawing.Size(26, 21);
+            this.buttonInsert.TabIndex = 9;
+            this.toolTip.SetToolTip(this.buttonInsert, "Créer une nouvelle offre");
+            this.buttonInsert.UseVisualStyleBackColor = false;
+            this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
+            // 
+            // buttonSelect
+            // 
+            this.buttonSelect.BackColor = System.Drawing.Color.White;
+            this.buttonSelect.BackgroundImage = global::IHM.Properties.Resources.selectBlue;
+            this.buttonSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSelect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSelect.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonSelect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.buttonSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSelect.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSelect.Location = new System.Drawing.Point(834, 26);
+            this.buttonSelect.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSelect.Name = "buttonSelect";
+            this.buttonSelect.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel2.SetRowSpan(this.buttonSelect, 2);
+            this.buttonSelect.Size = new System.Drawing.Size(26, 21);
+            this.buttonSelect.TabIndex = 6;
+            this.toolTip.SetToolTip(this.buttonSelect, "Visualiser l\'offre sélectionnée");
+            this.buttonSelect.UseVisualStyleBackColor = false;
+            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            // 
+            // bindingSourceOffre
+            // 
+            this.bindingSourceOffre.CurrentItemChanged += new System.EventHandler(this.bindingSourceOffre_CurrentItemChanged);
+            // 
+            // bindingSourceRegion
+            // 
+            this.bindingSourceRegion.CurrentItemChanged += new System.EventHandler(this.bindingSourceRegion_CurrentItemChanged);
+            // 
+            // bindingSourceContrat
+            // 
+            this.bindingSourceContrat.CurrentItemChanged += new System.EventHandler(this.bindingSourceContrat_CurrentItemChanged);
+            // 
+            // bindingSourcePoste
+            // 
+            this.bindingSourcePoste.CurrentItemChanged += new System.EventHandler(this.bindingSourcePoste_CurrentItemChanged);
+            // 
             // bindingSourceSociete
             // 
             this.bindingSourceSociete.CurrentItemChanged += new System.EventHandler(this.bindingSourceSociete_CurrentItemChanged);
@@ -740,6 +743,23 @@
             // bindingSourceJour
             // 
             this.bindingSourceJour.CurrentItemChanged += new System.EventHandler(this.bindingSourceJour_CurrentItemChanged);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.button1.Location = new System.Drawing.Point(65, 23);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 23, 3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Chat\'Room";
+            this.toolTip.SetToolTip(this.button1, "Récupérer les préferences enregistrées");
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmGrey
             // 
@@ -756,10 +776,6 @@
             this.Style = MetroFramework.MetroColorStyle.Black;
             this.Text = "Visualisation";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePoste)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -770,6 +786,10 @@
             this.panelPreference.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceOffre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRegion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceContrat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePoste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSociete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceJour)).EndInit();
             this.ResumeLayout(false);
@@ -822,5 +842,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label labelSelection;
         private System.Windows.Forms.Label labelAction;
+        private System.Windows.Forms.Button button1;
     }
 }
