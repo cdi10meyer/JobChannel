@@ -235,6 +235,17 @@ namespace IHM
         }
         #endregion "Gestion des boutons CRUD"
 
+        private void buttonChat_Click_1(object sender, EventArgs e)
+        {
+            
+            this.Opacity = 0.5;
+            using (frmPink fenetre = new frmPink())
+            {
+                fenetre.ShowDialog();
+            }
+            this.Opacity = 1;
+        }
+
         #region "Gestion des préférences"
         private void checkBoxPreference_CheckedChanged(object sender, EventArgs e)
         {
@@ -401,18 +412,10 @@ namespace IHM
             buttonSupprimer.Visible = enabled;
         }
 
+
         #endregion "Méthodes propres à la classe"
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Opacity = 0.5;
-
-            using (frmPink fenetre = new frmPink())
-            {
-                fenetre.ShowDialog();
-            }
-            this.Opacity = 1;
-        }
+       
     }
 }
 

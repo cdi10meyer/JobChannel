@@ -96,7 +96,7 @@ namespace IHM
             {
                 try
                 {
-                    await _connection.StopAsync();
+                    await _connection.StopAsync();;
                 }
                 catch (Exception ex)
                 {
@@ -141,7 +141,7 @@ namespace IHM
             {
                 if (_AES != null)
                     message = _AES.DecryptStringURL(message);
-                txtReception.AppendText($"\r\n Public  > {name} : {message}\r\n ");
+                txtReception.AppendText($"Public  > {name} : {message}\r\n ");
             }, CancellationToken.None, TaskCreationOptions.None, _scheduler);
         }
 
@@ -151,7 +151,7 @@ namespace IHM
             {
                 if (_AES != null)
                     message = _AES.DecryptStringURL(message);
-                txtReception.AppendText($"\r\n Private > {name} : {message}\r\n");
+                txtReception.AppendText($"Private > {name} : {message}\r\n");
             }, CancellationToken.None, TaskCreationOptions.None, _scheduler);
         }
 
@@ -180,6 +180,18 @@ namespace IHM
                     lblCryptage.Text = null;
                 }
             }, CancellationToken.None, TaskCreationOptions.None, _scheduler);
+        }
+
+        private async void frmPink_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                await _connection.StopAsync(); ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

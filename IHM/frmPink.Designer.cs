@@ -329,6 +329,7 @@
             this.Style = MetroFramework.MetroColorStyle.Black;
             this.Text = "Chat\'Room";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPink_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.gbxReception.ResumeLayout(false);
             this.gbxReception.PerformLayout();
