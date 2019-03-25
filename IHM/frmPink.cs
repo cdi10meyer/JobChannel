@@ -186,7 +186,8 @@ namespace IHM
         {
             try
             {
-                await _connection.StopAsync(); ;
+                if(_connection!=null)
+                await _connection.StopAsync();
             }
             catch (Exception ex)
             {
